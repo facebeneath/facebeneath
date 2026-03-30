@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>IRON SIGHT – Paintball Arena</title>
+
+
+  <link rel="stylesheet" href="style.css?v=1.15" />
+    <script src="script.js?v=1.15" defer></script>
+
+
+    <meta
+      name="description"
+      content="IRON SIGHT Paintball Arena – Adrenalin, Taktik und Spaß für Gruppen, Geburtstage und Firmen. Jetzt Termin buchen!"
+    />
+    <meta
+      name="keywords"
+      content="Paintball, Regensburg, Teambuilding, Abenteuer, IRON SIGHT"
+    />
+    <meta name="author" content="Facebeneath" />
+    <meta property="og:title" content="IRON SIGHT – Paintball Arena" />
+    <meta
+      property="og:description"
+      content="Adrenalin, Taktik und Spaß für Freunde, Geburtstage & Firmen. Jetzt Termin sichern!"
+    />
+    <meta property="og:image" content="url-za-thumbnail.jpg" />
+    <meta property="og:url" content="https://aldindelic.de/ironsight" />
+    <meta name="twitter:card" content="summary_large_image" />
+  </head>
+
+  <body class="entry-active">
+    <div id="entry-screen">
+      <div class="overlay"></div>
+      <div class="flash" id="flash"></div>
+
+    <div class="target" id="enterTarget">
+  <svg width="160" height="160" viewBox="0 0 160 160">
+    <defs>
+     
+      <mask id="damage">
+        <rect width="160" height="160" fill="white"/>
+       
+        <circle cx="40" cy="30" r="10" fill="black"/>
+        <circle cx="120" cy="110" r="14" fill="black"/>
+        <rect x="70" y="0" width="20" height="25" fill="black"/>
+      </mask>
+    </defs>
+
+   
+    <circle
+      cx="80"
+      cy="80"
+      r="72"
+      fill="none"
+      stroke="black"
+      stroke-width="4"
+      stroke-dasharray="18 6 4 6"
+      stroke-linecap="round"
+      mask="url(#damage)"
+    />
+
+    
+    <circle
+      cx="80"
+      cy="80"
+      r="32"
+      fill="none"
+      stroke="black"
+      stroke-width="3"
+      stroke-dasharray="10 5"
+      stroke-linecap="round"
+    />
+
+    
+    <line x1="80" y1="2" x2="78" y2="36"
+      stroke="black" stroke-width="3" stroke-dasharray="6 4" />
+    <line x1="82" y1="124" x2="80" y2="158"
+      stroke="black" stroke-width="3" stroke-dasharray="6 4" />
+    <line x1="2" y1="82" x2="36" y2="80"
+      stroke="black" stroke-width="3" stroke-dasharray="6 4" />
+    <line x1="124" y1="78" x2="158" y2="80"
+      stroke="black" stroke-width="3" stroke-dasharray="6 4" />
+  </svg>
+</div>
+
+      <h1>DAS SCHLACHTFELD ERWARTET DICH!</h1>
+      <p class="brand">IRON SIGHT · PAINTBALL ARENA</p>
+      <button id="skip">Krieg</button>
+    </div>
+
+   <nav class="main-nav">
+  <div class="nav-logo">IRON<span>SIGHT</span></div>
+
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#site" class="nav-link">Start</a></li>
+    <li><a href="#booking" class="nav-link">Buchen</a></li>
+    <li><a href="#pakete" class="nav-link">Pakete</a></li>
+    <li><a href="#kontakt" class="nav-link">Kontakt</a></li>
+  </ul>
+
+  <div class="nav-toggle" id="navToggle">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+    <main id="site">
+      <section class="hero hero-first">
+        <h2>IRONSIGHT<br>PAINTBALL-ARENA</h2>
+      </section>
+
+      <section class="hero hero-forest">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+          <h1>BETRITT DAS SCHLACHTFELD</h1>
+          <div class="hero-buttons">
+            <a href="#booking" class="btn primary">TERMIN BUCHEN</a>
+            <a href="#pakete" class="btn secondary">PAKETE ANSEHEN</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="info-section scroll-reveal">
+        <h2>Für wen ist IRON SIGHT?</h2>
+
+        <div class="info-grid scroll-reveal">
+          <div class="info-box">
+            <h3>Freunde & Gruppen</h3>
+            <img class="grupa" src="grupa.jpg" />
+            <p>Perfekt für actionreiche Tage mit Freunden und Adrenalin pur.</p>
+          </div>
+
+          <div class="info-box scroll-reveal">
+            <h3>Geburtstage</h3>
+            <img class="rodjendan" src="rodjendan.jpg" />
+            <p>Ein unvergesslicher Geburtstag voller Spannung und Spaß.</p>
+          </div>
+
+          <div class="info-box scroll-reveal">
+            <h3>Junggesellenabschiede</h3>
+            <img class="mladenacko" src="mladenacko.jpg" />
+            <p>Der ultimative Kick vor dem großen Tag.</p>
+          </div>
+
+          <div class="info-box scroll-reveal">
+            <h3>Firmen & Teambuilding</h3>
+            <img class="firma" src="firma.jpg" />
+            <p>Strategie, Kommunikation und Teamgeist im Einsatz.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="usp-section scroll-reveal">
+        <div class="usp-grid">
+          <div class="usp">
+            <h3>Modernes Spielfeld</h3>
+            <p>
+              Realistische Szenarien mit Deckungen, Türmen und taktischen Zonen.
+            </p>
+          </div>
+
+          <div class="usp">
+            <h3>Hochwertige Ausrüstung</h3>
+            <p>
+              Professionelle Markierer, Masken und Schutzwesten für maximale
+              Sicherheit.
+            </p>
+          </div>
+
+          <div class="usp">
+            <h3>Erfahrene Spielleiter</h3>
+            <p>
+              Unsere Guides sorgen für Spannung, Fairness und reibungslose
+              Abläufe.
+            </p>
+          </div>
+
+          <div class="usp">
+            <h3>Adrenalin pur</h3>
+            <p>Action, Strategie und Teamwork auf höchstem Niveau.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="stats-section scroll-reveal" id="stats">
+        <h2>Fakten, die zaehlen</h2>
+        <p class="section-intro">
+          Messbar stark: moderne Anlage, strukturierte Ablaufe und echte
+          Events.
+        </p>
+
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-number" data-target="12" data-suffix="+">0+</div>
+            <p>Spielzonen & Szenarien</p>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-number" data-target="2500" data-suffix="+">0+</div>
+            <p>Teams pro Saison</p>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-number" data-target="120">0</div>
+            <p>Minuten maximale Action</p>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-number" data-target="16" data-suffix="+">0+</div>
+            <p>Mindestalter</p>
+          </div>
+        </div>
+      </section>
+
+
+      <section class="packages-section scroll-reveal" id="pakete">
+        <h2>Unsere Pakete</h2>
+
+        <div class="packages-grid scroll-reveal">
+          <div class="package scroll-reveal basic" data-package>
+            <div class="package-header">
+              <h3>BASIC</h3>
+              <span class="price">ab 25€ / Person</span>
+            </div>
+
+            <div class="package-summary">
+              <p>60 Minuten Spielzeit</p>
+              <p>200 Paintballs</p>
+              <p>Komplette Ausrüstung</p>
+            </div>
+
+            <div class="package-details">
+              <ul>
+                <li>✔ Markierer & Schutzmaske</li>
+                <li>✔ Sicherheitsweste</li>
+                <li>✔ Einweisung durch Spielleiter</li>
+                <li>✔ Spielfeldnutzung inklusive</li>
+                <li>✔ Ideal für Einsteiger</li>
+              </ul>
+
+              <a href="#booking" class="btn primary small">Paket buchen</a>
+            </div>
+          </div>
+
+          <div class="package scroll-reveal advanced" data-package>
+            <div class="package-header">
+              <h3>ADVANCED</h3>
+              <span class="price">ab 35€ / Person</span>
+            </div>
+
+            <div class="package-summary">
+              <p>90 Minuten Spielzeit</p>
+              <p>400 Paintballs</p>
+              <p>Komplette Ausrüstung</p>
+            </div>
+
+            <div class="package-details">
+              <ul>
+                <li>✔ Markierer & Premium Schutzmaske</li>
+                <li>✔ Brust- & Halsschutz</li>
+                <li>✔ Persönliche Einweisung</li>
+                <li>✔ Mehrere Spielmodi</li>
+                <li>✔ Ideal für Gruppen</li>
+              </ul>
+
+              <a href="#booking" class="btn primary small">Paket buchen</a>
+            </div>
+          </div>
+
+          <div class="package scroll-reveal elite" data-package>
+            <div class="package-header">
+              <h3>ELITE</h3>
+              <span class="price">ab 45€ / Person</span>
+            </div>
+
+            <div class="package-summary">
+              <p>120 Minuten Spielzeit</p>
+              <p>600 Paintballs</p>
+              <p>Premium Ausrüstung</p>
+            </div>
+
+            <div class="package-details">
+              <ul>
+                <li>✔ High-End Markierer</li>
+                <li>✔ Vollständige Schutzausrüstung</li>
+                <li>✔ Exklusive Spielfeldbereiche</li>
+                <li>✔ Private Spielleitung</li>
+                <li>✔ Für Profis & Events</li>
+              </ul>
+
+              <a href="#booking" class="btn primary small">Paket buchen</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="gallery-section scroll-reveal" id="gallery">
+        <h2>Einblicke ins Spielfeld</h2>
+        <p class="section-intro">
+          Dichtes Terrain, klare Linien, pure Spannung. Hier spielst du auf
+          Profi-Niveau.
+        </p>
+
+        <div class="gallery-grid">
+          <figure class="gallery-item">
+            <img src="arena.jpg" alt="Arena und Deckungen" />
+            <figcaption>Urban-Zone</figcaption>
+          </figure>
+
+          <figure class="gallery-item">
+            <img src="forest.jpg" alt="Waldarena" />
+            <figcaption>Forest-Terrain</figcaption>
+          </figure>
+
+          <figure class="gallery-item">
+            <img src="vojnik.jpg" alt="Einsatzteam im Spiel" />
+            <figcaption>Team-Action</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      
+      <section class="process-section scroll-reveal">
+        <h2>So läuft euer Einsatz ab</h2>
+
+        <div class="process-grid">
+          <div class="step">
+            <h3>Ankunft & Check-In</h3>
+            <p>Begrüßung, Registrierung und Vorbereitung.</p>
+          </div>
+
+          <div class="step">
+            <h3>Einweisung</h3>
+            <p>Sicherheitsregeln, Ausrüstung und Spielmodi.</p>
+          </div>
+
+          <div class="step">
+            <h3>Spielbeginn</h3>
+            <p>Mehrere Runden voller Action und Taktik.</p>
+          </div>
+
+          <div class="step">
+            <h3>Sieg & Abschluss</h3>
+            <p>Nachbesprechung, Fotos und optionales Upgrade.</p>
+          </div>
+        </div>
+      </section>
+
+      
+      <section class="packages-section" id="modi">
+  <h2>Unsere Spielmodi</h2>
+
+  <div class="packages-grid">
+    <div class="package mode-tdm" data-package>
+      <h3>Team Deathmatch</h3>
+      <p>Reines Action-Gefecht – Team gegen Team.</p>
+      <div class="package-details">
+        <p>
+          Schnelle Runden, maximale Intensität. Perfekt zum Aufwärmen oder
+          für Einsteiger.
+        </p>
+      </div>
+    </div>
+
+    <div class="package mode-ctf" data-package>
+      <h3>Capture the Flag</h3>
+      <p>Taktik & Teamwork gefragt.</p>
+      <div class="package-details">
+        <p>
+          Erobert die Flagge des Gegners und verteidigt eure Basis.
+          Kommunikation entscheidet über Sieg oder Niederlage.
+        </p>
+      </div>
+    </div>
+
+    <div class="package mode-bomb" data-package>
+      <h3>Bomb Mission</h3>
+      <p>Angriff oder Verteidigung.</p>
+      <div class="package-details">
+        <p>
+          Ein Team muss eine Bombe platzieren, das andere sie verhindern.
+          Spannung pur – jede Sekunde zählt.
+        </p>
+      </div>
+    </div>
+
+    <div class="package mode-vip" data-package>
+      <h3>VIP Escort</h3>
+      <p>Schützt euren VIP.</p>
+      <div class="package-details">
+        <p>
+          Ein Spieler ist VIP – fällt er, ist das Spiel vorbei. Strategie
+          & Schutz sind entscheidend.
+        </p>
+      </div>
+    </div>
+  </div>
+  <span class="mode-tag">TACTICAL</span>
+</section>
+ 
+
+<section class="safety-section scroll-reveal" id="sicherheit">
+  <h2>Sicherheit & Vertrauen</h2>
+  <p style="max-width: 800px; margin: 0 auto 50px; color: #c00">
+    Deine Sicherheit steht bei IRON SIGHT an erster Stelle. Unsere Anlage
+    erfüllt höchste Standards – damit du dich voll auf Action & Taktik
+    konzentrieren kannst.
+  </p>
+
+  <div class="safety-grid">
+    <div class="safety-card">
+      <h3>✔ Zertifizierte Ausrüstung</h3>
+      <div class="safety-content">
+        <p>Wir verwenden ausschließlich geprüfte Paintball-Markierer, Masken und Schutzwesten...</p>
+      </div>
+    </div>
+
+    <div class="safety-card">
+      <h3>✔ Klare Sicherheitsregeln</h3>
+      <div class="safety-content">
+        <p>Vor jedem Spiel erhältst du eine ausführliche Einweisung durch unsere Spielleiter...</p>
+      </div>
+    </div>
+
+    <div class="safety-card">
+      <h3>✔ Erfahrene Spielleiter</h3>
+      <div class="safety-content">
+        <p>Unsere Referees überwachen jedes Spiel, greifen bei Regelverstößen sofort ein...</p>
+      </div>
+    </div>
+
+    <div class="safety-card">
+      <h3>✔ Versicherung & Haftung</h3>
+      <div class="safety-content">
+        <p>Alle Teilnehmer sind während des Spiels über unsere Betriebshaftpflicht abgesichert...</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+      <section class="faq-section scroll-reveal">
+        <h2>Häufige Fragen</h2>
+
+        <div class="faq-item">
+          <h3>Ist Paintball sicher?</h3>
+          <p>
+            Ja. Unsere Ausrüstung und Regeln sorgen für maximale Sicherheit.
+          </p>
+        </div>
+
+        <div class="faq-item">
+          <h3>Ab welchem Alter darf man spielen?</h3>
+          <p>Ab 16 Jahren. Unter 18 nur mit Einverständniserklärung.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>Brauchen wir Vorkenntnisse?</h3>
+          <p>Nein. Alles wird vor Ort erklärt.</p>
+        </div>
+      </section>
+
+      <section class="testimonials-section scroll-reveal">
+  <h2>Stimmen unserer Spieler</h2>
+
+  <div class="testimonial-grid">
+    <div class="testimonial">
+      <p>
+        „Das beste Paintball-Erlebnis, das wir je hatten. Perfekte
+        Organisation!“
+      </p>
+
+      <div class="stars">★★★★★</div>
+
+      <span>— Markus L.</span>
+    </div>
+
+    <div class="testimonial">
+      <p>„Mega Spielfeld, starke Ausrüstung und richtig viel Action.“</p>
+
+      <div class="stars">★★★★★</div>
+
+      <span>— Sarah K.</span>
+    </div>
+
+    <div class="testimonial">
+      <p>„Perfekt für unser Firmenevent. Teamgeist pur!“</p>
+
+      <div class="stars">★★★★★</div>
+
+      <span>— Team Alpha</span>
+    </div>
+  </div>
+</section>
+
+      <section class="booking-section scroll-reveal" id="booking">
+        <h2>Bereit für den Einsatz?</h2>
+        <p>Sichere dir jetzt deinen Termin bei IRON SIGHT.</p>
+        <a href="#" class="btn primary">JETZT TERMIN BUCHEN</a>
+        <label style="font-size: 0.85rem; color: #ccc">
+          <input type="checkbox" required />
+          Ich akzeptiere die Datenschutzerklärung
+        </label>
+      </section>
+
+      <section class="contact-section scroll-reveal" id="kontakt">
+        <h2>Kontakt & Anfahrt</h2>
+
+        <p>
+          📍 Minoritenweg 1, 93047 Regensburg<br />
+          📞 <a href="tel:+49123456789">+49 123 456789</a><br />
+          ✉️ <a href="mailto:info@ironsight-paintball.de">info@ironsight-paintball.de</a>
+        </p>
+
+        <p>Öffnungszeiten: Sa – So | 10:00 – 20:00 Uhr</p>
+      </section>
+
+      <section class="map-section scroll-reveal" id="map">
+        <h2>Anfahrt & Standort</h2>
+
+        <p class="map-text">
+          Besuche uns direkt vor Ort – ausreichend Parkplätze vorhanden.
+        </p>
+
+        <div class="map-wrapper">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2641.123456789!2d12.091234!3d49.016789!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47b742bd82b5f3d3%3A0x123456789abcdef!2sMinoritenweg%201%2C%2093047%20Regensburg%2C%20Deutschland!5e0!3m2!1sde!2sde!4v1700000000000"
+            width="100%"
+            height="450"
+            style="border: 0"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          >
+          </iframe>
+        </div>
+
+        <div class="map-details">
+          <div class="map-detail is-green">
+            <span class="map-label">Adresse</span>
+            <p>Minoritenweg 1, 93047 Regensburg</p>
+          </div>
+          <div class="map-detail is-white">
+            <span class="map-label">Kontakt</span>
+            <p>
+              <a href="mailto:info@ironsight-paintball.de">info@ironsight-paintball.de</a>
+            </p>
+          </div>
+          <div class="map-detail is-green">
+            <span class="map-label">Telefon</span>
+            <p><a href="tel:+49123456789">+49 123 456789</a></p>
+          </div>
+          <div class="map-detail is-white">
+            <span class="map-label">Oeffnungszeiten</span>
+            <p>Sa – So | 10:00 – 20:00 Uhr</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-next">
+        <div class="section-overlay"></div>
+        <div class="section-content">
+          <h2>Bereit für den Einsatz?</h2>
+          <p>Teambuilding, Action und pure Strategie.</p>
+        </div>
+      </section>
+    </main>
+
+    <div id="bookingModal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>JETZT TERMIN BUCHEN</h2>
+        <form action="/submit-booking" method="POST" class="booking-form">
+          <input type="text" name="name" placeholder="Dein Name" required />
+          <input type="email" name="email" placeholder="E-Mail" required />
+          <input type="tel" name="phone" placeholder="Telefonnummer" />
+          <select name="package" required>
+            <option value="">Wähle ein Paket</option>
+            <option value="basic">Basic</option>
+            <option value="advanced">Advanced</option>
+            <option value="elite">Elite</option>
+          </select>
+          <input type="date" name="date" required />
+          <button type="submit" class="btn primary">JETZT TERMIN BUCHEN</button>
+        </form>
+      </div>
+    </div>
+
+    
+
+    <footer class="main-footer">
+      <div class="footer-content">
+        <div class="footer-logo">IRON<span>SIGHT</span></div>
+
+        <ul class="footer-links">
+          <li><a href="#site">Start</a></li>
+          <li><a href="#booking">Buchen</a></li>
+          <li><a href="#pakete">Pakete</a></li>
+          <li><a href="#kontakt">Kontakt</a></li>
+        </ul>
+
+        <div class="footer-social">
+          <a href="#"><span>Instagram</span></a>
+          <a href="#"><span>Facebook</span></a>
+        </div>
+
+        <p class="footer-copy">
+          <ul class="footer-links">
+            <li><a href="impressum.html">Impressum</a></li>
+            <li><a href="datenschutz.html">Datenschutz</a></li>
+            <li><a href="agb.html">AGB</a></li>
+          </ul>
+          &copy; 2026 IRONSIGHT · Alle Rechte vorbehalten.<br />
+
+          <span class="footer-credit">
+            Webdesign | <a href="https://facebeneath.com" target="_blank" rel="noopener">Facebeneath</a>
+          </span>
+        </p>
+      </div>
+     
+    </footer>
+  </body>
+</html>

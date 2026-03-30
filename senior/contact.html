@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kontakt | Frieden</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="base.css?v=2.1" />
+    <link rel="stylesheet" href="contact.css?v=2.1" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="topbar">
+        <div class="container topbar-inner">
+          <span>Persönliche Beratung & Aufnahme</span>
+          <a href="tel:+49123456789">+49 123 456 789</a>
+          <a href="mailto:info@frieden.com">info@frieden.com</a>
+        </div>
+      </div>
+      <div class="container nav-wrap">
+        <a class="brand" href="index.html">
+          <img src="birdlogo.png" alt="Frieden Logo" decoding="async" />
+          <div class="brand-text">
+            Frieden
+            <small>Seniorenresidenz</small>
+          </div>
+        </a>
+        <nav class="nav-links">
+          <a href="index.html">Startseite</a>
+          <a href="about.html">Über Uns</a>
+          <a href="services.html">Leistungen</a>
+          <a class="active" href="contact.html">Kontakt</a>
+        </nav>
+        <div class="header-cta">
+          <a class="btn ghost" href="services.html">Leistungen</a>
+          <a class="btn solid" href="contact.html">Termin anfragen</a>
+        </div>
+        <button
+          class="hamburger"
+          id="hamburger"
+          type="button"
+          aria-label="Menü öffnen"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+      <div class="container mobile-menu" id="mobileMenu">
+        <a href="index.html">Startseite</a>
+        <a href="about.html">Über Uns</a>
+        <a href="services.html">Leistungen</a>
+        <a class="active" href="contact.html">Kontakt</a>
+        <a class="btn solid" href="contact.html">Besichtigung planen</a>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero" style="--hero-image: url(&quot;sunshine.jpg&quot;)">
+        <div class="container hero-content">
+          <span class="hero-tag">Kontakt</span>
+          <h1 class="hero-title">Wir sind für Sie da.</h1>
+          <p class="hero-text">
+            Lassen Sie uns gemeinsam den besten Weg finden. Wir beraten Sie
+            diskret und persönlich.
+          </p>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container grid two">
+          <div class="card contact-card reveal">
+            <h3>Direkter Kontakt</h3>
+            <p>
+              Frieden Seniorenresidenz<br />
+              Friedenstrasse 20, 93047 Regensburg
+            </p>
+            <ul class="list">
+              <li>Telefon: +49 123 456 789</li>
+              <li>E-Mail: info@frieden.com</li>
+              <li>Besuchszeiten: täglich 10:00–18:00 Uhr</li>
+            </ul>
+          </div>
+          <div class="form-card reveal">
+            <h3>Nachricht senden</h3>
+            <form action="#" method="post">
+              <input type="text" name="name" placeholder="Ihr Name" required />
+              <input
+                type="email"
+                name="email"
+                placeholder="Ihre E-Mail"
+                required
+              />
+              <select name="topic" required>
+                <option value="">Thema wählen</option>
+                <option value="beratung">Beratung & Aufnahme</option>
+                <option value="besichtigung">Besichtigung</option>
+                <option value="pflege">Pflege & Leistungen</option>
+              </select>
+              <textarea
+                name="message"
+                rows="5"
+                placeholder="Ihre Nachricht"
+                required
+              ></textarea>
+              <button class="btn solid" type="submit">Nachricht senden</button>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container grid two">
+          <div class="card reveal">
+            <h3>Aufnahme & Beratung</h3>
+            <p>
+              Wir unterstützen Sie bei Pflegegraden, Finanzierung und allen
+              Formalitäten.
+            </p>
+            <ul class="list">
+              <li>Persönlicher Ansprechpartner</li>
+              <li>Transparente Kostenübersicht</li>
+              <li>Begleitung bei Anträgen</li>
+            </ul>
+          </div>
+          <div class="card map-card reveal">
+            <h3>Anfahrt</h3>
+            <div class="map-placeholder">
+              <span>Regensburg • Friedenstrasse 20</span>
+            </div>
+            <p>
+              Kostenfreie Parkplätze und barrierefreier Zugang direkt am Haus.
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div>
+          <h4>Frieden Seniorenresidenz</h4>
+          <p>
+            Friedenstrasse 20<br />
+            93047 Regensburg<br />
+            Deutschland
+          </p>
+        </div>
+        <div>
+          <h4>Kontakt</h4>
+          <p>
+            Telefon: +49 123 456 789<br />
+            E-Mail: info@frieden.com
+          </p>
+        </div>
+        <div>
+          <h4>Schnelllinks</h4>
+          <p>
+            <a href="about.html">Über Uns</a><br />
+            <a href="services.html">Leistungen</a>
+          </p>
+        </div>
+        <div>
+          <h4>Besuchszeiten</h4>
+          <p>
+            Täglich 10:00–18:00 Uhr<br />
+            Individuelle Termine möglich
+          </p>
+        </div>
+      </div>
+      <div class="container footer-bottom">
+        <span>© 2026 Frieden Seniorenresidenz</span>
+        <span
+          >Webdesign | <a href="https://facebeneath.com">Facebeneath</a></span
+        >
+      </div>
+    </footer>
+
+    <script src="contact.js?v=2.0"></script>
+  </body>
+</html>

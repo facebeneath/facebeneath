@@ -1,0 +1,169 @@
+﻿<!doctype html>
+<html lang="bs">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <title>Facebeneath — Učitavanje</title>
+    <meta name="robots" content="noindex, follow" />
+    <link rel="canonical" href="https://facebeneath.com/" />
+
+    <link rel="stylesheet" href="styles.css?v=1.46" />
+
+    <script src="script.js?v=1.46" defer></script>
+    <script src="reveal.js?v=1.46" defer></script>
+
+    <meta name="theme-color" content="#0d0d0d" />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        position: fixed;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        min-height: 100svh;
+        background-color: #000000 !important;
+        background-image: none !important;
+        background-attachment: scroll !important;
+        display: block;
+        overflow: hidden;
+        font-family: "Inter", sans-serif;
+      }
+
+      .splash-container {
+        position: fixed;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #000000;
+        display: grid;
+        place-items: center;
+        padding: 0;
+      }
+
+      .splash-image {
+        position: relative;
+        width: min(86vw, 520px);
+        height: auto;
+        max-width: min(
+          92vw,
+          calc(100vw - env(safe-area-inset-left) - env(safe-area-inset-right))
+        );
+        max-height: min(
+          80svh,
+          calc(100svh - env(safe-area-inset-top) - env(safe-area-inset-bottom))
+        );
+        object-fit: contain;
+        opacity: 0;
+        transform: scale(0.98);
+        animation: revealImage 3.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        will-change: transform, opacity;
+      }
+
+      @media (max-width: 480px) {
+        .splash-image {
+          max-width: 100%;
+          max-height: 100%;
+        }
+      }
+
+      @media (min-width: 481px) and (max-width: 768px) {
+        .splash-image {
+          max-width: 92vw;
+          max-height: 92vh;
+        }
+      }
+
+      @media (min-width: 1024px) {
+        .splash-image {
+          max-width: 80vw;
+          max-height: 80vh;
+        }
+      }
+
+      @keyframes revealImage {
+        0% {
+          opacity: 0;
+          transform: scale(0.96);
+        }
+        100% {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+
+      @supports (clip-path: circle(50% at 50% 50%)) {
+        @keyframes revealImage {
+          0% {
+            opacity: 0;
+            clip-path: circle(0% at 50% 50%);
+          }
+          100% {
+            opacity: 1;
+            clip-path: circle(150% at 50% 50%);
+          }
+        }
+      }
+
+      .fade-out {
+        animation: fadeOut 0.4s ease-out forwards !important;
+      }
+
+      @keyframes fadeOut {
+        0% {
+          opacity: 1;
+        }
+        100% {
+          opacity: 0;
+        }
+      }
+
+      .splash-container.fade-out-bg {
+        animation: fadeOutBg 0.4s ease-out forwards;
+      }
+
+      @keyframes fadeOutBg {
+        0% {
+          background-color: #000000;
+        }
+        100% {
+          background-color: transparent;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="splash-container">
+      <img src="logo.png" alt="Facebeneath" class="splash-image" />
+    </div>
+
+    <script>
+      window.addEventListener("load", function () {
+        setTimeout(function () {
+          const splashImage = document.querySelector(".splash-image");
+          const splashContainer = document.querySelector(".splash-container");
+
+          splashImage.classList.add("fade-out");
+          splashContainer.classList.add("fade-out-bg");
+
+          const params = new URLSearchParams(window.location.search);
+          const returnTo = params.get("returnTo") || "index.html";
+          const safeReturnTo = returnTo.replace(/[^a-zA-Z0-9._-]/g, "");
+          const targetPage = safeReturnTo || "index.html";
+
+          setTimeout(function () {
+            window.location.href = `${targetPage}`;
+          }, 350);
+        }, 3000);
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,22 @@
+.contact-card ul {
+  margin-top: 18px;
+}
+
+.map-card {
+  display: grid;
+  gap: 16px;
+}
+
+.map-placeholder {
+  height: 220px;
+  border-radius: 16px;
+  background: linear-gradient(
+    135deg,
+    rgba(42, 111, 101, 0.2),
+    rgba(184, 100, 75, 0.2)
+  );
+  display: grid;
+  place-items: center;
+  font-weight: 600;
+  color: var(--ink-soft);
+}
