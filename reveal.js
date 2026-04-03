@@ -10,7 +10,7 @@
     const marker = document.querySelector(".reveal-start");
     const elements = Array.from(
       document.querySelectorAll(
-        "body *:not(script):not(style):not(footer):not(footer *):not(.overlay):not(.overlay *):not(.whatsapp-btn):not(.lang-select-horizontal):not(.up):not(.up *):not(svg):not(svg *)",
+        "body *:not(script):not(style):not(footer):not(footer *):not(.overlay):not(.overlay *):not(.whatsapp-btn):not(.share-fab):not(.share-fab *):not(.lang-select-horizontal):not(.up):not(.up *):not(svg):not(svg *)",
       ),
     ).filter((el) => {
       if (!marker) return true;

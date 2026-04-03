@@ -82,7 +82,7 @@
       .forEach((f) => {
         const li = document.createElement("li");
         li.innerHTML =
-          '<svg width="18" height="18" viewBox="0 0 24 24" style="margin-top:3px;flex:0 0 18px" aria-hidden><path d="M20 6L9 17l-5-5" stroke="#d4a017" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><div><div>' +
+          '<svg width="18" height="18" viewBox="0 0 24 24" style="margin-top:3px;flex:0 0 18px" aria-hidden><path d="M20 6L9 17l-5-5" stroke="#01b2b8" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><div><div>' +
           f +
           "</div></div>";
         list.appendChild(li);
@@ -371,4 +371,168 @@
   if (statsContainer) {
     statsObserver.observe(statsContainer);
   }
+
+  const revealTargets = document.querySelectorAll(
+    ".hero, .about, .card, .project-card, .redesign, .services-info, .process-step, .stat-item, .logo-link, .footer, .fb-parallax-section-inner",
+  );
+
+  if (revealTargets.length) {
+    document.body.classList.add("js-motion");
+
+    revealTargets.forEach((element, elementIndex) => {
+      element.classList.add("reveal-luxury");
+      element.style.transitionDelay = `${Math.min(elementIndex * 45, 220)}ms`;
+    });
+
+    const heroSection = document.querySelector(".hero");
+    heroSection?.classList.add("is-visible");
+
+    if ("IntersectionObserver" in window) {
+      const revealObserver = new IntersectionObserver(
+        (entries, observer) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+            entry.target.classList.add("is-visible");
+            observer.unobserve(entry.target);
+          });
+        },
+        {
+          threshold: 0.18,
+          rootMargin: "0px 0px -8% 0px",
+        },
+      );
+
+      revealTargets.forEach((element) => {
+        if (!element.classList.contains("is-visible")) {
+          revealObserver.observe(element);
+        }
+      });
+    } else {
+      revealTargets.forEach((element) => element.classList.add("is-visible"));
+    }
+  }
+
+  (function initShareFab() {
+    const shareFab = document.getElementById("shareFab");
+    if (!shareFab) return;
+
+    const shareTrigger = document.getElementById("shareFabTrigger");
+    const shareBackdrop = document.getElementById("shareFabBackdrop");
+    const shareOrbit = document.getElementById("shareFabOrbit");
+    const shareItems = shareFab.querySelectorAll("[data-share-item]");
+    let isOpen = false;
+
+    function enforceIndependentPin() {
+      const isMobile = window.innerWidth <= 768;
+      const navEl = document.querySelector(".lang-select-horizontal");
+      const navMenuOpen = navEl && navEl.classList.contains("is-open");
+      const set = (prop, val) =>
+        shareFab.style.setProperty(prop, val, "important");
+      set("position", "fixed");
+      set("right", isMobile ? "16px" : "120px");
+      set("left", "auto");
+      set("top", "auto");
+      set(
+        "bottom",
+        isMobile ? "calc(20px + env(safe-area-inset-bottom, 0px))" : "140px",
+      );
+      set("z-index", "2147483000");
+      set("opacity", navMenuOpen ? "0" : "1");
+      set("visibility", navMenuOpen ? "hidden" : "visible");
+      set("display", "block");
+      shareFab.style.overflow = "visible";
+      shareFab.style.pointerEvents = isOpen && !navMenuOpen ? "auto" : "none";
+    }
+
+    function updateItemStagger(openState) {
+      shareItems.forEach((item, index) => {
+        const stagger = openState
+          ? index * 48
+          : (shareItems.length - index - 1) * 34;
+        item.style.transitionDelay = `${stagger}ms`;
+      });
+    }
+
+    function setShareOpen(openState) {
+      if (isOpen === openState) return;
+
+      isOpen = openState;
+      updateItemStagger(openState);
+      shareFab.classList.toggle("is-open", openState);
+      document.body.classList.toggle("share-fab-open", openState);
+      enforceIndependentPin();
+
+      shareTrigger?.setAttribute("aria-expanded", openState ? "true" : "false");
+      shareTrigger?.setAttribute(
+        "aria-label",
+        openState ? "Share-Menü schließen" : "Share-Menü öffnen",
+      );
+      shareOrbit?.setAttribute("aria-hidden", openState ? "false" : "true");
+
+      if (shareBackdrop) {
+        shareBackdrop.tabIndex = openState ? 0 : -1;
+      }
+    }
+
+    shareTrigger?.addEventListener("click", (event) => {
+      event.stopPropagation();
+      setShareOpen(!isOpen);
+    });
+
+    shareBackdrop?.addEventListener("click", () => {
+      setShareOpen(false);
+      shareTrigger?.focus();
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && isOpen) {
+        setShareOpen(false);
+        shareTrigger?.focus();
+      }
+    });
+
+    shareItems.forEach((item) => {
+      item.addEventListener("click", () => {
+        setShareOpen(false);
+      });
+    });
+
+    window.addEventListener("resize", () => {
+      if (window.innerWidth > 0) {
+        setShareOpen(false);
+      }
+      enforceIndependentPin();
+    });
+
+    let pinTicking = false;
+    window.addEventListener(
+      "scroll",
+      () => {
+        if (pinTicking) return;
+        pinTicking = true;
+        window.requestAnimationFrame(() => {
+          enforceIndependentPin();
+          pinTicking = false;
+        });
+      },
+      { passive: true },
+    );
+
+    window.addEventListener("pageshow", enforceIndependentPin);
+    window.addEventListener("orientationchange", enforceIndependentPin);
+
+    if (shareFab.parentElement !== document.body) {
+      document.body.appendChild(shareFab);
+    }
+
+    enforceIndependentPin();
+
+    const navWatcher = document.querySelector(".lang-select-horizontal");
+    if (navWatcher) {
+      new MutationObserver(enforceIndependentPin).observe(navWatcher, {
+        attributes: true,
+        attributeFilter: ["class"],
+      });
+    }
+  })();
 })();

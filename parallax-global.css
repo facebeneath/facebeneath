@@ -15,8 +15,8 @@ body.fb-parallax-home {
   background-repeat: no-repeat;
   background-attachment: fixed;
   overflow: hidden;
-  width: 100vw;
-  margin-left: calc(-50vw + 50%);
+  width: 100%;
+  max-width: 100%;
 }
 
 .fb-parallax-section::before {
