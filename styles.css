@@ -2067,14 +2067,18 @@ footer .footer-legal a:hover {
 
   .lang-select-horizontal .lang-menu {
     position: fixed;
-    inset: 0;
-    width: 100vw;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: auto;
     height: 100vh;
     border-radius: 0;
     padding: 88px 24px 32px;
     gap: 14px;
     justify-content: flex-start;
     align-items: flex-start;
+    overflow-x: hidden;
     overflow-y: auto;
     z-index: 180;
     background: rgba(0, 0, 0, 0.55);
@@ -2087,7 +2091,10 @@ footer .footer-legal a:hover {
   .lang-select-horizontal .lang-menu::before {
     content: "";
     position: fixed;
-    inset: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
     background:
       linear-gradient(rgba(0, 0, 0, 0.62), rgba(0, 0, 0, 0.62)),
       url("programing1.avif") center / cover no-repeat;
@@ -2959,12 +2966,14 @@ header {
   box-shadow: 0 0 18px rgba(var(--primary-rgb), 0.85);
 }
 
-.lang-select-horizontal {
-  background: rgba(11, 15, 22, 0.78);
-  border: 1px solid rgba(255, 255, 255, 0.07);
-  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.34);
-  -webkit-backdrop-filter: blur(18px) saturate(150%);
-  backdrop-filter: blur(18px) saturate(150%);
+@media (min-width: 769px) {
+  .lang-select-horizontal {
+    background: rgba(11, 15, 22, 0.78);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.34);
+    -webkit-backdrop-filter: blur(18px) saturate(150%);
+    backdrop-filter: blur(18px) saturate(150%);
+  }
 }
 
 .desktop-nav-link,
