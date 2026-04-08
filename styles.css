@@ -252,13 +252,13 @@ body {
   content: "";
   position: absolute;
   inset: 3px;
-  background: #0a0c18;
+  background: #0d0d0d;
   border-radius: 8px;
   z-index: -1;
 }
 @media (max-width: 768px) {
   .electric-animated::after {
-    background: #0a0c18;
+    background: #0d0d0d;
   }
 }
 
@@ -3343,7 +3343,11 @@ footer .footer-legal a:hover {
 }
 
 .electric-animated::after {
-  background: #0b1017;
+  background: #0d0d0d;
+}
+
+.client-process .electric-animated::after {
+  background: #0e1520;
 }
 
 .section-desc {
