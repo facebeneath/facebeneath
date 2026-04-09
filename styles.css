@@ -3778,7 +3778,6 @@ footer .footer-legal {
   }
 }
 
-/* Final polish: centered hero copy, turquoise headline accents, and stronger responsiveness */
 .hero p {
   margin-left: auto;
   margin-right: auto;
@@ -3887,7 +3886,6 @@ video {
   }
 }
 
-/* Parallax sections: no 100vw overflow, proper mobile padding */
 .fb-parallax-section {
   width: 100% !important;
   max-width: 100% !important;
@@ -3914,7 +3912,6 @@ video {
   }
 }
 
-/* Grid cards: 1 column on small mobile */
 @media (max-width: 480px) {
   .grid {
     grid-template-columns: 1fr;
@@ -3930,7 +3927,6 @@ video {
   }
 }
 
-/* Share FAB hard pin to right edge */
 .share-fab {
   right: 12px !important;
   bottom: max(14px, env(safe-area-inset-bottom)) !important;
@@ -4031,13 +4027,11 @@ video {
   }
 }
 
-/* Nav always on top — direct body child, overrides body.fb-parallax-home > * z-index:1 */
 body.fb-parallax-home > .lang-select-horizontal {
   z-index: 9999 !important;
   position: fixed !important;
 }
 
-/* Independent floating share: always pinned and visible on scroll */
 #shareFab.share-fab {
   position: fixed !important;
   inset: auto 120px 140px auto !important;
@@ -4055,7 +4049,6 @@ body.fb-parallax-home > .lang-select-horizontal {
   bottom: 0;
 }
 
-/* Mobile FAB: bottom-right corner — must come AFTER the base rule above */
 @media (max-width: 768px) {
   #shareFab.share-fab {
     inset: auto 16px calc(20px + env(safe-area-inset-bottom, 0px)) auto !important;
