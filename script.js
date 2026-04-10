@@ -535,4 +535,40 @@
       });
     }
   })();
+
+  /* ── Hero video subtle scroll parallax ────────────────── */
+  (function () {
+    const wrap = document.querySelector(".hero-video-wrap");
+    if (!wrap || window.matchMedia("(prefers-reduced-motion: reduce)").matches)
+      return;
+    /* skip parallax on mobile — avoids layout bugs on small screens */
+    if (window.innerWidth <= 768) return;
+
+    let ticking = false;
+    window.addEventListener(
+      "scroll",
+      function () {
+        if (ticking) return;
+        ticking = true;
+        requestAnimationFrame(function () {
+          /* re-check width on each frame in case of orientation change */
+          if (window.innerWidth <= 768) {
+            wrap.style.transform = "";
+            ticking = false;
+            return;
+          }
+          const rect = wrap.getBoundingClientRect();
+          const viewH = window.innerHeight;
+          /* only animate while section is visible */
+          if (rect.bottom > 0 && rect.top < viewH) {
+            const progress = -rect.top / viewH; /* 0 at top, ~1 at bottom */
+            const shift = Math.max(-30, Math.min(30, progress * 28));
+            wrap.style.transform = "translateY(" + shift + "px)";
+          }
+          ticking = false;
+        });
+      },
+      { passive: true },
+    );
+  })();
 })();
