@@ -39,21 +39,25 @@
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.classList.add("is-visible");
-          } else {
-            entry.target.classList.remove("is-visible");
+            observer.unobserve(entry.target);
           }
         });
       },
       {
         root: null,
-        rootMargin: "0px 0px -10% 0px",
-        threshold: 0.1,
+        rootMargin: "0px 0px -5% 0px",
+        threshold: 0.05,
       },
     );
 
     elements.forEach((el) => {
-      el.classList.add("reveal-on-mobile");
-      observer.observe(el);
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight * 0.95) {
+        el.classList.add("reveal-on-mobile", "is-visible");
+      } else {
+        el.classList.add("reveal-on-mobile");
+        observer.observe(el);
+      }
     });
   }
 
