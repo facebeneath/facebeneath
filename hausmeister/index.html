@@ -3,672 +3,267 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hausmeisterservice - Markus Weber</title>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
+    <title>Hausmeisterservice Markus Weber — Premium Immobilienbetreuung</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <canvas id="particles-canvas"></canvas>
     <header>
-      <nav class="navbar navbar-expand-lg navbar-dark">
+      <nav class="navbar navbar-expand-lg">
         <div class="container">
-          <a class="navbar-brand" href="#home"
-            >Hausmeisterservice Markus Weber</a
-          >
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarNav"
-          >
-            <span class="navbar-toggler-icon"></span>
+          <a class="navbar-brand" href="#home">
+            <span class="brand-line"></span>
+            <span class="brand-text">Hausmeisterservice<br /><em>Markus Weber</em></span>
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Navigation umschalten">
+            <span class="toggler-line"></span>
+            <span class="toggler-line"></span>
+            <span class="toggler-line"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
-              <li class="nav-item">
-                <a class="nav-link" href="#home">Startseite</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#services">Leistungen</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#about">Über uns</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#contact">Kontakt</a>
-              </li>
+              <li class="nav-item"><a class="nav-link" href="#home">Startseite</a></li>
+              <li class="nav-item"><a class="nav-link" href="#services">Leistungen</a></li>
+              <li class="nav-item"><a class="nav-link" href="#about">&Uuml;ber uns</a></li>
+              <li class="nav-item"><a class="nav-link" href="#contact">Kontakt</a></li>
             </ul>
           </div>
         </div>
       </nav>
     </header>
-
     <main>
       <section id="home" class="hero">
+        <div class="hero-bg-layer"></div>
+        <div class="hero-glow-orb hero-glow-orb--left"></div>
+        <div class="hero-glow-orb hero-glow-orb--right"></div>
+        <div class="hero-noise"></div>
         <div class="container hero-content">
-          <img src="Alex.jpg" alt="Logo" class="hero-logo" />
-          <div class="hero-text">
-            <h1>
-              Verantwortung, Sicherheit und Zuverlässigkeit bei jedem Einsatz
-            </h1>
-            <p>
-              Wir bieten ganzjährige Betreuung für Ihre Immobilie –
-              professionell, pünktlich und vertrauensvoll.
-            </p>
+          <div class="hero-badge">Seit Jahren Ihr vertrauter Partner</div>
+          <h1 class="hero-title">Verantwortung.<br /><span class="gold-text">Sicherheit.</span><br />Zuverl&auml;ssigkeit.</h1>
+          <p class="hero-subtitle">Wir bieten ganzj&auml;hrige Betreuung f&uuml;r Ihre Immobilie &mdash;<br class="d-none d-md-block" />professionell, p&uuml;nktlich und vertrauensvoll.</p>
+          <div class="hero-cta">
+            <a href="#contact" class="btn-luxury">Kontakt aufnehmen</a>
+            <a href="#services" class="btn-luxury-ghost">Leistungen entdecken</a>
+          </div>
+        </div>
+        <div class="hero-scroll-indicator"><span></span></div>
+      </section>
+      <section class="winter-statement">
+        <div class="container">
+          <div class="statement-inner reveal-fade">
+            <div class="statement-line"></div>
+            <p>Wenn Schnee und Eis zur Gefahr werden, sind wir f&uuml;r Sie da. Unser professioneller Winterdienst sorgt mit h&ouml;chster Verantwortung daf&uuml;r, dass Ihre Wege sicher bleiben &mdash; mit moderner Technik und einem eingespielten Team, das den Winter ernst nimmt.</p>
+            <div class="statement-line"></div>
           </div>
         </div>
       </section>
-
-      <section class="winter-text">
-        ..wenn Schnee und Eis zur Gefahr werden, sind wir für Sie da. Unser
-        professioneller Winterdienst sorgt mit höchster Verantwortung dafür,
-        dass bleiben.<br />
-        Mit moderner Technik und einem eingespielten Team garantieren wir
-        schnelle Einsatzzeiten, maximale Sicherheit für Bewohner, Kunden und
-        Mitarbeiter sowie absolute Zuverlässigkeit – auch bei starkem
-        Wintereinbruch.<br />
-        Verlassen Sie sich auf einen Partner, der den Winter ernst nimmt und für
-        freie und sichere Flächen sorgt – Tag und Nacht.
-      </section>
-
-      <section id="services" class="section">
+      <section id="services" class="section luxury-section">
         <div class="container">
-          <h2 class="text-center mb-5">Unsere Leistungen</h2>
-          <div class="row">
-            <div class="col-md-4 mb-4">
-              <div class="service-card" data-service="winter">
-                <img
-                  src="winterdienst.jpeg"
-                  alt="Winterdienst"
-                  class="card-img-top"
-                />
-                <div class="card-body">
-                  <div class="service-icon">❄️</div>
-                  <h5 class="card-title">Winterdienst</h5>
-                  <p class="card-text">
-                    Professionelle Schneeräumung und Streudienst für sichere
-                    Wege.
-                  </p>
-                  <button
-                    class="btn btn-primary service-btn"
-                    data-service="winter"
-                  >
-                    Mehr
-                  </button>
-                </div>
+          <div class="section-header reveal-fade">
+            <span class="section-label">Unsere Expertise</span>
+            <h2 class="section-title">Leistungen</h2>
+            <div class="gold-divider"></div>
+          </div>
+          <div class="row g-4">
+            <div class="col-md-6 col-lg-3">
+              <div class="luxury-card" data-service="winter">
+                <div class="card-glow"></div>
+                <div class="card-img-wrap"><img src="winterdienst.jpeg" alt="Winterdienst" loading="lazy" /><div class="card-img-fade"></div></div>
+                <div class="card-content"><div class="card-icon">&#10052;</div><h5>Winterdienst</h5><p>Professionelle Schneer&auml;umung und Streudienst f&uuml;r sichere Wege.</p><button class="card-btn service-btn" data-service="winter">Details ansehen</button></div>
               </div>
             </div>
-            <div class="col-md-4 mb-4">
-              <div class="service-card" data-service="green">
-                <img
-                  src="gruenpflege.jpg"
-                  alt="Grünpflege"
-                  class="card-img-top"
-                />
-                <div class="card-body">
-                  <div class="service-icon">🌿</div>
-                  <h5 class="card-title">Garten- & Außenanlagenpflege</h5>
-                  <p class="card-text">
-                    Gepflegte Grünflächen für ein ordentliches Erscheinungsbild.
-                  </p>
-                  <button
-                    class="btn btn-primary service-btn"
-                    data-service="green"
-                  >
-                    Mehr
-                  </button>
-                </div>
+            <div class="col-md-6 col-lg-3">
+              <div class="luxury-card" data-service="green">
+                <div class="card-glow"></div>
+                <div class="card-img-wrap"><img src="gruenpflege.jpg" alt="Gruenpflege" loading="lazy" /><div class="card-img-fade"></div></div>
+                <div class="card-content"><div class="card-icon">&#127807;</div><h5>Garten- &amp; Au&szlig;enanlagenpflege</h5><p>Gepflegte Gr&uuml;nfl&auml;chen f&uuml;r ein ordentliches Erscheinungsbild.</p><button class="card-btn service-btn" data-service="green">Details ansehen</button></div>
               </div>
             </div>
-            <div class="col-md-4 mb-4">
-              <div class="service-card" data-service="leaf">
-                <img
-                  src="meister.webp"
-                  alt="Laubentsorgung"
-                  class="card-img-top"
-                />
-                <div class="card-body">
-                  <div class="service-icon">🍂</div>
-                  <h5 class="card-title">Hausmeisterservice</h5>
-                  <p class="card-text">
-                    Saubere und sichere Außenflächen das ganze Jahr.
-                  </p>
-                  <button
-                    class="btn btn-primary service-btn"
-                    data-service="leaf"
-                  >
-                    Mehr
-                  </button>
-                </div>
+            <div class="col-md-6 col-lg-3">
+              <div class="luxury-card" data-service="leaf">
+                <div class="card-glow"></div>
+                <div class="card-img-wrap"><img src="meister.webp" alt="Hausmeisterservice" loading="lazy" /><div class="card-img-fade"></div></div>
+                <div class="card-content"><div class="card-icon">&#128295;</div><h5>Hausmeisterservice</h5><p>Saubere und sichere Au&szlig;enfl&auml;chen das ganze Jahr.</p><button class="card-btn service-btn" data-service="leaf">Details ansehen</button></div>
               </div>
             </div>
-
-            <div class="col-md-4 mb-4">
-              <div class="service-card" data-service="outdoor">
-                <img
-                  src="flegeeee.jpg"
-                  alt="Pflege von Außenanlagen"
-                  class="card-img-top"
-                />
-                <div class="card-body">
-                  <div class="service-icon">🏢</div>
-                  <h5 class="card-title">Reinigung & Pflegearbeiten</h5>
-                  <p class="card-text">
-                    Ordnung und Sauberkeit im Außenbereich.
-                  </p>
-                  <button
-                    class="btn btn-primary service-btn"
-                    data-service="outdoor"
-                  >
-                    Mehr
-                  </button>
-                </div>
+            <div class="col-md-6 col-lg-3">
+              <div class="luxury-card" data-service="outdoor">
+                <div class="card-glow"></div>
+                <div class="card-img-wrap"><img src="flegeeee.jpg" alt="Reinigung" loading="lazy" /><div class="card-img-fade"></div></div>
+                <div class="card-content"><div class="card-icon">&#127970;</div><h5>Reinigung &amp; Pflegearbeiten</h5><p>Ordnung und Sauberkeit im Aussenbereich.</p><button class="card-btn service-btn" data-service="outdoor">Details ansehen</button></div>
               </div>
             </div>
           </div>
         </div>
       </section>
-
-      <section id="why-us" class="section">
+      <section id="why-us" class="section dark-section">
         <div class="container">
-          <h2 class="text-center mb-5">
-            Warum Hausmeisterservice
-            <span class="highlight-name">Markus Weber</span>?
-          </h2>
-          <div class="row">
-            <div class="col-md-4 mb-4">
-              <div class="why-us-card">
-                <div class="why-us-icon">🛡️</div>
-                <h5>Zuverlässigkeit</h5>
-                <p>
-                  Wir sind immer pünktlich und halten unsere Versprechen ein.
-                </p>
-              </div>
-            </div>
-            <div class="col-md-4 mb-4">
-              <div class="why-us-card">
-                <div class="why-us-icon">🔧</div>
-                <h5>Professionelle Arbeit</h5>
-                <p>
-                  Unsere Dienstleistungen werden von erfahrenen Fachkräften
-                  durchgeführt.
-                </p>
-              </div>
-            </div>
-            <div class="col-md-4 mb-4">
-              <div class="why-us-card">
-                <div class="why-us-icon">💬</div>
-                <h5>Persönlicher Service</h5>
-                <p>
-                  Direkter Kontakt und individuelle Betreuung für jeden Kunden.
-                </p>
-              </div>
+          <div class="section-header reveal-fade">
+            <span class="section-label">Unser Versprechen</span>
+            <h2 class="section-title">Warum <span class="gold-text">Markus Weber</span>?</h2>
+            <div class="gold-divider"></div>
+          </div>
+          <div class="row g-4">
+            <div class="col-md-4"><div class="why-card reveal-fade"><div class="why-number">01</div><div class="why-icon">&#128737;&#65039;</div><h5>Zuverl&auml;ssigkeit</h5><p>Wir sind immer p&uuml;nktlich und halten unsere Versprechen ein.</p></div></div>
+            <div class="col-md-4"><div class="why-card reveal-fade"><div class="why-number">02</div><div class="why-icon">&#9881;&#65039;</div><h5>Professionelle Arbeit</h5><p>Unsere Dienstleistungen werden von erfahrenen Fachkr&auml;ften durchgefuehrt.</p></div></div>
+            <div class="col-md-4"><div class="why-card reveal-fade"><div class="why-number">03</div><div class="why-icon">&#128172;</div><h5>Pers&ouml;nlicher Service</h5><p>Direkter Kontakt und individuelle Betreuung f&uuml;r jeden Kunden.</p></div></div>
+          </div>
+        </div>
+      </section>
+      <section id="gallery" class="section luxury-section">
+        <div class="container">
+          <div class="section-header reveal-fade">
+            <span class="section-label">Einblicke</span>
+            <h2 class="section-title">Unsere Arbeit</h2>
+            <div class="gold-divider"></div>
+          </div>
+          <div class="gallery-grid reveal-fade">
+            <div class="gallery-item"><img src="winter.jpeg" alt="Winterdienst" loading="lazy" /><div class="gallery-overlay"><span>Winterdienst</span></div></div>
+            <div class="gallery-item"><img src="winter1.jpg" alt="Winterservice" loading="lazy" /><div class="gallery-overlay"><span>Winterservice</span></div></div>
+            <div class="gallery-item"><img src="garten.jpg" alt="Gartenpflege" loading="lazy" /><div class="gallery-overlay"><span>Gartenpflege</span></div></div>
+            <div class="gallery-item"><img src="garten1.jpg" alt="Aussenanlagen" loading="lazy" /><div class="gallery-overlay"><span>Aussenanlagen</span></div></div>
+            <div class="gallery-item"><img src="hause.jpg" alt="Hausbetreuung" loading="lazy" /><div class="gallery-overlay"><span>Hausbetreuung</span></div></div>
+            <div class="gallery-item"><img src="reinigung.jpg" alt="Reinigung" loading="lazy" /><div class="gallery-overlay"><span>Reinigung</span></div></div>
+          </div>
+        </div>
+      </section>
+      <section id="about" class="section about-section">
+        <div class="about-parallax-bg"></div>
+        <div class="container">
+          <div class="section-header reveal-fade">
+            <span class="section-label">Wer wir sind</span>
+            <h2 class="section-title">&Uuml;ber uns</h2>
+            <div class="gold-divider"></div>
+          </div>
+          <div class="about-grid reveal-fade">
+            <div class="about-image-wrap"><img src="wartung.png" alt="Hausmeisterservice und Objektpflege" /><div class="about-img-accent"></div></div>
+            <div class="about-text-wrap">
+              <p>Als zuverl&auml;ssiger und professioneller Hausmeisterservice bieten wir umfassende Dienstleistungen rund um Immobilien, Wohnanlagen und Au&szlig;enbereiche. Unser Ziel ist es, den Wert Ihrer Immobilie langfristig zu erhalten und f&uuml;r ein gepflegtes, sicheres Umfeld zu sorgen.</p>
+              <p>Unser Leistungsangebot reicht von der regelm&auml;&szlig;igen Objektbetreuung, Garten- und Gr&uuml;nanlagenpflege bis hin zu Reinigungsarbeiten, Winterdienst und kleineren Reparaturen. Dabei arbeiten wir effizient, flexibel und stets kundenorientiert.</p>
+              <p>Qualit&auml;t, P&uuml;nktlichkeit und Zuverl&auml;ssigkeit stehen bei uns an erster Stelle. Durch transparente Kommunikation und pers&ouml;nliche Betreuung legen wir gro&szlig;en Wert auf eine langfristige und vertrauensvolle Zusammenarbeit mit unseren Kunden.</p>
             </div>
           </div>
         </div>
       </section>
-      <section id="gallery" class="section">
+      <section id="stats" class="section stats-section">
+        <div class="stats-parallax-bg"></div>
         <div class="container">
-          <h2 class="text-center mb-5">Unsere Arbeit</h2>
-          <div class="row">
-            <div class="col-md-4 mb-4">
-              <img
-                src="winter.jpeg"
-                alt="Hausmeisterservice Arbeit 1"
-                class="gallery-img"
-              />
-            </div>
-            <div class="col-md-4 mb-4">
-              <img
-                src="winter1.jpg"
-                alt="Hausmeisterservice Arbeit 2"
-                class="gallery-img"
-              />
-            </div>
-            <div class="col-md-4 mb-4">
-              <img
-                src="garten.jpg"
-                alt="Hausmeisterservice Arbeit 3"
-                class="gallery-img"
-              />
-            </div>
-            <div class="col-md-4 mb-4">
-              <img
-                src="garten1.jpg"
-                alt="Hausmeisterservice Arbeit 4"
-                class="gallery-img"
-              />
-            </div>
-            <div class="col-md-4 mb-4">
-              <img
-                src="hause.jpg"
-                alt="Hausmeisterservice Arbeit 5"
-                class="gallery-img"
-              />
-            </div>
-            <div class="col-md-4 mb-4">
-              <img
-                src="reinigung.jpg"
-                alt="Hausmeisterservice Arbeit 6"
-                class="gallery-img"
-              />
-            </div>
+          <div class="section-header reveal-fade">
+            <span class="section-label">Zahlen &amp; Fakten</span>
+            <h2 class="section-title">Das leisten wir</h2>
+            <div class="gold-divider"></div>
+          </div>
+          <div class="stats-grid reveal-fade">
+            <div class="stat-item"><div class="stats-number" data-target="66">0</div><div class="stats-label">Objekte</div></div>
+            <div class="stat-item"><div class="stats-number" data-target="1117">0</div><div class="stats-label">Wohneinheiten</div></div>
+            <div class="stat-item"><div class="stats-number" data-target="39">0</div><div class="stats-label">Gewerbeeinheiten</div></div>
+            <div class="stat-item"><div class="stats-number" data-target="513">0</div><div class="stats-label">Tiefgaragenstellpl&auml;tze</div></div>
+            <div class="stat-item"><div class="stats-number" data-target="29300">0</div><div class="stats-label">m&sup2; Winterdienstfl&auml;che</div></div>
+            <div class="stat-item"><div class="stats-number" data-target="34666">0</div><div class="stats-label">m&sup2; Gr&uuml;npflegefl&auml;che</div></div>
           </div>
         </div>
       </section>
-
-      <section id="about">
+      <section id="testimonials" class="section dark-section">
         <div class="container">
-          <h2>Über uns</h2>
-
-          <div class="about-image">
-            <img src="wartung.png" alt="Hausmeisterservice und Objektpflege" />
+          <div class="section-header reveal-fade">
+            <span class="section-label">Kundenmeinungen</span>
+            <h2 class="section-title">Kundenstimmen</h2>
+            <div class="gold-divider"></div>
           </div>
-
-          <div class="about-content">
-            <div class="about-text">
-              <p>
-                Als zuverlässiger und professioneller Hausmeisterservice bieten
-                wir umfassende Dienstleistungen rund um Immobilien, Wohnanlagen
-                und Außenbereiche. Unser Ziel ist es, den Wert Ihrer Immobilie
-                langfristig zu erhalten und für ein gepflegtes, sicheres Umfeld
-                zu sorgen.
-              </p>
-
-              <p>
-                Unser Leistungsangebot reicht von der regelmäßigen
-                Objektbetreuung, Garten- und Grünanlagenpflege bis hin zu
-                Reinigungsarbeiten, Winterdienst und kleineren Reparaturen.
-                Dabei arbeiten wir effizient, flexibel und stets
-                kundenorientiert.
-              </p>
-
-              <p>
-                Qualität, Pünktlichkeit und Zuverlässigkeit stehen bei uns an
-                erster Stelle. Durch transparente Kommunikation und persönliche
-                Betreuung legen wir großen Wert auf eine langfristige und
-                vertrauensvolle Zusammenarbeit mit unseren Kunden.
-              </p>
-            </div>
+          <div class="row g-4">
+            <div class="col-md-4"><div class="testimonial-luxury reveal-fade"><div class="testimonial-quote">&ldquo;</div><p>Der Hausmeisterservice von Markus Weber ist absolut zuverl&auml;ssig. Unsere Immobilie wird immer perfekt gepflegt.</p><div class="testimonial-footer"><img src="kunde1.jpg" alt="Familie M&uuml;ller" class="testimonial-avatar" loading="lazy" /><div><strong>Familie M&uuml;ller</strong><span>Privatimmobilie</span></div></div></div></div>
+            <div class="col-md-4"><div class="testimonial-luxury reveal-fade"><div class="testimonial-quote">&ldquo;</div><p>Professionelle Arbeit und schnelle Reaktion auf unsere Anfragen. Sehr empfehlenswert!</p><div class="testimonial-footer"><img src="kunde2.jpg" alt="Herr Schmidt" class="testimonial-avatar" loading="lazy" /><div><strong>Herr Schmidt</strong><span>Gewerbeobjekt</span></div></div></div></div>
+            <div class="col-md-4"><div class="testimonial-luxury reveal-fade"><div class="testimonial-quote">&ldquo;</div><p>Zuverl&auml;ssige Arbeit und schnelle Umsetzung unserer W&uuml;nsche. Absolut empfehlenswert!</p><div class="testimonial-footer"><img src="kunde3.webp" alt="Frau Wagner" class="testimonial-avatar" loading="lazy" /><div><strong>Frau Wagner</strong><span>Wohnanlage</span></div></div></div></div>
           </div>
         </div>
       </section>
-
-      <section id="stats" class="section">
+      <section id="contact" class="section luxury-section">
         <div class="container">
-          <h2 class="text-center mb-5">Das leisten wir</h2>
-          <div class="row">
-            <div class="col-6 col-md-4 mb-4">
-              <div class="stats-card">
-                <div class="stats-number" data-target="66">0</div>
-                <div class="stats-label">Objekte</div>
-              </div>
-            </div>
-            <div class="col-6 col-md-4 mb-4">
-              <div class="stats-card">
-                <div class="stats-number" data-target="1117">0</div>
-                <div class="stats-label">Wohneinheiten</div>
-              </div>
-            </div>
-            <div class="col-6 col-md-4 mb-4">
-              <div class="stats-card">
-                <div class="stats-number" data-target="39">0</div>
-                <div class="stats-label">Gewerbeeinheiten</div>
-              </div>
-            </div>
-            <div class="col-6 col-md-4 mb-4">
-              <div class="stats-card">
-                <div class="stats-number" data-target="513">0</div>
-                <div class="stats-label">Tiefgaragenstellplätze</div>
-              </div>
-            </div>
-            <div class="col-12 col-md-4 mb-4">
-              <div class="stats-card">
-                <div class="stats-number" data-target="29300">0</div>
-                <div class="stats-label">m² Winterdienstfläche</div>
-              </div>
-            </div>
-            <div class="col-12 col-md-4 mb-4">
-              <div class="stats-card">
-                <div class="stats-number" data-target="34666">0</div>
-                <div class="stats-label">m² Grünpflegefläche</div>
-              </div>
-            </div>
+          <div class="section-header reveal-fade">
+            <span class="section-label">Sprechen Sie mit uns</span>
+            <h2 class="section-title">Kontakt</h2>
+            <div class="gold-divider"></div>
           </div>
-        </div>
-      </section>
-
-      <section id="testimonials" class="section">
-        <div class="container">
-          <h2 class="text-center mb-5">Kundenstimmen</h2>
-          <div class="row">
-            <div class="col-md-4 mb-4">
-              <div class="testimonial-card">
-                <img src="kunde1.jpg" alt="Kunde 1" class="testimonial-img" />
-                <div class="testimonial-content">
-                  <p>
-                    "Der Hausmeisterservice von Markus Weber ist absolut
-                    zuverlässig. Unsere Immobilie wird immer perfekt gepflegt."
-                  </p>
-                  <cite>- Familie Müller</cite>
-                </div>
-              </div>
+          <div class="contact-grid reveal-fade">
+            <div class="contact-form-wrap">
+              <form class="luxury-form">
+                <div class="form-group-lux"><label for="name">Name</label><input type="text" id="name" class="lux-input" placeholder="Ihr vollst&auml;ndiger Name" /></div>
+                <div class="form-group-lux"><label for="email">E-Mail</label><input type="email" id="email" class="lux-input" placeholder="ihre@email.de" /></div>
+                <div class="form-group-lux"><label for="message">Nachricht</label><textarea id="message" class="lux-input" rows="5" placeholder="Ihre Nachricht..."></textarea></div>
+                <button type="submit" class="btn-luxury">Nachricht senden</button>
+              </form>
             </div>
-            <div class="col-md-4 mb-4">
-              <div class="testimonial-card">
-                <img src="kunde2.jpg" alt="Kunde 2" class="testimonial-img" />
-                <div class="testimonial-content">
-                  <p>
-                    "Professionelle Arbeit und schnelle Reaktion auf unsere
-                    Anfragen. Sehr empfehlenswert!"
-                  </p>
-                  <cite>- Herr Schmidt</cite>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4 mb-4">
-              <div class="testimonial-card">
-                <img src="kunde3.webp" alt="Kunde 3" class="testimonial-img" />
-                <div class="testimonial-content">
-                  <p>
-                    Zuverlässige Arbeit und schnelle Umsetzung unserer Wünsche.
-                    Absolut empfehlenswert!
-                  </p>
-                  <cite>- Frau Wagner</cite>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="contact" class="section">
-        <div class="container">
-          <h2>Kontakt</h2>
-          <div class="row align-items-stretch">
-            <div class="col-md-6">
-              <div class="contact-form">
-                <form>
-                  <div class="mb-3">
-                    <label for="name" class="form-label">Name</label>
-                    <input type="text" class="form-control" id="name" />
-                  </div>
-                  <div class="mb-3">
-                    <label for="email" class="form-label">E-Mail</label>
-                    <input type="email" class="form-control" id="email" />
-                  </div>
-                  <div class="mb-3">
-                    <label for="message" class="form-label">Nachricht</label>
-                    <textarea
-                      class="form-control"
-                      id="message"
-                      rows="5"
-                    ></textarea>
-                  </div>
-                  <button type="submit" class="btn btn-primary">Senden</button>
-                </form>
-              </div>
-            </div>
-            <div class="col-md-6 kontaktdaten">
-              <div class="contact-info-card">
+            <div class="contact-info-wrap">
+              <div class="contact-info-luxury">
                 <h3>Kontaktdaten</h3>
-                <div class="contact-item">
-                  <div class="contact-icon">📞</div>
-                  <div class="contact-details">
-                    <div class="contact-label">Telefon</div>
-                    <div class="contact-value">+49 89 1234-5678</div>
-                  </div>
-                </div>
-
-                <div class="contact-item">
-                  <div class="contact-icon">✉️</div>
-                  <div class="contact-details">
-                    <div class="contact-label">E-Mail</div>
-                    <div class="contact-value">
-                      kontakt@weber-hausmeister.de
-                    </div>
-                  </div>
-                </div>
-                <div class="contact-item">
-                  <div class="contact-icon">📍</div>
-                  <div class="contact-details">
-                    <div class="contact-label">Adresse</div>
-                    <div class="contact-value">Sauerlach, München</div>
-                  </div>
-                </div>
+                <div class="contact-item-lux"><div class="contact-icon-lux">&#128222;</div><div><div class="contact-label-lux">Telefon</div><div class="contact-value-lux">+49 89 1234-5678</div></div></div>
+                <div class="contact-item-lux"><div class="contact-icon-lux">&#9989;</div><div><div class="contact-label-lux">E-Mail</div><div class="contact-value-lux">kontakt@weber-hausmeister.de</div></div></div>
+                <div class="contact-item-lux"><div class="contact-icon-lux">&#128205;</div><div><div class="contact-label-lux">Adresse</div><div class="contact-value-lux">Sauerlach, M&uuml;nchen</div></div></div>
               </div>
             </div>
           </div>
         </div>
       </section>
-
-      <section id="faq" class="section">
+      <section id="faq" class="section dark-section">
         <div class="container">
-          <h2 class="text-center mb-5">Häufig gestellte Fragen</h2>
-          <div class="row">
-            <div class="col-lg-8 mx-auto">
-              <div class="accordion" id="faqAccordion">
-                <div class="accordion-item">
-                  <h2 class="accordion-header">
-                    <button
-                      class="accordion-button"
-                      type="button"
-                      data-bs-toggle="collapse"
-                      data-bs-target="#faq1"
-                    >
-                      Welche Leistungen bieten Sie an?
-                    </button>
-                  </h2>
-                  <div
-                    id="faq1"
-                    class="accordion-collapse collapse show"
-                    data-bs-parent="#faqAccordion"
-                  >
-                    <div class="accordion-body">
-                      Wir bieten umfassende Hausmeister- und
-                      Objektbetreuungsservices. Dazu gehören Winterdienste,
-                      Grünflächenpflege, Reinigungsarbeiten und allgemeine
-                      Instandhaltungsmaßnahmen. Für Details kontaktieren Sie uns
-                      gerne!
-                    </div>
-                  </div>
-                </div>
-                <div class="accordion-item">
-                  <h2 class="accordion-header">
-                    <button
-                      class="accordion-button collapsed"
-                      type="button"
-                      data-bs-toggle="collapse"
-                      data-bs-target="#faq2"
-                    >
-                      Sind Sie auch außerhalb der Bürozeiten erreichbar?
-                    </button>
-                  </h2>
-                  <div
-                    id="faq2"
-                    class="accordion-collapse collapse"
-                    data-bs-parent="#faqAccordion"
-                  >
-                    <div class="accordion-body">
-                      Ja, wir bieten einen 24/7 Notfalldienst an. Notrufe werden
-                      sofort bearbeitet. Kontaktieren Sie uns unter der
-                      Mobil-Nummer für dringende Anliegen.
-                    </div>
-                  </div>
-                </div>
-                <div class="accordion-item">
-                  <h2 class="accordion-header">
-                    <button
-                      class="accordion-button collapsed"
-                      type="button"
-                      data-bs-toggle="collapse"
-                      data-bs-target="#faq3"
-                    >
-                      Wie lange sind Sie bereits tätig?
-                    </button>
-                  </h2>
-                  <div
-                    id="faq3"
-                    class="accordion-collapse collapse"
-                    data-bs-parent="#faqAccordion"
-                  >
-                    <div class="accordion-body">
-                      Markus Weber bietet zuverlässige Hausmeisterdienste seit
-                      vielen Jahren an. Wir verwalten über 97 Objekte mit
-                      insgesamt mehr als 1000 Wohneinheiten.
-                    </div>
-                  </div>
-                </div>
-                <div class="accordion-item">
-                  <h2 class="accordion-header">
-                    <button
-                      class="accordion-button collapsed"
-                      type="button"
-                      data-bs-toggle="collapse"
-                      data-bs-target="#faq4"
-                    >
-                      Können Sie Referenzen bereitstellen?
-                    </button>
-                  </h2>
-                  <div
-                    id="faq4"
-                    class="accordion-collapse collapse"
-                    data-bs-parent="#faqAccordion"
-                  >
-                    <div class="accordion-body">
-                      Gerne! Wir haben zufriedene Kunden aus verschiedenen
-                      Bereichen. Sprechen Sie uns an - wir zeigen Ihnen gerne
-                      Referenzen unserer bisherigen Work.
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+          <div class="section-header reveal-fade">
+            <span class="section-label">Antworten</span>
+            <h2 class="section-title">Haeufig gestellte Fragen</h2>
+            <div class="gold-divider"></div>
           </div>
+          <div class="row"><div class="col-lg-8 mx-auto">
+            <div class="accordion luxury-accordion reveal-fade" id="faqAccordion">
+              <div class="accordion-item luxury-item"><h2 class="accordion-header"><button class="accordion-button lux-btn" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">Welche Leistungen bieten Sie an?</button></h2><div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion"><div class="accordion-body lux-body">Wir bieten umfassende Hausmeister- und Objektbetreuungsservices. Dazu geh&ouml;ren Winterdienste, Gr&uuml;nfl&auml;chenpflege, Reinigungsarbeiten und allgemeine Instandhaltungsma&szlig;nahmen.</div></div></div>
+              <div class="accordion-item luxury-item"><h2 class="accordion-header"><button class="accordion-button lux-btn collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">Sind Sie auch au&szlig;erhalb der B&uuml;rozeiten erreichbar?</button></h2><div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion"><div class="accordion-body lux-body">Ja, wir bieten einen 24/7 Notfalldienst an. Notrufe werden sofort bearbeitet. Kontaktieren Sie uns unter der Mobil-Nummer f&uuml;r dringende Anliegen.</div></div></div>
+              <div class="accordion-item luxury-item"><h2 class="accordion-header"><button class="accordion-button lux-btn collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">Wie lange sind Sie bereits t&auml;tig?</button></h2><div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion"><div class="accordion-body lux-body">Markus Weber bietet zuverl&auml;ssige Hausmeisterdienste seit vielen Jahren an. Wir verwalten &uuml;ber 97 Objekte mit insgesamt mehr als 1000 Wohneinheiten.</div></div></div>
+              <div class="accordion-item luxury-item"><h2 class="accordion-header"><button class="accordion-button lux-btn collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">K&ouml;nnen Sie Referenzen bereitstellen?</button></h2><div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion"><div class="accordion-body lux-body">Gerne! Wir haben zufriedene Kunden aus verschiedenen Bereichen. Sprechen Sie uns an &mdash; wir zeigen Ihnen gerne Referenzen unserer bisherigen Arbeit.</div></div></div>
+            </div>
+          </div></div>
         </div>
       </section>
-
-      <section id="cta" class="cta-section">
+      <section id="cta" class="cta-luxury">
+        <div class="cta-bg-glow"></div>
         <div class="container">
-          <div class="cta-content">
-            <h2>Bereit, Ihre Immobilie in gute Hände zu geben?</h2>
-            <p>
-              Kontaktieren Sie uns noch heute für ein kostenloses
-              Beratungsgespräch
-            </p>
-            <div class="cta-buttons">
-              <a href="#contact" class="btn btn-primary btn-lg"
-                >Jetzt Kontakt aufnehmen</a
-              >
-              <a href="tel:+4981046493366" class="btn btn-secondary btn-lg"
-                >+49 89 1234-5678 anrufen</a
-              >
+          <div class="cta-inner reveal-fade">
+            <span class="section-label">Jetzt starten</span>
+            <h2>Bereit, Ihre Immobilie in gute H&auml;nde zu geben?</h2>
+            <p>Kontaktieren Sie uns noch heute f&uuml;r ein kostenloses Beratungsgespr&auml;ch</p>
+            <div class="cta-buttons-lux">
+              <a href="#contact" class="btn-luxury">Jetzt Kontakt aufnehmen</a>
+              <a href="tel:+4989123456" class="btn-luxury-ghost">Direkt anrufen</a>
             </div>
           </div>
         </div>
       </section>
     </main>
-
-    <button id="backToTop" class="back-to-top">
-      <span>↑</span>
-    </button>
-
-    <footer class="footer">
-      <div class="container">
-        <div class="footer-content">
-          <div class="footer-section">
-            <h5>Hausmeisterservice Markus Weber</h5>
-            <p>
-              Ihre zuverlässige Lösung für professionelle Immobilienbetreuung
-              seit Jahren.
-            </p>
-          </div>
-          <div class="footer-section">
-            <h5>Kontakt</h5>
-            <p>
-              📞 +49 89 1234-5678<br />
-
-              ✉️ kontakt@weber-hausmeister.de
-            </p>
-          </div>
-          <div class="footer-section">
-            <h5>Folgen Sie uns</h5>
-            <div class="social-links">
-              <a
-                href="https://facebook.com"
-                target="_blank"
-                title="Facebook"
-                class="social-icon"
-                >f</a
-              >
-              <a
-                href="https://instagram.com"
-                target="_blank"
-                title="Instagram"
-                class="social-icon"
-                ><svg
-                  viewBox="0 0 24 24"
-                  width="18"
-                  height="18"
-                  aria-hidden="true"
-                  focusable="false"
-                >
-                  <path
-                    fill="currentColor"
-                    d="M16.5 3h-9A4.5 4.5 0 0 0 3 7.5v9A4.5 4.5 0 0 0 7.5 21h9a4.5 4.5 0 0 0 4.5-4.5v-9A4.5 4.5 0 0 0 16.5 3Zm-4.5 5a4 4 0 1 1 0 8 4 4 0 0 1 0-8Zm6.25-.75a1.25 1.25 0 1 1-2.5 0 1.25 1.25 0 0 1 2.5 0ZM12 9.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5Z"
-                  /></svg
-              ></a>
-              <a
-                href="https://linkedin.com"
-                target="_blank"
-                title="LinkedIn"
-                class="social-icon"
-                >in</a
-              >
-            </div>
-          </div>
-        </div>
-        <div class="footer-bottom">
-          <p>
-            &copy; 2026 Hausmeisterservice Markus Weber. <br />
-            Alle Rechte vorbehalten. | Webdesign:
-            <a href="https://facebeneath.com" target="_blank">facebeneath</a>
-          </p>
-        </div>
-      </div>
-    </footer>
-
-    <div class="modal fade" id="serviceModal" tabindex="-1">
-      <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="serviceModalLabel"></h5>
-            <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="modal"
-            ></button>
-          </div>
+    <button id="backToTop" class="back-to-top-lux" aria-label="Nach oben scrollen"><span>&#8593;</span></button>
+    <div class="modal fade" id="serviceModal" tabindex="-1" aria-labelledby="serviceModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content luxury-modal">
+          <div class="modal-header"><h5 class="modal-title" id="serviceModalLabel"></h5><button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Schlie&szlig;en"></button></div>
           <div class="modal-body" id="serviceModalBody"></div>
-          <div class="modal-footer">
-            <button
-              type="button"
-              class="btn btn-secondary"
-              data-bs-dismiss="modal"
-            >
-              Schließen
-            </button>
-          </div>
+          <div class="modal-footer"><button type="button" class="btn-luxury-ghost" data-bs-dismiss="modal">Schlie&szlig;en</button></div>
         </div>
       </div>
     </div>
-
+    <footer class="luxury-footer">
+      <div class="footer-gold-line"></div>
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-col"><h5>Hausmeisterservice<br /><em>Markus Weber</em></h5><p>Ihre zuverl&auml;ssige L&ouml;sung f&uuml;r professionelle Immobilienbetreuung seit Jahren.</p></div>
+          <div class="footer-col"><h5>Kontakt</h5><p>&#128222; +49 89 1234-5678<br />&#9993; kontakt@weber-hausmeister.de<br />&#128205; Sauerlach, M&uuml;nchen</p></div>
+          <div class="footer-col"><h5>Folgen Sie uns</h5>
+            <div class="social-links-lux">
+              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="social-icon-lux" title="Facebook">f</a>
+              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social-icon-lux" title="Instagram"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom"><p>&copy; 2025 Hausmeisterservice Markus Weber. Alle Rechte vorbehalten.</p><p class="footer-credit">Webdesign by <a href="https://facebeneath.com" target="_blank" rel="noopener noreferrer" class="footer-credit-link">facebeneath</a></p></div>
+      </div>
+    </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="script.js"></script>
   </body>
