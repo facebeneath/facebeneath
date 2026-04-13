@@ -447,8 +447,8 @@
       const set = (prop, val) =>
         shareFab.style.setProperty(prop, val, "important");
       set("position", "fixed");
-      set("right", isMobile ? "16px" : "120px");
-      set("left", "auto");
+      set("left", isMobile ? "-60px" : "24px");
+      set("right", "auto");
       set("top", "auto");
       set(
         "bottom",
