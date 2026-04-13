@@ -711,4 +711,268 @@
       observer.observe(host);
     });
   })();
+
+  (function initFbCarousel() {
+    var carousels = document.querySelectorAll("[data-fb-carousel]");
+    if (!carousels.length) return;
+
+    var reducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
+
+    carousels.forEach(function (carousel) {
+      var viewport = carousel.querySelector(".fb-carousel__viewport");
+      var track = carousel.querySelector(".fb-carousel__track");
+      var slides = Array.from(carousel.querySelectorAll(".fb-carousel__slide"));
+      var prevBtn = carousel.querySelector(".fb-carousel__arrow--prev");
+      var nextBtn = carousel.querySelector(".fb-carousel__arrow--next");
+      var dotsContainer = carousel.querySelector(".fb-carousel__dots");
+      var counter = carousel.querySelector(".fb-carousel__counter");
+
+      if (!track || !slides.length) return;
+
+      var total = slides.length;
+      var current = 0;
+      var autoplayTimer = null;
+      var autoplayResumeTimer = null;
+      var AUTOPLAY_DELAY = 2000;
+      var AUTOPLAY_RESUME_DELAY = 2000;
+
+      var dots = [];
+      slides.forEach(function (_, i) {
+        var dot = document.createElement("button");
+        dot.className = "fb-carousel__dot";
+        dot.setAttribute("role", "tab");
+        dot.setAttribute("type", "button");
+        dot.setAttribute("aria-label", "Slide " + (i + 1) + " von " + total);
+        dot.setAttribute("aria-selected", i === 0 ? "true" : "false");
+        dot.addEventListener("click", function () {
+          goTo(i);
+          pauseAutoplayAfterInteraction();
+        });
+        if (dotsContainer) dotsContainer.appendChild(dot);
+        dots.push(dot);
+      });
+
+      function goTo(index) {
+        current = ((index % total) + total) % total;
+        track.style.transform = "translateX(-" + current * 100 + "%)";
+        updateUI();
+      }
+
+      function next() {
+        goTo(current + 1);
+      }
+      function prev() {
+        goTo(current - 1);
+      }
+
+      function updateUI() {
+        dots.forEach(function (d, i) {
+          d.classList.toggle("is-active", i === current);
+          d.setAttribute("aria-selected", String(i === current));
+        });
+
+        if (counter) {
+          counter.textContent = current + 1 + " / " + total;
+        }
+
+        slides.forEach(function (slide, i) {
+          slide.setAttribute("aria-hidden", String(i !== current));
+        });
+
+        if (prevBtn) prevBtn.disabled = false;
+        if (nextBtn) nextBtn.disabled = false;
+      }
+
+      if (prevBtn) {
+        prevBtn.addEventListener("click", function () {
+          prev();
+          pauseAutoplayAfterInteraction();
+        });
+      }
+      if (nextBtn) {
+        nextBtn.addEventListener("click", function () {
+          next();
+          pauseAutoplayAfterInteraction();
+        });
+      }
+
+      viewport.addEventListener("keydown", function (e) {
+        if (e.key === "ArrowLeft" || e.key === "ArrowUp") {
+          e.preventDefault();
+          prev();
+          pauseAutoplayAfterInteraction();
+        } else if (e.key === "ArrowRight" || e.key === "ArrowDown") {
+          e.preventDefault();
+          next();
+          pauseAutoplayAfterInteraction();
+        } else if (e.key === "Home") {
+          e.preventDefault();
+          goTo(0);
+          pauseAutoplayAfterInteraction();
+        } else if (e.key === "End") {
+          e.preventDefault();
+          goTo(total - 1);
+          pauseAutoplayAfterInteraction();
+        }
+      });
+
+      var touchStartX = 0;
+      var touchStartY = 0;
+      var isSwiping = false;
+      var isHorizontalSwipe = false;
+      var SWIPE_THRESHOLD = 40;
+
+      viewport.addEventListener(
+        "touchstart",
+        function (e) {
+          touchStartX = e.touches[0].clientX;
+          touchStartY = e.touches[0].clientY;
+          isSwiping = true;
+          isHorizontalSwipe = false;
+        },
+        { passive: true },
+      );
+
+      viewport.addEventListener(
+        "touchmove",
+        function (e) {
+          if (!isSwiping) return;
+          var dxRaw = e.touches[0].clientX - touchStartX;
+          var dyRaw = e.touches[0].clientY - touchStartY;
+          var dx = Math.abs(dxRaw);
+          var dy = Math.abs(dyRaw);
+
+          if (!isHorizontalSwipe && dx > dy && dx > 6) {
+            isHorizontalSwipe = true;
+          }
+
+          if (isHorizontalSwipe) {
+            e.preventDefault();
+            return;
+          }
+
+          if (dy > dx) {
+            isSwiping = false;
+          }
+        },
+        { passive: false },
+      );
+
+      viewport.addEventListener(
+        "touchend",
+        function (e) {
+          if (!isSwiping && !isHorizontalSwipe) return;
+          var diff = touchStartX - e.changedTouches[0].clientX;
+          if (Math.abs(diff) >= SWIPE_THRESHOLD) {
+            diff > 0 ? next() : prev();
+            pauseAutoplayAfterInteraction();
+          }
+          isSwiping = false;
+          isHorizontalSwipe = false;
+        },
+        { passive: true },
+      );
+
+      viewport.addEventListener(
+        "touchcancel",
+        function () {
+          isSwiping = false;
+          isHorizontalSwipe = false;
+        },
+        { passive: true },
+      );
+
+      var mouseStartX = 0;
+      var isDragging = false;
+
+      viewport.addEventListener("mousedown", function (e) {
+        mouseStartX = e.clientX;
+        isDragging = true;
+        track.classList.add("is-dragging");
+        e.preventDefault();
+      });
+
+      window.addEventListener("mouseup", function (e) {
+        if (!isDragging) return;
+        var diff = mouseStartX - e.clientX;
+        if (Math.abs(diff) >= SWIPE_THRESHOLD) {
+          diff > 0 ? next() : prev();
+          pauseAutoplayAfterInteraction();
+        }
+        isDragging = false;
+        track.classList.remove("is-dragging");
+      });
+
+      window.addEventListener("mousemove", function () {});
+
+      function startAutoplay() {
+        if (reducedMotion) return;
+        clearInterval(autoplayTimer);
+        autoplayTimer = setInterval(next, AUTOPLAY_DELAY);
+      }
+
+      function stopAutoplay() {
+        clearInterval(autoplayTimer);
+        autoplayTimer = null;
+      }
+
+      function clearAutoplayResumeTimer() {
+        if (!autoplayResumeTimer) return;
+        clearTimeout(autoplayResumeTimer);
+        autoplayResumeTimer = null;
+      }
+
+      function resetAutoplay() {
+        stopAutoplay();
+        startAutoplay();
+      }
+
+      function pauseAutoplayAfterInteraction() {
+        stopAutoplay();
+        clearAutoplayResumeTimer();
+        autoplayResumeTimer = window.setTimeout(function () {
+          startAutoplay();
+        }, AUTOPLAY_RESUME_DELAY);
+      }
+
+      carousel.addEventListener("mouseenter", function () {
+        clearAutoplayResumeTimer();
+        stopAutoplay();
+      });
+      carousel.addEventListener("mouseleave", function () {
+        clearAutoplayResumeTimer();
+        startAutoplay();
+      });
+      carousel.addEventListener("focusin", function () {
+        clearAutoplayResumeTimer();
+        stopAutoplay();
+      });
+      carousel.addEventListener("focusout", function () {
+        clearAutoplayResumeTimer();
+        startAutoplay();
+      });
+
+      if ("IntersectionObserver" in window) {
+        var io = new IntersectionObserver(
+          function (entries) {
+            entries.forEach(function (entry) {
+              if (entry.isIntersecting) {
+                startAutoplay();
+              } else {
+                stopAutoplay();
+              }
+            });
+          },
+          { threshold: 0.25 },
+        );
+        io.observe(carousel);
+      } else {
+        startAutoplay();
+      }
+
+      goTo(0);
+    });
+  })();
 })();
