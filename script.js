@@ -1,6 +1,7 @@
 (function () {
   const overlay = document.getElementById("overlay");
   const closeBtn = document.getElementById("closeBtn");
+  const overlayPanel = overlay?.querySelector(".panel");
   const cards = document.querySelectorAll(".card");
   const logoCards = document.querySelectorAll(".card-logo");
   const lang = document.documentElement.lang || "bs";
@@ -54,6 +55,23 @@
     const stripe = document.getElementById("overlayTag");
     stripe.className = "stripe";
     const lower = name.toLowerCase();
+
+    overlayPanel?.classList.toggle(
+      "panel--identity",
+      card.classList.contains("card--identity"),
+    );
+    overlayPanel?.classList.toggle(
+      "panel--legacy",
+      card.classList.contains("card--legacy"),
+    );
+    overlayPanel?.classList.toggle(
+      "panel--dominance",
+      card.classList.contains("card--dominance"),
+    );
+    overlayPanel?.classList.toggle(
+      "panel--logo-package",
+      card.classList.contains("card--logo-package"),
+    );
 
     if (lower.includes("basic") || lower.includes("starter"))
       stripe.classList.add("basic");
@@ -570,5 +588,127 @@
       },
       { passive: true },
     );
+  })();
+
+  (function initCinematicTitles() {
+    const prefersReducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
+    const titleEls = document.querySelectorAll(
+      ".cinematic-title[data-cinematic-text]",
+    );
+    if (!titleEls.length) return;
+
+    const vectors = [
+      { x: -180, y: -110, z: 320, rx: -38, ry: 22, angle: -18 },
+      { x: 168, y: -94, z: 260, rx: 28, ry: -18, angle: 22 },
+      { x: -150, y: 86, z: 280, rx: 22, ry: 28, angle: 164 },
+      { x: 176, y: 96, z: 340, rx: -24, ry: -24, angle: 198 },
+      { x: -228, y: 12, z: 300, rx: -8, ry: 40, angle: 0 },
+      { x: 224, y: -8, z: 300, rx: 8, ry: -40, angle: 180 },
+      { x: -40, y: -144, z: 360, rx: -44, ry: 8, angle: -90 },
+      { x: 34, y: 142, z: 320, rx: 40, ry: -10, angle: 90 },
+    ];
+
+    titleEls.forEach((titleEl) => {
+      const sourceText =
+        titleEl.dataset.cinematicText || titleEl.textContent || "";
+      const text = sourceText.trim();
+      if (!text || titleEl.dataset.cinematicReady === "true") return;
+
+      titleEl.setAttribute("aria-label", text);
+      titleEl.textContent = "";
+
+      let letterIndex = 0;
+      text.split(" ").forEach((word) => {
+        const wordEl = document.createElement("span");
+        wordEl.className = "cinematic-title__word";
+        wordEl.setAttribute("aria-hidden", "true");
+
+        [...word].forEach((char) => {
+          const vector = vectors[letterIndex % vectors.length];
+          const jitterX = ((letterIndex * 13) % 27) - 13;
+          const jitterY = ((letterIndex * 17) % 23) - 11;
+          const blur = 10 + (letterIndex % 4) * 2;
+          const curveX = Math.round(vector.x * 0.28 + jitterX);
+          const curveY = Math.round(vector.y * 0.32 + jitterY);
+          const letterEl = document.createElement("span");
+
+          letterEl.className = "cinematic-title__letter";
+          letterEl.textContent = char;
+          letterEl.style.setProperty("--letter-index", String(letterIndex));
+          letterEl.style.setProperty("--from-x", `${vector.x + jitterX}px`);
+          letterEl.style.setProperty("--from-y", `${vector.y + jitterY}px`);
+          letterEl.style.setProperty("--from-z", `${vector.z}px`);
+          letterEl.style.setProperty("--curve-x", `${curveX}px`);
+          letterEl.style.setProperty("--curve-y", `${curveY}px`);
+          letterEl.style.setProperty("--rot-x", `${vector.rx}deg`);
+          letterEl.style.setProperty("--rot-y", `${vector.ry}deg`);
+          letterEl.style.setProperty("--trail-angle", `${vector.angle}deg`);
+          letterEl.style.setProperty("--letter-blur", `${blur}px`);
+          letterEl.style.setProperty(
+            "--start-scale",
+            `${0.44 + (letterIndex % 3) * 0.08}`,
+          );
+
+          wordEl.appendChild(letterEl);
+          letterIndex += 1;
+        });
+
+        titleEl.appendChild(wordEl);
+      });
+
+      titleEl.dataset.cinematicReady = "true";
+
+      const panel = titleEl.closest("[data-cinematic-depth]");
+      if (
+        panel &&
+        !prefersReducedMotion &&
+        window.matchMedia("(pointer: fine)").matches
+      ) {
+        let rafId = 0;
+        const reset = () => {
+          panel.style.setProperty("--parallax-x", "0");
+          panel.style.setProperty("--parallax-y", "0");
+          titleEl.style.setProperty("--parallax-x", "0");
+          titleEl.style.setProperty("--parallax-y", "0");
+        };
+
+        panel.addEventListener("pointermove", (event) => {
+          if (rafId) cancelAnimationFrame(rafId);
+          rafId = requestAnimationFrame(() => {
+            const rect = panel.getBoundingClientRect();
+            const px = ((event.clientX - rect.left) / rect.width - 0.5) * 10;
+            const py = ((event.clientY - rect.top) / rect.height - 0.5) * 8;
+            titleEl.style.setProperty("--parallax-x", px.toFixed(2));
+            titleEl.style.setProperty("--parallax-y", py.toFixed(2));
+          });
+        });
+
+        panel.addEventListener("pointerleave", reset);
+      }
+
+      const host = panel || titleEl;
+      if (prefersReducedMotion || !("IntersectionObserver" in window)) {
+        host.classList.add("is-active");
+        return;
+      }
+
+      const observer = new IntersectionObserver(
+        (entries, obs) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+            host.classList.add("is-active");
+            obs.unobserve(entry.target);
+          });
+        },
+        {
+          threshold: 0.34,
+          rootMargin: "0px 0px -12% 0px",
+        },
+      );
+
+      observer.observe(host);
+    });
   })();
 })();

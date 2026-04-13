@@ -39,8 +39,7 @@ body.fb-parallax-home {
   padding: 40px 20px;
   max-width: 900px;
 }
-
-.fb-parallax-section-inner h2 {
+  background-image: url("/programing.webp");
   margin: 0 0 12px;
   font-size: clamp(1.8rem, 3vw, 2.8rem);
   letter-spacing: 0.18em;
@@ -66,5 +65,5 @@ body.fb-parallax-home {
 }
 
 .fb-parallax-section--three {
-  background-image: url("/1234.jpg");
+  background-image: url("/programing.webp");
 }
