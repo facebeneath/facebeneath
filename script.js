@@ -2,10 +2,12 @@
   const overlay = document.getElementById("overlay");
   const closeBtn = document.getElementById("closeBtn");
   const overlayPanel = overlay?.querySelector(".panel");
+  const body = document.body;
   const cards = document.querySelectorAll(".card");
   const logoCards = document.querySelectorAll(".card-logo");
   const lang = document.documentElement.lang || "bs";
   const aiNote = document.getElementById("aiNote");
+  let lockedScrollY = 0;
   const hashTargets = new Set([
     "pakete",
     "paketi",
@@ -39,6 +41,38 @@
     scrollToHashTarget();
   }
 
+  function setShareFabHidden(hidden) {
+    document.dispatchEvent(
+      new CustomEvent("sharefab:visibility", {
+        detail: { hidden },
+      }),
+    );
+  }
+
+  function isDirectCardAction(target) {
+    return Boolean(target?.closest?.(".card-direct-link"));
+  }
+
+  function lockPageScroll() {
+    lockedScrollY = window.scrollY || window.pageYOffset || 0;
+    body.classList.add("overlay-open");
+    body.style.position = "fixed";
+    body.style.top = `-${lockedScrollY}px`;
+    body.style.left = "0";
+    body.style.right = "0";
+    body.style.width = "100%";
+  }
+
+  function unlockPageScroll() {
+    body.classList.remove("overlay-open");
+    body.style.position = "";
+    body.style.top = "";
+    body.style.left = "";
+    body.style.right = "";
+    body.style.width = "";
+    window.scrollTo(0, lockedScrollY);
+  }
+
   function openWith(card) {
     const name = card.dataset.name || "Package";
     const price = card.dataset.price || "";
@@ -55,25 +89,24 @@
     const stripe = document.getElementById("overlayTag");
     stripe.className = "stripe";
     const lower = name.toLowerCase();
+    const isIdentity = card.classList.contains("card--identity");
+    const isLegacy = card.classList.contains("card--legacy");
+    const isMostWanted = card.classList.contains("card--most-wanted");
+    const isDominance = card.classList.contains("card--dominance");
+    const isLogoPackage = card.classList.contains("card--logo-package");
 
-    overlayPanel?.classList.toggle(
-      "panel--identity",
-      card.classList.contains("card--identity"),
-    );
-    overlayPanel?.classList.toggle(
-      "panel--legacy",
-      card.classList.contains("card--legacy"),
-    );
-    overlayPanel?.classList.toggle(
-      "panel--dominance",
-      card.classList.contains("card--dominance"),
-    );
-    overlayPanel?.classList.toggle(
-      "panel--logo-package",
-      card.classList.contains("card--logo-package"),
-    );
+    overlayPanel?.classList.toggle("panel--identity", isIdentity);
+    overlayPanel?.classList.toggle("panel--legacy", isLegacy);
+    overlayPanel?.classList.toggle("panel--most-wanted", isMostWanted);
+    overlayPanel?.classList.toggle("panel--dominance", isDominance);
+    overlayPanel?.classList.toggle("panel--logo-package", isLogoPackage);
 
-    if (lower.includes("basic") || lower.includes("starter"))
+    if (isIdentity) stripe.classList.add("identity");
+    else if (isLegacy) stripe.classList.add("legacy");
+    else if (isMostWanted) stripe.classList.add("wanted");
+    else if (isDominance) stripe.classList.add("dominance");
+    else if (isLogoPackage) stripe.classList.add("logo");
+    else if (lower.includes("basic") || lower.includes("starter"))
       stripe.classList.add("basic");
     else if (lower.includes("pro")) stripe.classList.add("pro");
     else if (lower.includes("extreme")) stripe.classList.add("extreme");
@@ -100,25 +133,48 @@
       .forEach((f) => {
         const li = document.createElement("li");
         li.innerHTML =
-          '<svg width="18" height="18" viewBox="0 0 24 24" style="margin-top:3px;flex:0 0 18px" aria-hidden><path d="M20 6L9 17l-5-5" stroke="#01b2b8" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><div><div>' +
+          '<svg width="18" height="18" viewBox="0 0 24 24" style="margin-top:3px;flex:0 0 18px;color:inherit" aria-hidden><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><div><div>' +
           f +
           "</div></div>";
         list.appendChild(li);
       });
 
+    overlay.scrollTop = 0;
+    if (overlayPanel) {
+      overlayPanel.scrollTop = 0;
+    }
+
     overlay.classList.add("open");
     overlay.setAttribute("aria-hidden", "false");
-    closeBtn.focus();
+    lockPageScroll();
+    setShareFabHidden(true);
+
+    requestAnimationFrame(() => {
+      overlay.scrollTop = 0;
+      if (overlayPanel) {
+        overlayPanel.scrollTop = 0;
+      }
+    });
+
+    closeBtn?.focus();
   }
 
-  function closeOverlay() {
-    overlay.classList.remove("open");
-    overlay.setAttribute("aria-hidden", "true");
+  function closeOverlay(event) {
+    event?.preventDefault?.();
+    event?.stopPropagation?.();
+    overlay?.classList.remove("open");
+    overlay?.setAttribute("aria-hidden", "true");
+    unlockPageScroll();
+    setShareFabHidden(false);
   }
 
   [...cards, ...logoCards].forEach((card) => {
-    card.addEventListener("click", () => openWith(card));
+    card.addEventListener("click", (e) => {
+      if (isDirectCardAction(e.target)) return;
+      openWith(card);
+    });
     card.addEventListener("keydown", (e) => {
+      if (isDirectCardAction(e.target)) return;
       if (e.key === "Enter" || e.key === " ") {
         e.preventDefault();
         openWith(card);
@@ -127,9 +183,11 @@
   });
 
   closeBtn?.addEventListener("click", closeOverlay);
+  closeBtn?.addEventListener("touchend", closeOverlay, { passive: false });
+  overlayPanel?.addEventListener("click", (e) => e.stopPropagation());
   overlay?.addEventListener(
     "click",
-    (e) => e.target === overlay && closeOverlay(),
+    (e) => e.target === overlay && closeOverlay(e),
   );
   document.addEventListener(
     "keydown",
@@ -140,33 +198,36 @@
   if (contactBtn) {
     contactBtn.addEventListener("click", () => {
       const name = document.getElementById("overlayName")?.textContent || "";
+      const price = document.getElementById("overlayPrice")?.textContent || "";
 
-      let subject = "";
-      let body = "";
+      let message = "";
 
       if (lang === "en") {
-        subject = "Inquiry: " + name + " package";
-        body =
-          "Hello,\n\nI would like to book this package: " +
+        message =
+          "Hello, I would like to book the " +
           name +
-          ".\n\nThank you.";
+          " package" +
+          (price ? " (" + price + ")" : "") +
+          ". Please contact me with the next steps.";
       } else if (lang === "de") {
-        subject = "Anfrage: " + name + " Paket";
-        body =
-          "Guten Tag,\n\nIch möchte gerne dieses Paket buchen: " +
+        message =
+          "Hallo, ich möchte gerne das Paket " +
           name +
-          ".\n\nVielen Dank.";
+          (price ? " (" + price + ")" : "") +
+          " buchen. Bitte melden Sie sich bei mir mit den nächsten Schritten.";
       } else {
-        subject = "Upit: " + name + " paket";
-        body =
-          "Pozdrav,\n\nŽelio bih da uzmem ovaj paket: " + name + ".\n\nHvala.";
+        message =
+          "Pozdrav, želim rezervisati paket " +
+          name +
+          (price ? " (" + price + ")" : "") +
+          ". Molim vas da mi pošaljete naredne korake.";
       }
 
-      window.location.href =
-        "mailto:facebeneath@aldindelic.de?subject=" +
-        encodeURIComponent(subject) +
-        "&body=" +
-        encodeURIComponent(body);
+      window.open(
+        "https://wa.me/4917682183126?text=" + encodeURIComponent(message),
+        "_blank",
+        "noopener",
+      );
     });
   }
 
@@ -439,27 +500,63 @@
     const shareOrbit = document.getElementById("shareFabOrbit");
     const shareItems = shareFab.querySelectorAll("[data-share-item]");
     let isOpen = false;
+    let isHidden = false;
+
+    function syncFabInteractivity(hidden) {
+      if (hidden) {
+        shareTrigger?.setAttribute("tabindex", "-1");
+      } else {
+        shareTrigger?.removeAttribute("tabindex");
+      }
+
+      shareItems.forEach((item) => {
+        if (hidden) {
+          item.setAttribute("tabindex", "-1");
+        } else {
+          item.removeAttribute("tabindex");
+        }
+      });
+    }
+
+    function setShareFabVisibility(hidden) {
+      if (isHidden === hidden) return;
+
+      if (hidden && isOpen) {
+        setShareOpen(false);
+      }
+
+      isHidden = hidden;
+      shareFab.classList.toggle("is-hidden", hidden);
+      shareFab.setAttribute("aria-hidden", hidden ? "true" : "false");
+      syncFabInteractivity(hidden);
+      enforceIndependentPin();
+    }
 
     function enforceIndependentPin() {
       const isMobile = window.innerWidth <= 768;
       const navEl = document.querySelector(".lang-select-horizontal");
       const navMenuOpen = navEl && navEl.classList.contains("is-open");
+      const computed = window.getComputedStyle(shareFab);
+      const desktopBottom =
+        computed.getPropertyValue("--share-fab-bottom-desktop").trim() ||
+        "24px";
+      const mobileBottom =
+        computed.getPropertyValue("--share-fab-bottom-mobile").trim() ||
+        "calc(16px + env(safe-area-inset-bottom, 0px))";
       const set = (prop, val) =>
         shareFab.style.setProperty(prop, val, "important");
       set("position", "fixed");
-      set("left", isMobile ? "-60px" : "24px");
-      set("right", "auto");
+      set("left", "auto");
+      set("right", isMobile ? "16px" : "24px");
       set("top", "auto");
-      set(
-        "bottom",
-        isMobile ? "calc(20px + env(safe-area-inset-bottom, 0px))" : "140px",
-      );
+      set("bottom", isMobile ? mobileBottom : desktopBottom);
       set("z-index", "2147483000");
       set("opacity", navMenuOpen ? "0" : "1");
       set("visibility", navMenuOpen ? "hidden" : "visible");
       set("display", "block");
       shareFab.style.overflow = "visible";
-      shareFab.style.pointerEvents = isOpen && !navMenuOpen ? "auto" : "none";
+      shareFab.style.pointerEvents =
+        !isHidden && isOpen && !navMenuOpen ? "auto" : "none";
     }
 
     function updateItemStagger(openState) {
@@ -515,6 +612,10 @@
       });
     });
 
+    document.addEventListener("sharefab:visibility", (event) => {
+      setShareFabVisibility(Boolean(event.detail?.hidden));
+    });
+
     window.addEventListener("resize", () => {
       if (window.innerWidth > 0) {
         setShareOpen(false);
@@ -543,6 +644,7 @@
       document.body.appendChild(shareFab);
     }
 
+    syncFabInteractivity(false);
     enforceIndependentPin();
 
     const navWatcher = document.querySelector(".lang-select-horizontal");
@@ -974,5 +1076,272 @@
 
       goTo(0);
     });
+  })();
+
+  (function initParallaxBg() {
+    var sections = document.querySelectorAll(".fb-parallax-section");
+    if (!sections.length) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    sections.forEach(function (section) {
+      if (section.querySelector(".fb-parallax-bg")) return;
+      var bg = document.createElement("div");
+      bg.className = "fb-parallax-bg";
+      bg.setAttribute("aria-hidden", "true");
+      section.insertBefore(bg, section.firstChild);
+    });
+
+    var ticking = false;
+
+    function updateParallax() {
+      var vh = window.innerHeight;
+      sections.forEach(function (section) {
+        var bg = section.querySelector(".fb-parallax-bg");
+        if (!bg) return;
+        var rect = section.getBoundingClientRect();
+        if (rect.bottom <= 0 || rect.top >= vh) return;
+        var sectionMidY = rect.top + rect.height / 2;
+        var distFromCenter = sectionMidY - vh / 2;
+
+        var shift = -(distFromCenter * 0.28);
+        bg.style.transform = "translateY(" + shift.toFixed(1) + "px)";
+      });
+      ticking = false;
+    }
+
+    window.addEventListener(
+      "scroll",
+      function () {
+        if (ticking) return;
+        ticking = true;
+        requestAnimationFrame(updateParallax);
+      },
+      { passive: true },
+    );
+
+    updateParallax();
+  })();
+
+  (function initElectricEffect() {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    var sections = document.querySelectorAll(
+      ".fb-parallax-section, .logo-link",
+    );
+    if (!sections.length) return;
+
+    sections.forEach(function (section) {
+      var pos = window.getComputedStyle(section).position;
+      if (pos === "static") section.style.position = "relative";
+      section.style.overflow = "hidden";
+    });
+
+    var allData = [];
+    var rafId = 0;
+
+    function generateBolt(x1, y1, x2, y2, disp, depth) {
+      if (depth === 0)
+        return [
+          [x1, y1],
+          [x2, y2],
+        ];
+      var mx = (x1 + x2) / 2 + (Math.random() - 0.5) * disp;
+      var my = (y1 + y2) / 2 + (Math.random() - 0.5) * disp;
+      return generateBolt(x1, y1, mx, my, disp * 0.52, depth - 1).concat(
+        generateBolt(mx, my, x2, y2, disp * 0.52, depth - 1).slice(1),
+      );
+    }
+
+    function spawnBolt(data) {
+      var w = data.canvas.width,
+        h = data.canvas.height;
+      if (w === 0 || h === 0) return;
+      var x1,
+        y1,
+        x2,
+        y2,
+        edge = Math.floor(Math.random() * 4),
+        t = Math.random();
+      if (edge === 0) {
+        x1 = t * w;
+        y1 = 0;
+        x2 = Math.random() * w;
+        y2 = h * (0.25 + Math.random() * 0.55);
+      } else if (edge === 1) {
+        x1 = t * w;
+        y1 = h;
+        x2 = Math.random() * w;
+        y2 = h * (0.2 + Math.random() * 0.55);
+      } else if (edge === 2) {
+        x1 = 0;
+        y1 = t * h;
+        x2 = w * (0.25 + Math.random() * 0.55);
+        y2 = Math.random() * h;
+      } else {
+        x1 = w;
+        y1 = t * h;
+        x2 = w * (0.2 + Math.random() * 0.55);
+        y2 = Math.random() * h;
+      }
+      var disp = Math.min(w, h) * (0.13 + Math.random() * 0.13);
+      var pts = generateBolt(x1, y1, x2, y2, disp, 7);
+      data.bolts.push({
+        pts: pts,
+        alpha: 0.82 + Math.random() * 0.18,
+        decay: 0.026 + Math.random() * 0.024,
+        width: 0.9 + Math.random() * 1.3,
+        isMain: true,
+      });
+      if (Math.random() > 0.35) {
+        var bi = Math.floor(pts.length * (0.3 + Math.random() * 0.35)),
+          mp = pts[bi];
+        data.bolts.push({
+          pts: generateBolt(
+            mp[0],
+            mp[1],
+            mp[0] + (Math.random() - 0.5) * w * 0.32,
+            mp[1] + (Math.random() - 0.5) * h * 0.28,
+            disp * 0.46,
+            5,
+          ),
+          alpha: 0.45 + Math.random() * 0.3,
+          decay: 0.044 + Math.random() * 0.028,
+          width: 0.35 + Math.random() * 0.55,
+          isMain: false,
+        });
+      }
+      startLoop();
+    }
+
+    function scheduleSpawn(data) {
+      setTimeout(
+        function () {
+          if (data.active) spawnBolt(data);
+          scheduleSpawn(data);
+        },
+        700 + Math.random() * 1000,
+      );
+    }
+
+    function resizeCanvas(data) {
+      data.canvas.width = data.section.offsetWidth;
+      data.canvas.height = data.section.offsetHeight;
+    }
+
+    sections.forEach(function (section) {
+      var canvas = document.createElement("canvas");
+      canvas.className = "fb-electric-canvas";
+      canvas.setAttribute("aria-hidden", "true");
+      section.appendChild(canvas);
+      var data = {
+        canvas: canvas,
+        section: section,
+        bolts: [],
+        active: false,
+        spawnerStarted: false,
+      };
+      allData.push(data);
+
+      /* Defer resize so the footer has its final dimensions on all devices */
+      requestAnimationFrame(function () {
+        resizeCanvas(data);
+      });
+
+      if ("IntersectionObserver" in window) {
+        new IntersectionObserver(
+          function (entries) {
+            entries.forEach(function (entry) {
+              data.active = entry.isIntersecting;
+              /* Guard: only start one spawner loop per section ever */
+              if (data.active && !data.spawnerStarted) {
+                data.spawnerStarted = true;
+                scheduleSpawn(data);
+              }
+            });
+          },
+          { threshold: 0.01 },
+        ).observe(section);
+      } else {
+        data.active = true;
+        data.spawnerStarted = true;
+        scheduleSpawn(data);
+      }
+    });
+
+    window.addEventListener(
+      "resize",
+      function () {
+        allData.forEach(resizeCanvas);
+      },
+      { passive: true },
+    );
+
+    function drawBolt(ctx, bolt) {
+      if (!bolt.pts.length) return;
+      ctx.save();
+      ctx.globalAlpha = bolt.alpha;
+      ctx.lineJoin = "round";
+      ctx.lineCap = "round";
+
+      ctx.strokeStyle = bolt.isMain
+        ? "rgba(12,203,236,0.35)"
+        : "rgba(100,220,255,0.20)";
+      ctx.lineWidth = bolt.isMain ? bolt.width * 6 : bolt.width * 3;
+      ctx.beginPath();
+      ctx.moveTo(bolt.pts[0][0], bolt.pts[0][1]);
+      for (var i = 1; i < bolt.pts.length; i++)
+        ctx.lineTo(bolt.pts[i][0], bolt.pts[i][1]);
+      ctx.stroke();
+
+      ctx.strokeStyle = bolt.isMain ? "#0ccbec" : "rgba(120,230,255,0.75)";
+      ctx.lineWidth = bolt.width;
+      ctx.beginPath();
+      ctx.moveTo(bolt.pts[0][0], bolt.pts[0][1]);
+      for (var j = 1; j < bolt.pts.length; j++)
+        ctx.lineTo(bolt.pts[j][0], bolt.pts[j][1]);
+      ctx.stroke();
+
+      if (bolt.isMain) {
+        ctx.strokeStyle = "rgba(255,255,255,0.80)";
+        ctx.lineWidth = bolt.width * 0.22;
+        ctx.beginPath();
+        ctx.moveTo(bolt.pts[0][0], bolt.pts[0][1]);
+        for (var k = 1; k < bolt.pts.length; k++)
+          ctx.lineTo(bolt.pts[k][0], bolt.pts[k][1]);
+        ctx.stroke();
+      }
+      ctx.restore();
+    }
+
+    function startLoop() {
+      if (rafId) return;
+      rafId = requestAnimationFrame(loop);
+    }
+
+    function loop() {
+      var anyAlive = false;
+      allData.forEach(function (data) {
+        data.bolts = data.bolts.filter(function (b) {
+          return b.alpha > 0.01;
+        });
+        if (!data.bolts.length) {
+          var ctx = data.canvas.getContext("2d");
+          if (ctx) ctx.clearRect(0, 0, data.canvas.width, data.canvas.height);
+          return;
+        }
+        anyAlive = true;
+        var ctx = data.canvas.getContext("2d");
+        if (!ctx) return;
+        ctx.clearRect(0, 0, data.canvas.width, data.canvas.height);
+        data.bolts.forEach(function (bolt) {
+          drawBolt(ctx, bolt);
+          bolt.alpha -= bolt.decay;
+        });
+      });
+      if (anyAlive) {
+        rafId = requestAnimationFrame(loop);
+      } else {
+        rafId = 0;
+      }
+    }
   })();
 })();

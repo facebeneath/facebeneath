@@ -10,19 +10,44 @@ body.fb-parallax-home {
   justify-content: center;
   text-align: center;
   color: #ffffff;
-  background-size: cover;
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
   overflow: hidden;
   width: 100%;
   max-width: 100%;
+}
+
+/* Injected parallax background layer — works on all devices incl. iOS */
+.fb-parallax-bg {
+  position: absolute;
+  top: -25%;
+  left: 0;
+  right: 0;
+  bottom: -25%;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  will-change: transform;
+  z-index: 0;
+  /* Prevent reveal.js fade-in from hiding the background on mobile */
+  opacity: 1 !important;
+}
+
+.fb-parallax-section--one .fb-parallax-bg {
+  background-image: url("/122.jpg");
+}
+
+.fb-parallax-section--two .fb-parallax-bg {
+  background-image: url("/123.jpg");
+}
+
+.fb-parallax-section--three .fb-parallax-bg {
+  background-image: url("/programing.webp");
 }
 
 .fb-parallax-section::before {
   content: "";
   position: absolute;
   inset: 0;
+  z-index: 1;
   background:
     radial-gradient(
       circle at 20% 20%,
@@ -33,18 +58,21 @@ body.fb-parallax-home {
   pointer-events: none;
 }
 
+/* Electric lightning canvas overlay */
+.fb-electric-canvas {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  display: block;
+  opacity: 1 !important;
+}
+
 .fb-parallax-section-inner {
   position: relative;
-  z-index: 1;
+  z-index: 3;
   padding: 40px 20px;
   max-width: 900px;
-}
-  background-image: url("/programing.webp");
-  margin: 0 0 12px;
-  font-size: clamp(1.8rem, 3vw, 2.8rem);
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: #d4a017;
 }
 
 .fb-parallax-section-inner p {
@@ -54,16 +82,4 @@ body.fb-parallax-home {
   font-size: clamp(1rem, 1.3vw, 1.25rem);
   line-height: 1.7;
   color: #0ccbec;
-}
-
-.fb-parallax-section--one {
-  background-image: url("/122.jpg");
-}
-
-.fb-parallax-section--two {
-  background-image: url("/123.jpg");
-}
-
-.fb-parallax-section--three {
-  background-image: url("/programing.webp");
 }
