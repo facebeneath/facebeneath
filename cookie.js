@@ -1,9 +1,3 @@
-/**
- * Facebeneath — Cookie Consent Manager
- * GDPR & ePrivacy Directive konform
- * Podržava: DE / EN / BS
- * Google Analytics: G-MQ5PXKPBES
- */
 (function () {
   "use strict";
 
@@ -11,7 +5,6 @@
   var STORAGE_KEY = "fb_cookie_consent";
   var CONSENT_VERSION = "1.1";
 
-  /* ── i18n ─────────────────────────────────────────── */
   var i18n = {
     de: {
       bannerTitle: "Wir respektieren Ihre Privatsphäre",
@@ -96,7 +89,6 @@
     },
   };
 
-  /* ── Helpers ──────────────────────────────────────── */
   function getLang() {
     var lang = (document.documentElement.lang || "de").toLowerCase();
     if (lang.startsWith("en")) return "en";
@@ -127,7 +119,6 @@
     } catch (e) {}
   }
 
-  /* ── Google Analytics loader ──────────────────────── */
   function loadGA() {
     if (window._fbGaLoaded) return;
     window._fbGaLoaded = true;
@@ -145,7 +136,6 @@
     document.head.appendChild(s);
   }
 
-  /* ── Banner HTML ──────────────────────────────────── */
   function buildBanner(t) {
     var el = document.createElement("div");
     el.id = "fb-cookie-banner";
@@ -190,7 +180,6 @@
     return el;
   }
 
-  /* ── Modal HTML ───────────────────────────────────── */
   function buildModal(t) {
     var el = document.createElement("div");
     el.id = "fb-cookie-modal";
@@ -249,7 +238,6 @@
     return el;
   }
 
-  /* ── Modal open/close ─────────────────────────────── */
   function openModal(modal) {
     var consent = getConsent();
     var toggle = document.getElementById("fb-analytics-toggle");
@@ -266,7 +254,6 @@
     modal.classList.remove("fb-modal-visible");
   }
 
-  /* ── Bind modal events ────────────────────────────── */
   function bindModal(modal, onSave) {
     document
       .getElementById("fb-modal-backdrop")
@@ -285,7 +272,6 @@
       });
   }
 
-  /* ── Hide banner ──────────────────────────────────── */
   function hideBanner(banner) {
     banner.classList.remove("fb-cookie-visible");
     banner.classList.add("fb-cookie-hidden");
@@ -294,7 +280,6 @@
     }, 450);
   }
 
-  /* ── Manage button (persistent) ───────────────────── */
   function injectManageButton(t) {
     if (document.getElementById("fb-cookie-manage")) return;
 
@@ -320,12 +305,10 @@
     });
   }
 
-  /* ── Main init ────────────────────────────────────── */
   function init() {
     var lang = getLang();
     var t = i18n[lang] || i18n.de;
 
-    /* Consent already recorded */
     var stored = getConsent();
     if (stored && stored.version === CONSENT_VERSION) {
       if (stored.analytics) loadGA();
@@ -333,20 +316,17 @@
       return;
     }
 
-    /* Show banner */
     var banner = buildBanner(t);
     var modal = buildModal(t);
     document.body.appendChild(banner);
     document.body.appendChild(modal);
 
-    /* Animate banner in */
     requestAnimationFrame(function () {
       requestAnimationFrame(function () {
         banner.classList.add("fb-cookie-visible");
       });
     });
 
-    /* Accept all */
     document
       .getElementById("fb-cookie-accept")
       .addEventListener("click", function () {
@@ -356,7 +336,6 @@
         injectManageButton(t);
       });
 
-    /* Reject optional */
     document
       .getElementById("fb-cookie-reject")
       .addEventListener("click", function () {
@@ -365,26 +344,22 @@
         injectManageButton(t);
       });
 
-    /* Open settings */
     document
       .getElementById("fb-cookie-settings-btn")
       .addEventListener("click", function () {
         openModal(modal);
       });
 
-    /* Modal events */
     bindModal(modal, function () {
       hideBanner(banner);
       injectManageButton(t);
     });
 
-    /* Escape key */
     document.addEventListener("keydown", function (e) {
       if (e.key === "Escape") closeModal(modal);
     });
   }
 
-  /* ── Boot ─────────────────────────────────────────── */
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", init);
   } else {
