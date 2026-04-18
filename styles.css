@@ -3199,18 +3199,18 @@ footer .footer-legal a:hover {
   }
 
   .lang-select-horizontal .lang-link {
-    width: 28px;
-    height: 20px;
+    width: 36px;
+    height: 26px;
   }
 
   .lang-select-horizontal .lang-toggle {
     display: inline-flex;
-    width: 28px;
-    height: 20px;
+    width: 36px;
+    height: 26px;
   }
 
   .lang-select-horizontal .lang-toggle span {
-    width: 12px;
+    width: 16px;
   }
 
   .lang-select-horizontal .lang-menu {
@@ -3316,17 +3316,17 @@ footer .footer-legal a:hover {
   }
 
   .lang-select-horizontal .lang-link {
-    width: 24px;
-    height: 18px;
+    width: 32px;
+    height: 22px;
   }
 
   .lang-select-horizontal .lang-toggle {
-    width: 24px;
-    height: 18px;
+    width: 32px;
+    height: 22px;
   }
 
   .lang-select-horizontal .lang-toggle span {
-    width: 10px;
+    width: 13px;
   }
 
   .lang-select-horizontal .lang-menu {
