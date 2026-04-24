@@ -415,6 +415,8 @@ function ensureFooterLegalLinks() {
     return;
   }
 
+  const creditsColumn = footerInner.querySelector(".footer-col.footer-credits");
+
   const footerParagraphs = footerInner.querySelectorAll("p");
   if (footerParagraphs[0]) {
     footerParagraphs[0].classList.add("footer-address");
@@ -430,58 +432,109 @@ function ensureFooterLegalLinks() {
       <a data-transition="page" href="impressum.html">Impressum</a>
       <a data-transition="page" href="agb.html">AGB</a>
       <a data-transition="page" href="datenschutz.html">Datenschutz</a>
+      <a data-transition="page" href="cookies.html">Cookie-Richtlinie</a>
       <a data-transition="page" href="widerruf.html">Widerruf</a>
+      <a href="#" id="footer-cookie-settings" onclick="event.preventDefault();if(window.CookieConsent)window.CookieConsent.openSettings();">Cookie-Einstellungen</a>
     `;
     footerInner.append(legal);
   }
 
+  const legal = footerInner.querySelector(".footer-legal");
+  if (legal) {
+    let webdesignParagraph = footerInner.querySelector(".footer-webdesign");
+
+    if (!webdesignParagraph && creditsColumn) {
+      webdesignParagraph = creditsColumn.querySelector(
+        "p:not(.footer-copyright)",
+      );
+    }
+
+    if (webdesignParagraph) {
+      webdesignParagraph.classList.add("footer-webdesign");
+      if (legal.previousElementSibling !== webdesignParagraph) {
+        footerInner.insertBefore(webdesignParagraph, legal);
+      }
+    }
+  }
+
   const contactColumn = footerInner.querySelectorAll(".footer-col")[1];
-  if (!contactColumn || contactColumn.querySelector(".footer-social")) {
+  if (!contactColumn) {
     return;
   }
 
-  const social = document.createElement("div");
-  social.className = "footer-social";
-  social.innerHTML = `
-    <a
-      class="social-icon whatsapp"
-      href="https://wa.me/4917661546663"
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label="WhatsApp"
-      title="WhatsApp"
-    >
-      <svg viewBox="0 0 32 32" aria-hidden="true" focusable="false">
-        <path d="M16.02 3C8.84 3 3 8.71 3 15.73c0 2.24.59 4.42 1.72 6.34L3 29l7.21-1.87a13.2 13.2 0 0 0 5.81 1.34h.01C23.2 28.47 29 22.76 29 15.73 29 8.7 23.2 3 16.02 3Zm0 23.33h-.01c-1.89 0-3.73-.5-5.35-1.43l-.38-.22-4.28 1.11 1.14-4.1-.25-.4a10.95 10.95 0 0 1-1.7-5.56c0-6.02 4.87-10.91 10.86-10.91 5.98 0 10.84 4.89 10.84 10.9 0 6.02-4.86 10.91-10.83 10.91Zm5.96-8.17c-.33-.16-1.95-.95-2.25-1.06-.3-.1-.52-.16-.73.16-.22.32-.84 1.06-1.03 1.28-.19.22-.38.24-.7.08-.33-.16-1.39-.5-2.65-1.58-.98-.85-1.64-1.89-1.84-2.21-.19-.32-.02-.49.15-.65.15-.14.33-.38.49-.57.16-.19.22-.32.33-.54.11-.22.06-.4-.03-.57-.08-.16-.73-1.76-1-2.41-.27-.64-.54-.55-.73-.56h-.62c-.22 0-.57.08-.87.4-.3.32-1.14 1.11-1.14 2.7 0 1.59 1.16 3.13 1.32 3.35.16.22 2.27 3.6 5.49 5.04.77.33 1.37.53 1.84.68.77.24 1.47.21 2.02.13.62-.09 1.95-.8 2.22-1.57.27-.78.27-1.44.19-1.58-.08-.13-.3-.21-.62-.37Z"></path>
-      </svg>
-    </a>
-    <a
-      class="social-icon facebook"
-      href="https://www.facebook.com/automobile.aa"
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label="Facebook"
-      title="Facebook"
-    >
-      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-        <path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.85c0-2.5 1.49-3.89 3.77-3.89 1.09 0 2.24.19 2.24.19v2.45h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.77l-.44 2.89h-2.33v6.99A10 10 0 0 0 22 12Z"></path>
-      </svg>
-    </a>
-    <a
-      class="social-icon instagram"
-      href="https://www.instagram.com/automobile_aa?utm_source=qr&igsh=ZjBwdGM5bWUzZ3Zv"
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label="Instagram"
-      title="Instagram"
-    >
-      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073z"></path>
-        <path d="M5.838 12a6.162 6.162 0 1 1 12.324 0 6.162 6.162 0 0 1-12.324 0zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm4.965-10.322a1.44 1.44 0 1 1 2.881.001 1.44 1.44 0 0 1-2.881-.001z"></path>
-      </svg>
-    </a>
-  `;
-  contactColumn.append(social);
+  let social = contactColumn.querySelector(".footer-social");
+
+  if (!social) {
+    social = document.createElement("div");
+    social.className = "footer-social";
+    social.innerHTML = `
+      <a
+        class="social-icon whatsapp"
+        href="https://wa.me/4917661546663"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="WhatsApp"
+        title="WhatsApp"
+      >
+        <svg viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+          <path d="M16.02 3C8.84 3 3 8.71 3 15.73c0 2.24.59 4.42 1.72 6.34L3 29l7.21-1.87a13.2 13.2 0 0 0 5.81 1.34h.01C23.2 28.47 29 22.76 29 15.73 29 8.7 23.2 3 16.02 3Zm0 23.33h-.01c-1.89 0-3.73-.5-5.35-1.43l-.38-.22-4.28 1.11 1.14-4.1-.25-.4a10.95 10.95 0 0 1-1.7-5.56c0-6.02 4.87-10.91 10.86-10.91 5.98 0 10.84 4.89 10.84 10.9 0 6.02-4.86 10.91-10.83 10.91Zm5.96-8.17c-.33-.16-1.95-.95-2.25-1.06-.3-.1-.52-.16-.73.16-.22.32-.84 1.06-1.03 1.28-.19.22-.38.24-.7.08-.33-.16-1.39-.5-2.65-1.58-.98-.85-1.64-1.89-1.84-2.21-.19-.32-.02-.49.15-.65.15-.14.33-.38.49-.57.16-.19.22-.32.33-.54.11-.22.06-.4-.03-.57-.08-.16-.73-1.76-1-2.41-.27-.64-.54-.55-.73-.56h-.62c-.22 0-.57.08-.87.4-.3.32-1.14 1.11-1.14 2.7 0 1.59 1.16 3.13 1.32 3.35.16.22 2.27 3.6 5.49 5.04.77.33 1.37.53 1.84.68.77.24 1.47.21 2.02.13.62-.09 1.95-.8 2.22-1.57.27-.78.27-1.44.19-1.58-.08-.13-.3-.21-.62-.37Z"></path>
+        </svg>
+      </a>
+      <a
+        class="social-icon facebook"
+        href="https://www.facebook.com/automobile.aa"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Facebook"
+        title="Facebook"
+      >
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.85c0-2.5 1.49-3.89 3.77-3.89 1.09 0 2.24.19 2.24.19v2.45h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.77l-.44 2.89h-2.33v6.99A10 10 0 0 0 22 12Z"></path>
+        </svg>
+      </a>
+      <a
+        class="social-icon instagram"
+        href="https://www.instagram.com/automobile_aa?utm_source=qr&igsh=ZjBwdGM5bWUzZ3Zv"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Instagram"
+        title="Instagram"
+      >
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073z"></path>
+          <path d="M5.838 12a6.162 6.162 0 1 1 12.324 0 6.162 6.162 0 0 1-12.324 0zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm4.965-10.322a1.44 1.44 0 1 1 2.881.001 1.44 1.44 0 0 1-2.881-.001z"></path>
+        </svg>
+      </a>
+    `;
+    contactColumn.append(social);
+  }
+
+  if (!contactColumn.querySelector(".footer-opening-hours")) {
+    const openingHours = document.createElement("div");
+    openingHours.className = "footer-opening-hours";
+    openingHours.innerHTML = `
+      <p class="footer-hours-title">&#128339; &Ouml;ffnungszeiten</p>
+      <ul class="footer-hours-list" aria-label="Oeffnungszeiten">
+        <li><span class="day">Montag:</span><span class="time">09:00&ndash;18:00</span></li>
+        <li><span class="day">Dienstag:</span><span class="time">09:00&ndash;18:00</span></li>
+        <li><span class="day">Mittwoch:</span><span class="time">09:00&ndash;18:00</span></li>
+        <li><span class="day">Donnerstag:</span><span class="time">09:00&ndash;18:00</span></li>
+        <li><span class="day">Freitag:</span><span class="time">09:00&ndash;18:00</span></li>
+        <li><span class="day">Samstag:</span><span class="time">09:00&ndash;13:00</span></li>
+        <li class="is-closed"><span class="day">Sonntag:</span><span class="time">Geschlossen</span></li>
+      </ul>
+    `;
+    social.insertAdjacentElement("afterend", openingHours);
+  }
+}
+
+function setDynamicFooterYear() {
+  const year = String(new Date().getFullYear());
+  const yearTargets = document.querySelectorAll(".js-current-year");
+
+  yearTargets.forEach((target) => {
+    target.textContent = year;
+  });
 }
 
 function setupCarFilter() {
@@ -1245,6 +1298,138 @@ function setupServiceCardParallax() {
   window.addEventListener("resize", onScroll);
 }
 
+function setupSectionParallax() {
+  const sections = document.querySelectorAll(".parallax-section");
+  if (!sections.length) return;
+
+  const prefersReduced = window.matchMedia(
+    "(prefers-reduced-motion: reduce)",
+  ).matches;
+
+  if (prefersReduced) return;
+
+  const LERP = 0.09;
+  const isMobile = window.matchMedia("(max-width: 860px)").matches;
+  // Gentler depth on small screens so the effect stays proportional
+  const speedScale = isMobile ? 0.5 : 1;
+
+  const entries = [];
+
+  sections.forEach((section) => {
+    const bg = section.querySelector(".parallax-bg");
+    const content = section.querySelector(".parallax-content");
+    if (!bg) return;
+
+    const speedBg =
+      Number.parseFloat(bg.dataset.speedBg ?? bg.dataset.speed ?? "0.22") *
+      speedScale;
+    const speedContent =
+      Number.parseFloat(bg.dataset.speedContent ?? "0.06") * speedScale;
+
+    bg.style.willChange = "transform";
+    if (content) content.style.willChange = "transform";
+
+    entries.push({
+      section,
+      bg,
+      content,
+      speedBg,
+      speedContent,
+      bgY: 0,
+      ctY: 0,
+      bgTarget: 0,
+      ctTarget: 0,
+    });
+  });
+
+  if (!entries.length) return;
+
+  let rafId = null;
+  let scrollTimer = null;
+  let userIsScrolling = false;
+  const vpH = () => window.innerHeight;
+
+  const computeTargets = () => {
+    const half = vpH() / 2;
+    entries.forEach((e) => {
+      const rect = e.section.getBoundingClientRect();
+      const sCenter = rect.top + rect.height / 2;
+      const dist = sCenter - half;
+      e.bgTarget = dist * e.speedBg;
+      e.ctTarget = dist * e.speedContent;
+    });
+  };
+
+  const tick = () => {
+    if (userIsScrolling) {
+      computeTargets();
+    }
+
+    let allSettled = true;
+
+    entries.forEach((e) => {
+      const rect = e.section.getBoundingClientRect();
+      if (rect.bottom < -50 || rect.top > vpH() + 50) return;
+
+      const newBgY = e.bgY + (e.bgTarget - e.bgY) * LERP;
+      const newCtY = e.ctY + (e.ctTarget - e.ctY) * LERP;
+
+      if (Math.abs(newBgY - e.bgY) > 0.02 || Math.abs(newCtY - e.ctY) > 0.02) {
+        allSettled = false;
+      }
+
+      e.bgY = newBgY;
+      e.ctY = newCtY;
+
+      e.bg.style.setProperty("--parallax-y", `${e.bgY.toFixed(3)}px`);
+      if (e.content) {
+        e.content.style.setProperty(
+          "--parallax-content-y",
+          `${e.ctY.toFixed(3)}px`,
+        );
+      }
+    });
+
+    if (userIsScrolling) {
+      allSettled = false;
+    }
+
+    if (!allSettled) {
+      rafId = requestAnimationFrame(tick);
+    } else {
+      rafId = null;
+    }
+  };
+
+  const startTick = () => {
+    computeTargets();
+    if (!rafId) rafId = requestAnimationFrame(tick);
+  };
+
+  const markScrolling = () => {
+    userIsScrolling = true;
+    if (scrollTimer) {
+      window.clearTimeout(scrollTimer);
+    }
+    scrollTimer = window.setTimeout(() => {
+      userIsScrolling = false;
+    }, 140);
+    startTick();
+  };
+
+  computeTargets();
+  entries.forEach((e) => {
+    e.bgY = e.bgTarget;
+    e.ctY = e.ctTarget;
+  });
+  rafId = requestAnimationFrame(tick);
+
+  window.addEventListener("scroll", markScrolling, { passive: true });
+  window.addEventListener("touchmove", markScrolling, { passive: true });
+  window.addEventListener("touchend", markScrolling, { passive: true });
+  window.addEventListener("resize", startTick, { passive: true });
+}
+
 function setupBackToTopArrow() {
   let button = document.querySelector(".back-to-top");
 
@@ -1314,7 +1499,7 @@ function setupMobileLeistungenStack() {
     return;
   }
 
-  const mobileQuery = window.matchMedia("(max-width: 768px)");
+  const mobileQuery = window.matchMedia("(max-width: 860px)");
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
   let startY = 0;
   let range = 1;
@@ -1706,7 +1891,7 @@ function setupMobileOdorTimeline() {
     return;
   }
 
-  const mobileQuery = window.matchMedia("(max-width: 768px)");
+  const mobileQuery = window.matchMedia("(max-width: 860px)");
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
   let ticking = false;
 
@@ -2053,6 +2238,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
   setupOutsideClickToCloseMenu();
   ensureFooterLegalLinks();
+  setDynamicFooterYear();
   setupCarFilter();
   setupBrandAccordion();
   setupGalleryLightbox();
@@ -2062,9 +2248,31 @@ window.addEventListener("DOMContentLoaded", () => {
   setupContactForm();
   setupBackButtons();
   setupServiceCardParallax();
+  setupSectionParallax();
   setupBackToTopArrow();
   setupHeroPoster();
   setupGlobalTicker();
   setupMatrixTextReveal();
   enhanceAutoDescriptionLists();
 });
+
+function acceptCookies() {
+  gtag("consent", "update", {
+    analytics_storage: "granted",
+    ad_storage: "granted",
+  });
+}
+
+function showGoogleMap(btn) {
+  var gate = btn.closest(".map-gate");
+  if (!gate) return;
+  gate.innerHTML =
+    '<div class="map-frame-wrap">' +
+    '<iframe src="https://maps.google.com/maps?q=Borsigstra%C3%9Fe+10a,+93073+Neutraubling&output=embed" ' +
+    'loading="lazy" referrerpolicy="no-referrer-when-downgrade" ' +
+    'title="AUTOMOBILE A &amp; A \u2013 Standort Neutraubling" allowfullscreen></iframe>' +
+    "</div>" +
+    '<a class="contact-pill map-external-link" style="display:block;text-align:center;margin-top:0;" ' +
+    'href="https://www.google.com/maps?q=Borsigstra%C3%9Fe+10a,+93073+Neutraubling" ' +
+    'target="_blank" rel="noopener noreferrer">In Google Maps \u00f6ffnen \u2197</a>';
+}

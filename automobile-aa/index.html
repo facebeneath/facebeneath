@@ -1,13 +1,30 @@
 <!doctype html>
 <html lang="de">
   <head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-33877VG7WG"></script>
+
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+
+  gtag("js", new Date());
+
+  gtag("consent", "default", {
+    analytics_storage: "denied",
+    ad_storage: "denied",
+    ad_user_data: "denied",
+    ad_personalization: "denied"
+  });
+
+  gtag("config", "G-33877VG7WG");
+</script>
+
+      
+    </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>
-      AUTOMOBILE A & A | Gepruefte Gebrauchtwagen - Autowerkstatt in
-      Neutraubling
-    </title>
+    <title>AUTOMOBILE A & A | Autowerkstatt in Neutraubling</title>
 
     <meta
       name="description"
@@ -57,12 +74,15 @@
       content="Gepruefte Gebrauchtwagen, transparente Beratung und faire Konditionen fuer Ihren Autokauf in Neutraubling."
     />
     <meta property="og:url" content="https://www.automobile-aa.de/" />
-    <meta property="og:image" content="https://www.automobile-aa.de/aa.jpg" />
+    <meta
+      property="og:image"
+      content="https://www.automobile-aa.de/images/aaLogo.png"
+    />
     <meta
       property="og:image:secure_url"
-      content="https://www.automobile-aa.de/aa.jpg"
+      content="https://www.automobile-aa.de/images/aaLogo.png"
     />
-    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:type" content="image/png" />
     <meta property="og:image:alt" content="AUTOMOBILE A & A Logo" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
@@ -78,7 +98,10 @@
       name="twitter:description"
       content="Gepruefte Gebrauchtwagen in Neutraubling mit transparenter Beratung und starkem Service."
     />
-    <meta name="twitter:image" content="https://www.automobile-aa.de/aa.jpg" />
+    <meta
+      name="twitter:image"
+      content="https://www.automobile-aa.de/images/aaLogo.png"
+    />
 
     <meta
       name="google-site-verification"
@@ -103,8 +126,8 @@
       }
     </script>
 
-    <link rel="stylesheet" href="styles.css?v=20260412" />
-    <script src="script.js?v=20260412"></script>
+    <link rel="stylesheet" href="styles.css?v=42" />
+    <script src="script.js?v=39"></script>
   </head>
   <body>
     <nav class="main-nav">
@@ -268,6 +291,7 @@
                   class="card-media"
                   data-parallax="true"
                   data-speed="0.14"
+                  loading="lazy"
                   src="https://images.unsplash.com/photo-1486006920555-c77dcf18193c?auto=format&fit=crop&w=1200&q=80"
                   alt="Mietwerkstatt"
                 />
@@ -290,6 +314,7 @@
                   class="card-media"
                   data-parallax="true"
                   data-speed="0.2"
+                  loading="lazy"
                   src="images/autopflege.jpg"
                   alt="Autopflege"
                 />
@@ -312,6 +337,7 @@
                   class="card-media"
                   data-parallax="true"
                   data-speed="0.16"
+                  loading="lazy"
                   src="images/auta.jpg"
                   alt="Autohandel"
                 />
@@ -334,6 +360,7 @@
                   class="card-media"
                   data-parallax="true"
                   data-speed="0.18"
+                  loading="lazy"
                   src="images/smart.webp"
                   alt="Smart Repair"
                 />
@@ -356,6 +383,7 @@
                   class="card-media"
                   data-parallax="true"
                   data-speed="0.22"
+                  loading="lazy"
                   src="https://images.unsplash.com/photo-1517524206127-48bbd363f3d7?auto=format&fit=crop&w=1200&q=80"
                   alt="Reifenwechsel"
                 />
@@ -378,6 +406,7 @@
                   class="card-media"
                   data-parallax="true"
                   data-speed="0.17"
+                  loading="lazy"
                   src="https://images.unsplash.com/photo-1487754180451-c456f719a1fc?auto=format&fit=crop&w=1200&q=80"
                   alt="TÜV Vorbereitung"
                 />
@@ -437,7 +466,8 @@
             <div class="climate-service-media-wrap">
               <img
                 class="card-media climate-service-media"
-                src="images/klima1.jpg"
+                loading="lazy"
+                src="images/klima.jpg"
                 alt="Klimaservice"
               />
             </div>
@@ -457,7 +487,29 @@
       </div>
     </section>
 
-    <div class="full-line"></div>
+    <section class="parallax-section">
+      <div
+        class="parallax-bg"
+        style="background-image: url(&quot;images/guma.jpg&quot;)"
+        data-speed-bg="0.22"
+        data-speed-content="0.06"
+      ></div>
+      <div class="parallax-overlay"></div>
+      <div class="parallax-content">
+        <p class="eyebrow">Reifenservice &amp; Sicherheit</p>
+        <h2>DER KONTAKT<br /><em>ZUR STRASSE</em></h2>
+        <p class="parallax-copy-strong">
+          Professioneller Reifenwechsel und TÜV-Vorbereitung – damit Sie sicher
+          ankommen.
+        </p>
+        <a
+          class="btn btn-primary"
+          data-transition="page"
+          href="service-reifenwechsel.html"
+          >Mehr erfahren</a
+        >
+      </div>
+    </section>
 
     <section class="section" style="padding-top: 0">
       <div class="container reveal video-showcase">
@@ -639,6 +691,7 @@
               <img
                 src="images/PreiseListe.jpeg"
                 alt="Preisliste AUTOMOBILE A &amp; A"
+                loading="lazy"
                 class="willkommen-img"
               />
             </a>
@@ -669,7 +722,26 @@
         </div>
       </div>
     </section>
-    <div class="full-line"></div>
+    <section class="parallax-section">
+      <div
+        class="parallax-bg"
+        style="background-image: url(&quot;images/auto666.jpg&quot;)"
+        data-speed-bg="0.22"
+        data-speed-content="0.06"
+      ></div>
+      <div class="parallax-overlay parallax-overlay--right"></div>
+      <div class="parallax-content parallax-content--right">
+        <p class="eyebrow">Fahrzeugankauf &amp; Handel</p>
+        <h2>GEPRÜFTE<br /><em>FAHRZEUGE</em></h2>
+        <p>
+          Transparenter Handel, faire Preise und geprüfte Fahrzeuggeschichte –
+          weil Vertrauen das Fundament jedes Kaufes ist.
+        </p>
+        <a class="btn btn-primary" data-transition="page" href="autos.html"
+          >Fahrzeuge ansehen</a
+        >
+      </div>
+    </section>
 
     <section class="section" style="padding-top: 0">
       <div class="container reveal">
@@ -833,16 +905,21 @@
 
           <article class="glass contact-map-card">
             <p class="contact-card-title">Google Maps</p>
-            <p class="map-privacy-note">
-              Aus Datenschutzgruenden wird keine Karte direkt eingebettet.
-              Oeffnen Sie den Standort bei Bedarf direkt in Google Maps.
-            </p>
+            <div class="map-frame-wrap">
+              <iframe
+                src="https://maps.google.com/maps?q=Borsigstra%C3%9Fe+10a,+93073+Neutraubling&output=embed"
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                title="AUTOMOBILE A &amp; A – Standort Neutraubling"
+                allowfullscreen
+              ></iframe>
+            </div>
             <a
-              class="contact-pill map-privacy-link"
-              href="https://www.google.com/maps?q=Borsigstra%C3%9Fe%2010a%2C%2093073%20Neutraubling"
+              class="contact-pill map-external-link"
+              href="https://www.google.com/maps?q=Borsigstra%C3%9Fe+10a,+93073+Neutraubling"
               target="_blank"
               rel="noopener noreferrer"
-              >Google Maps im neuen Tab oeffnen</a
+              >In Google Maps öffnen ↗</a
             >
           </article>
         </div>
@@ -880,11 +957,15 @@
           <p>
             Webdesign by
             <a
-              href="https://aldindelic.de"
+              href="https://facebeneath.com"
               target="_blank"
               rel="noopener noreferrer"
               >Facebeneath</a
             >
+          </p>
+          <p class="footer-copyright">
+            &copy; <span class="js-current-year"></span> AUTOMOBILE A &amp; A
+            &ndash; Alle Rechte vorbehalten.
           </p>
         </div>
       </div>
@@ -898,5 +979,7 @@
       aria-label="WhatsApp Chat öffnen"
       >WA</a
     >
+
+    <script src="cookies.js?v=7"></script>
   </body>
 </html>

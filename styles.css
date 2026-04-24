@@ -861,6 +861,213 @@ main {
   align-items: stretch;
 }
 
+.packages-stack {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(28px, 4vw, 46px);
+}
+
+.package-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(10px, 1.1vw, 14px);
+}
+
+.package-block-header {
+  width: 100%;
+  max-width: 700px;
+  text-align: center;
+  padding-inline: 16px;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.package-block-title {
+  margin: 0 0 4px;
+  font-family: "1942Font", sans-serif;
+  font-size: clamp(1.8rem, 2rem + 1.5vw, 3.2rem);
+  letter-spacing: 0.08em;
+  color: #f1f7ff;
+}
+
+.package-block-intro {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 640px;
+  text-align: center;
+  font-family: "Inter", sans-serif;
+  font-size: clamp(15px, 0.75vw + 10px, 21px);
+  font-weight: 600;
+  line-height: 1.58;
+  text-decoration: none;
+}
+
+.package-block--identity .package-block-title {
+  color: #c7f9ff;
+  text-shadow:
+    0 0 16px rgba(118, 243, 255, 0.14),
+    0 0 24px rgba(3, 221, 255, 0.1);
+}
+
+.package-block--identity .package-block-intro {
+  background: linear-gradient(
+    102deg,
+    rgba(118, 243, 255, 0.96),
+    rgba(239, 250, 255, 0.95) 46%,
+    rgba(3, 221, 255, 0.88)
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.package-block--dominance .package-block-title {
+  color: #4b71da;
+  text-shadow:
+    0 0 18px rgba(118, 243, 255, 0.16),
+    0 0 26px rgba(115, 79, 255, 0.12);
+}
+
+.package-block--dominance .package-block-intro {
+  background: linear-gradient(
+    102deg,
+    rgb(116, 85, 228),
+    rgba(242, 243, 255, 0.94) 44%,
+    rgb(116, 85, 228)
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.package-block-header::after {
+  content: "";
+  display: block;
+  width: min(260px, 56%);
+  height: 2px;
+  margin: 12px auto 0;
+  border-radius: 999px;
+}
+
+.package-block--identity .package-block-header::after {
+  background: linear-gradient(
+    90deg,
+    rgba(79, 6, 214, 0.95),
+    rgba(118, 243, 255, 0.88) 52%,
+    rgba(3, 221, 255, 0)
+  );
+  box-shadow:
+    0 0 18px rgba(3, 221, 255, 0.22),
+    0 0 24px rgba(118, 243, 255, 0.16);
+}
+
+.package-block--dominance .package-block-header::after {
+  background: linear-gradient(
+    90deg,
+    rgba(62, 36, 209, 0.95),
+    rgba(115, 79, 255, 0.88) 56%,
+    rgba(255, 217, 107, 0)
+  );
+  box-shadow:
+    0 0 20px rgba(118, 243, 255, 0.22),
+    0 0 28px rgba(115, 79, 255, 0.16);
+}
+
+.card-feature-list {
+  margin: 8px 0 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 8px;
+}
+
+.card-feature-list li {
+  position: relative;
+  padding: 8px 10px 8px 30px;
+  font-size: var(--fs-small);
+  color: #e4edf4;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.06);
+  transition:
+    transform 0.24s ease,
+    border-color 0.24s ease,
+    background-color 0.24s ease;
+}
+
+.card-feature-list li::before {
+  content: "";
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  transform: translateY(-50%);
+  background: #76f3ff;
+  box-shadow: 0 0 10px rgba(118, 243, 255, 0.44);
+}
+
+.card-feature-list li:hover {
+  transform: translateX(2px);
+  border-color: rgba(118, 243, 255, 0.45);
+  background: rgba(118, 243, 255, 0.1);
+}
+
+.card-feature-list--premium li {
+  border-color: rgba(255, 217, 107, 0.3);
+  background: rgba(255, 217, 107, 0.07);
+}
+
+.card-feature-list--premium li::before {
+  background: #ffd96b;
+  box-shadow: 0 0 10px rgba(255, 217, 107, 0.5);
+}
+
+.card-feature-list--premium li:hover {
+  border-color: rgba(255, 217, 107, 0.55);
+  background: rgba(255, 217, 107, 0.15);
+}
+
+@media (max-width: 700px) {
+  .package-block {
+    gap: 12px;
+  }
+
+  .package-block-intro {
+    margin: 8px 0 14px;
+    max-width: 100%;
+    font-size: clamp(14px, 1.5vw + 8px, 18px);
+    line-height: 1.65;
+  }
+
+  .card-feature-list li {
+    padding: 8px 10px 8px 28px;
+  }
+
+  .package-block--identity,
+  .package-block--dominance {
+    gap: 10px;
+  }
+
+  .package-block-header {
+    max-width: 100%;
+    padding-inline: 12px;
+  }
+
+  .package-block-intro {
+    max-width: 100%;
+    font-size: clamp(14px, 1.5vw + 8px, 18px);
+    line-height: 1.62;
+  }
+
+  .package-block-header::after {
+    width: min(220px, 66%);
+    margin-top: 10px;
+  }
+}
+
 .card {
   background: linear-gradient(
     180deg,

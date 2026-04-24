@@ -1,6 +1,24 @@
 <!doctype html>
 <html lang="de">
   <head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-33877VG7WG"></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+
+      gtag("js", new Date());
+
+      gtag("consent", "default", {
+        analytics_storage: "denied",
+        ad_storage: "denied",
+        ad_user_data: "denied",
+        ad_personalization: "denied"
+      });
+
+      gtag("config", "G-33877VG7WG");
+    </script>
+    <link rel="stylesheet" href="cookies.css?v=5" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Autos | AUTOMOBILE A & A</title>
@@ -24,7 +42,7 @@
     <meta property="og:url" content="https://www.automobile-aa.de/autos.html" />
     <meta
       property="og:image"
-      content="https://www.automobile-aa.de/images/logo.png"
+      content="https://www.automobile-aa.de/images/aaLogo.png"
     />
     <meta
       property="og:image:alt"
@@ -40,14 +58,14 @@
     />
     <meta
       name="twitter:image"
-      content="https://www.automobile-aa.de/images/logo.png"
+      content="https://www.automobile-aa.de/images/aaLogo.png"
     />
 
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Rajdhani:wght@500;600;700&display=swap"
     />
-    <link rel="stylesheet" href="styles.css?v=20260412" />
+    <link rel="stylesheet" href="styles.css?v=36" />
   </head>
   <body>
     <nav class="main-nav">
@@ -68,7 +86,13 @@
       </div>
     </nav>
 
-    <header class="page-hero">
+    <header class="page-hero autos-page-hero">
+      <img
+        class="autos-hero-img"
+        src="images/aaLogo.png"
+        alt=""
+        aria-hidden="true"
+      />
       <div class="container reveal">
         <p class="eyebrow">Autos</p>
         <h1>Unsere Marken und verfügbaren Fahrzeuge</h1>
@@ -231,6 +255,21 @@
             >
           </div>
         </article>
+
+        <article class="brand-card glass reveal">
+          <button class="brand-toggle" type="button" aria-label="Ford">
+            <img
+              class="brand-logo"
+              src="https://cdn.simpleicons.org/ford/ffffff"
+              alt="Ford"
+            />
+          </button>
+          <div class="brand-models">
+            <a data-transition="page" href="auto-ford-fiesta.html"
+              >FORD FIESTA 1,3 - KLIMA</a
+            >
+          </div>
+        </article>
       </div>
     </section>
 
@@ -270,16 +309,21 @@
 
           <article class="glass contact-map-card">
             <p class="contact-card-title">Google Maps</p>
-            <p class="map-privacy-note">
-              Aus Datenschutzgruenden wird keine Karte direkt eingebettet.
-              Oeffnen Sie den Standort bei Bedarf direkt in Google Maps.
-            </p>
+            <div class="map-frame-wrap">
+              <iframe
+                src="https://maps.google.com/maps?q=Borsigstra%C3%9Fe+10a,+93073+Neutraubling&output=embed"
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                title="AUTOMOBILE A &amp; A – Standort Neutraubling"
+                allowfullscreen
+              ></iframe>
+            </div>
             <a
-              class="contact-pill map-privacy-link"
-              href="https://www.google.com/maps?q=Borsigstra%C3%9Fe%2010a%2C%2093073%20Neutraubling"
+              class="contact-pill map-external-link"
+              href="https://www.google.com/maps?q=Borsigstra%C3%9Fe+10a,+93073+Neutraubling"
               target="_blank"
               rel="noopener noreferrer"
-              >Google Maps im neuen Tab oeffnen</a
+              >In Google Maps öffnen ↗</a
             >
           </article>
         </div>
@@ -315,11 +359,15 @@
           <p>
             Webdesign by
             <a
-              href="https://aldindelic.de"
+              href="https://facebeneath.com"
               target="_blank"
               rel="noopener noreferrer"
               >Facebeneath</a
             >
+          </p>
+          <p class="footer-copyright">
+            &copy; <span class="js-current-year"></span> AUTOMOBILE A &amp; A
+            &ndash; Alle Rechte vorbehalten.
           </p>
         </div>
       </div>
@@ -334,6 +382,7 @@
       >WA</a
     >
 
-    <script src="script.js?v=20260412"></script>
+    <script src="script.js?v=32"></script>
+    <script src="cookies.js?v=7"></script>
   </body>
 </html>

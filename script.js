@@ -452,7 +452,7 @@
   }
 
   const revealTargets = document.querySelectorAll(
-    ".hero, .about, .card, .project-card, .redesign, .services-info, .process-step, .stat-item, .logo-link, .footer, .fb-parallax-section-inner",
+    ".hero, .about, .package-block-header, .card, .project-card, .redesign, .services-info, .process-step, .stat-item, .logo-link, .footer, .fb-parallax-section-inner",
   );
 
   if (revealTargets.length) {
@@ -460,7 +460,16 @@
 
     revealTargets.forEach((element, elementIndex) => {
       element.classList.add("reveal-luxury");
-      element.style.transitionDelay = `${Math.min(elementIndex * 45, 220)}ms`;
+      let delay = Math.min(elementIndex * 45, 220);
+
+      if (
+        element.classList.contains("card") &&
+        element.closest(".package-block--dominance")
+      ) {
+        delay += 120;
+      }
+
+      element.style.transitionDelay = `${delay}ms`;
     });
 
     const heroSection = document.querySelector(".hero");
