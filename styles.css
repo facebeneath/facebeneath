@@ -1,4 +1,4 @@
-@import url("/parallax-global.css?v=20260415");
+@import url("/parallax-global.css?v=20260425");
 
 :root {
   --bg: #050506;
@@ -2305,9 +2305,17 @@ body.overlay-open {
 }
 
 .panel--dominance #overlayName,
-.panel--dominance .price-big,
 .panel--dominance .feature-list li {
   color: #ff9b9b;
+}
+
+.panel--dominance .aside-top .muted-note,
+.panel--dominance .price-big {
+  background: linear-gradient(90deg, #8f62ff 0%, #b58dff 52%, #dfc7ff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent !important;
+  color: transparent !important;
 }
 
 .panel--logo-package #overlayName,
@@ -5989,6 +5997,18 @@ footer .footer-legal {
 
 #aiNote {
   display: none;
+  background: linear-gradient(
+    160deg,
+    rgba(2, 10, 16, 0.9),
+    rgba(3, 14, 22, 0.82)
+  );
+  border: 1px solid rgba(1, 204, 255, 0.36);
+  box-shadow: 0 16px 34px rgba(0, 0, 0, 0.42);
+  color: #d8edf4;
+}
+
+#aiNote strong {
+  color: #f4fbff;
 }
 
 .overlay-heading {
@@ -6548,4 +6568,41 @@ body.fb-parallax-home > .lang-select-horizontal {
   .fb-carousel__dot.is-active {
     width: 18px;
   }
+}
+
+@media (max-width: 768px) {
+  .reveal-on-mobile,
+  .reveal-luxury,
+  body.js-motion .reveal-luxury {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+    will-change: auto !important;
+  }
+
+  .card {
+    -webkit-backdrop-filter: none !important;
+    backdrop-filter: none !important;
+  }
+
+  .fb-parallax-bg {
+    will-change: auto !important;
+  }
+
+  .cinematic-title__letter {
+    will-change: auto !important;
+  }
+
+  .fb-parallax-section-inner--cinematic.is-active .cinematic-title__letter {
+    animation-duration: 0.4s !important;
+  }
+}
+
+.mt-ch {
+  display: inline-block;
+  text-align: center;
+
+  font: inherit;
+  letter-spacing: inherit;
+  color: inherit;
 }

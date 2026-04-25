@@ -1,69 +1,7 @@
 (() => {
-  const isMobile = window.matchMedia("(max-width: 768px)");
-  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
-
-  function applyReveal() {
-    if (!isMobile.matches) {
-      return;
-    }
-
-    const marker = document.querySelector(".reveal-start");
-    const elements = Array.from(
-      document.querySelectorAll(
-        "body *:not(script):not(style):not(footer):not(footer *):not(.overlay):not(.overlay *):not(.whatsapp-btn):not(.share-fab):not(.share-fab *):not(.lang-select-horizontal):not(.up):not(.up *):not(svg):not(svg *)",
-      ),
-    ).filter((el) => {
-      if (!marker) return true;
-      return (
-        el === marker ||
-        marker.compareDocumentPosition(el) & Node.DOCUMENT_POSITION_FOLLOWING
-      );
-    });
-
-    if (reduceMotion.matches) {
-      elements.forEach((el) =>
-        el.classList.add("reveal-on-mobile", "is-visible"),
-      );
-      return;
-    }
-
-    if (!("IntersectionObserver" in window)) {
-      elements.forEach((el) =>
-        el.classList.add("reveal-on-mobile", "is-visible"),
-      );
-      return;
-    }
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("is-visible");
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      {
-        root: null,
-        rootMargin: "0px 0px -5% 0px",
-        threshold: 0.05,
-      },
-    );
-
-    elements.forEach((el) => {
-      const rect = el.getBoundingClientRect();
-      if (rect.top < window.innerHeight * 0.95) {
-        el.classList.add("reveal-on-mobile", "is-visible");
-      } else {
-        el.classList.add("reveal-on-mobile");
-        observer.observe(el);
-      }
-    });
-  }
-
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", applyReveal);
-  } else {
-    applyReveal();
-  }
+  // Scroll-reveal on mobile is disabled: applying opacity:0 to all body
+  // descendants caused elements (pricing cards, sections) to get permanently
+  // stuck invisible when IntersectionObserver failed to fire on iOS Safari.
+  // The reveal-luxury system in script.js handles desktop reveal animations.
+  // Elements are visible by default; no hidden states are added on mobile.
 })();

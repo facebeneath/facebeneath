@@ -112,6 +112,25 @@
     else if (lower.includes("extreme")) stripe.classList.add("extreme");
 
     const logoOnlyNote = overlay.querySelector(".logo-only-note");
+    const contactNote = overlay.querySelector(".contact-note");
+
+    if (contactNote) {
+      if (isDominance) {
+        if (lang === "en") {
+          contactNote.textContent = "Delivery: 10-15 business days.";
+        } else if (lang === "de") {
+          contactNote.textContent = "Lieferung: 10-15 Werktage.";
+        } else {
+          contactNote.textContent = "Isporuka: 10-15 radnih dana.";
+        }
+      } else if (lang === "en") {
+        contactNote.textContent = "Get in touch so we can discuss.";
+      } else if (lang === "de") {
+        contactNote.textContent = "Kontaktieren Sie mich für eine Abstimmung.";
+      } else {
+        contactNote.textContent = "Javi da se dogovorimo.";
+      }
+    }
 
     if (lower.includes("logo")) {
       aiNote && (aiNote.style.display = "block");
@@ -456,47 +475,55 @@
   );
 
   if (revealTargets.length) {
-    document.body.classList.add("js-motion");
+    const isMobileReveal = window.matchMedia("(max-width: 768px)").matches;
 
-    revealTargets.forEach((element, elementIndex) => {
-      element.classList.add("reveal-luxury");
-      let delay = Math.min(elementIndex * 45, 220);
+    if (!isMobileReveal) {
+      document.body.classList.add("js-motion");
 
-      if (
-        element.classList.contains("card") &&
-        element.closest(".package-block--dominance")
-      ) {
-        delay += 120;
-      }
+      revealTargets.forEach((element, elementIndex) => {
+        element.classList.add("reveal-luxury");
+        let delay = Math.min(elementIndex * 45, 220);
 
-      element.style.transitionDelay = `${delay}ms`;
-    });
-
-    const heroSection = document.querySelector(".hero");
-    heroSection?.classList.add("is-visible");
-
-    if ("IntersectionObserver" in window) {
-      const revealObserver = new IntersectionObserver(
-        (entries, observer) => {
-          entries.forEach((entry) => {
-            if (!entry.isIntersecting) return;
-            entry.target.classList.add("is-visible");
-            observer.unobserve(entry.target);
-          });
-        },
-        {
-          threshold: 0.18,
-          rootMargin: "0px 0px -8% 0px",
-        },
-      );
-
-      revealTargets.forEach((element) => {
-        if (!element.classList.contains("is-visible")) {
-          revealObserver.observe(element);
+        if (
+          element.classList.contains("card") &&
+          element.closest(".package-block--dominance")
+        ) {
+          delay += 120;
         }
+
+        element.style.transitionDelay = `${delay}ms`;
       });
-    } else {
-      revealTargets.forEach((element) => element.classList.add("is-visible"));
+
+      const heroSection = document.querySelector(".hero");
+      heroSection?.classList.add("is-visible");
+
+      if ("IntersectionObserver" in window) {
+        const revealObserver = new IntersectionObserver(
+          (entries, observer) => {
+            entries.forEach((entry) => {
+              if (!entry.isIntersecting) return;
+              entry.target.classList.add("is-visible");
+              observer.unobserve(entry.target);
+            });
+          },
+          {
+            threshold: 0.05,
+            rootMargin: "0px 0px 0px 0px",
+          },
+        );
+
+        revealTargets.forEach((element) => {
+          if (!element.classList.contains("is-visible")) {
+            revealObserver.observe(element);
+          }
+        });
+
+        setTimeout(() => {
+          revealTargets.forEach((el) => el.classList.add("is-visible"));
+        }, 1200);
+      } else {
+        revealTargets.forEach((element) => element.classList.add("is-visible"));
+      }
     }
   }
 
@@ -665,12 +692,11 @@
     }
   })();
 
-  /* ── Hero video subtle scroll parallax ────────────────── */
   (function () {
     const wrap = document.querySelector(".hero-video-wrap");
     if (!wrap || window.matchMedia("(prefers-reduced-motion: reduce)").matches)
       return;
-    /* skip parallax on mobile — avoids layout bugs on small screens */
+
     if (window.innerWidth <= 768) return;
 
     let ticking = false;
@@ -680,7 +706,6 @@
         if (ticking) return;
         ticking = true;
         requestAnimationFrame(function () {
-          /* re-check width on each frame in case of orientation change */
           if (window.innerWidth <= 768) {
             wrap.style.transform = "";
             ticking = false;
@@ -688,9 +713,9 @@
           }
           const rect = wrap.getBoundingClientRect();
           const viewH = window.innerHeight;
-          /* only animate while section is visible */
+
           if (rect.bottom > 0 && rect.top < viewH) {
-            const progress = -rect.top / viewH; /* 0 at top, ~1 at bottom */
+            const progress = -rect.top / viewH;
             const shift = Math.max(-30, Math.min(30, progress * 28));
             wrap.style.transform = "translateY(" + shift + "px)";
           }
@@ -1092,6 +1117,8 @@
     if (!sections.length) return;
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
+    if (window.matchMedia("(max-width: 768px)").matches) return;
+
     sections.forEach(function (section) {
       if (section.querySelector(".fb-parallax-bg")) return;
       var bg = document.createElement("div");
@@ -1133,6 +1160,8 @@
 
   (function initElectricEffect() {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    if (window.matchMedia("(max-width: 768px)").matches) return;
     var sections = document.querySelectorAll(
       ".fb-parallax-section, .logo-link",
     );
@@ -1352,5 +1381,105 @@
         rafId = 0;
       }
     }
+  })();
+
+  (function initMatrixText() {
+    var CHARSET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%&*!?";
+    var CHARSET_LEN = CHARSET.length;
+
+    var els = document.querySelectorAll(".matrix-text");
+    if (!els.length) return;
+
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    var isMobile = window.matchMedia("(max-width: 768px)").matches;
+
+    var DURATION = isMobile ? 650 : 1300;
+
+    function rand() {
+      return CHARSET[Math.floor(Math.random() * CHARSET_LEN)];
+    }
+
+    function scramble(finalChars, spans) {
+      var len = finalChars.length;
+      var startTs = 0;
+
+      function tick(ts) {
+        if (!startTs) startTs = ts;
+        var p = Math.min((ts - startTs) / DURATION, 1);
+
+        var resolved = Math.ceil(p * len);
+
+        for (var i = 0; i < len; i++) {
+          spans[i].textContent = i < resolved ? finalChars[i] : rand();
+        }
+
+        if (p < 1) {
+          requestAnimationFrame(tick);
+        } else {
+          for (var j = 0; j < len; j++) spans[j].textContent = finalChars[j];
+        }
+      }
+
+      requestAnimationFrame(tick);
+    }
+
+    var items = [];
+
+    els.forEach(function (el) {
+      var text = el.textContent.trim();
+      if (!text) return;
+
+      var finalChars = text.split("");
+
+      el.setAttribute("aria-label", text);
+      el.textContent = "";
+
+      var frag = document.createDocumentFragment();
+      var spans = finalChars.map(function (ch) {
+        var s = document.createElement("span");
+        s.className = "mt-ch";
+        s.setAttribute("aria-hidden", "true");
+        s.textContent = ch;
+        frag.appendChild(s);
+        return s;
+      });
+
+      el.appendChild(frag);
+      items.push({ el: el, finalChars: finalChars, spans: spans });
+    });
+    requestAnimationFrame(function () {
+      items.forEach(function (d) {
+        var widths = d.spans.map(function (s) {
+          return s.offsetWidth;
+        });
+        d.spans.forEach(function (s, i) {
+          s.style.width = widths[i] + "px";
+        });
+      });
+    });
+
+    if (!("IntersectionObserver" in window)) return;
+
+    var io = new IntersectionObserver(
+      function (entries, obs) {
+        entries.forEach(function (entry) {
+          if (!entry.isIntersecting) return;
+          for (var k = 0; k < items.length; k++) {
+            if (items[k].el === entry.target) {
+              scramble(items[k].finalChars, items[k].spans);
+              break;
+            }
+          }
+
+          obs.unobserve(entry.target);
+        });
+      },
+      { threshold: 0.3 },
+    );
+
+    items.forEach(function (d) {
+      io.observe(d.el);
+    });
   })();
 })();
