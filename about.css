@@ -350,6 +350,21 @@ footer .footer-legal a:hover {
   color: #00bbff;
 }
 
+.regensburg-link {
+  color: #249db3;
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(36, 157, 179, 0.4);
+  transition:
+    color 0.3s,
+    border-color 0.3s;
+}
+
+.regensburg-link:hover {
+  color: #00bbff;
+  border-color: #00bbff;
+}
+
 footer .footer-logo {
   width: min(150px, 40vw);
   margin-bottom: 10px;
