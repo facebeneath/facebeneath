@@ -3805,15 +3805,24 @@ body.mobile-menu-open {
   color: #0ccbec;
   background-color: #171720;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
-  font-size: 0.98rem;
+  font-size: 1.1rem;
   font-weight: 700;
   letter-spacing: 0.4px;
   line-height: 1.35;
   padding: 14px 12px;
   min-height: 56px;
+}
+
+.kunden-tag {
+  color: #c9a84c;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  opacity: 0.9;
 }
 
 .project-card:hover .project-thumb {
