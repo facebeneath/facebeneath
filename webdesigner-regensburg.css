@@ -15,7 +15,7 @@ body {
 
 header,
 section,
-footer {
+section {
   max-width: 900px;
   margin: 0 auto 40px auto;
   background: #01c7f8;
@@ -77,14 +77,11 @@ a:hover {
   transform: translateY(-2px);
 }
 
-footer {
-  text-align: center;
-  font-size: 0.9rem;
-  color: #555;
-}
-
+/* ─── FOOTER ──────────────────────────────────────────────── */
 @media (max-width: 768px) {
+/* ─── FOOTER — see footer.css ─────────────────────────────── */
   body {
+@media (max-width: 768px) {
     padding: 10px;
   }
 
@@ -97,8 +94,7 @@ footer {
   }
 
   header,
-  section,
-  footer {
+  section {
     padding: 20px;
   }
 }

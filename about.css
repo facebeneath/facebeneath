@@ -333,25 +333,10 @@ body > .wrap:first-of-type > header .lead {
   line-height: 1.75;
 }
 
-footer {
-  margin-top: 30px;
-  border-top: 1px solid var(--line);
-  padding: 28px 20px;
-  text-align: center;
-  color: #b8d8f1;
-}
-
-footer .footer-legal a {
-  color: #92901e;
-  text-decoration: none;
-}
-
-footer .footer-legal a:hover {
-  color: #00bbff;
-}
-
 .regensburg-link {
+/* ─── FOOTER — see footer.css ─────────────────────────────── */
   color: #249db3;
+.regensburg-link {
   font-weight: 600;
   text-decoration: none;
   border-bottom: 1px solid rgba(36, 157, 179, 0.4);
@@ -363,12 +348,6 @@ footer .footer-legal a:hover {
 .regensburg-link:hover {
   color: #00bbff;
   border-color: #00bbff;
-}
-
-footer .footer-logo {
-  width: min(150px, 40vw);
-  margin-bottom: 10px;
-  border-radius: 8px;
 }
 
 .lang-select-horizontal {

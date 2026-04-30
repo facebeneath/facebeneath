@@ -2983,135 +2983,8 @@ main {
   }
 }
 
-footer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  color: #249db3;
-  padding: 20px 0;
-  text-align: center;
-  width: 100%;
-  margin-top: 40px;
-}
-
-footer #year {
-  font-weight: normal;
-  font-size: var(--fs-small);
-  color: #b8d8f1;
-  margin-top: 10px;
-  white-space: nowrap;
-}
-
-footer .footer-logo {
-  width: 160px !important;
-  max-width: 35% !important;
-  height: auto;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
-  transition:
-    transform 0.3s,
-    box-shadow 0.3s;
-  margin-top: 20px;
-}
-
-footer .footer-logo:hover {
-  transform: scale(1.05);
-  box-shadow: 0 6px 18px rgba(0, 187, 255, 0.6);
-}
-
-.footer-credit {
-  margin-top: 15px;
-  font-size: 0.85rem;
-  text-align: center;
-}
-
-.footer-credit .credit-white {
-  color: #ffffff;
-}
-
-.footer-credit .credit-blue {
-  color: #249db3;
-  font-weight: 600;
-}
-
-@media (max-width: 768px) {
-  .footer-credit {
-    font-size: 0.8rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .footer-credit {
-    font-size: 0.75rem;
-  }
-}
-
-@media (max-width: 768px) {
-  footer {
-    padding: 15px 0;
-    text-align: center;
-  }
-
-  footer #year {
-    font-size: 14px;
-    color: #a0c5e6;
-    margin-top: 12px;
-    white-space: nowrap;
-  }
-
-  footer .footer-logo {
-    width: 120px !important;
-    max-width: 45% !important;
-  }
-}
-
-@media (max-width: 480px) {
-  footer #year {
-    font-size: 14px;
-  }
-
-  footer .footer-logo {
-    width: 100px !important;
-  }
-}
-footer .footer-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  gap: 12px;
-}
-
-footer .footer-legal {
-  font-size: 0.85rem;
-  color: #b8d8f1;
-}
-
-footer .footer-legal a {
-  color: #92901e;
-  text-decoration: none;
-  margin: 0 5px;
-  transition: color 0.3s;
-}
-
-footer .footer-legal a:hover {
-  color: #00bbff;
-}
-
-@media (max-width: 768px) {
-  footer .footer-legal {
-    font-size: 0.8rem;
-  }
-}
-
-@media (max-width: 480px) {
-  footer .footer-legal {
-    font-size: 0.75rem;
-    line-height: 1.4;
-  }
-}
+/* ─── FOOTER ──────────────────────────────────────────────── */
+/* Styles moved to footer.css (reusable component)            */
 
 .lang-select-horizontal {
   position: fixed;
@@ -4378,7 +4251,6 @@ header {
 .lang-select-horizontal .mobile-menu-item,
 .project-name,
 .stat-label,
-.footer-credit,
 footer .footer-legal a {
   color: var(--primary-strong);
 }
@@ -4937,9 +4809,7 @@ footer .footer-legal a:hover {
 .panel .sub,
 .included-list,
 .note,
-footer #year,
-footer .footer-legal,
-.footer-credit .credit-white {
+footer #year {
   color: var(--text-muted);
 }
 
@@ -4965,7 +4835,6 @@ footer .footer-legal,
 .stat-number,
 .services-info h2,
 .vision,
-.footer-credit .credit-blue,
 .logo-text {
   color: var(--primary-strong) !important;
 }
@@ -5518,19 +5387,6 @@ footer .footer-legal,
 }
 
 .footer-brand,
-.footer-legal,
-.footer-credit {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-}
-
-footer .footer-logo {
-  border: 1px solid rgba(var(--primary-rgb), 0.18);
-}
-
 body.js-motion .reveal-luxury {
   opacity: 0;
   transform: translateY(24px);
