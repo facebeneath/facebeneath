@@ -2983,9 +2983,6 @@ main {
   }
 }
 
-/* ─── FOOTER ──────────────────────────────────────────────── */
-/* Styles moved to footer.css (reusable component)            */
-
 .lang-select-horizontal {
   position: fixed;
   top: 14px;
