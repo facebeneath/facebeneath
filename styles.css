@@ -5329,6 +5329,150 @@ footer #year {
   filter: drop-shadow(0 8px 20px rgba(var(--primary-rgb), 0.2));
 }
 
+.process-step.process-step--beratung {
+  background:
+    linear-gradient(145deg, rgba(6, 10, 16, 0.86), rgba(6, 10, 16, 0.68)),
+    url("beratung.jpg") center 42% / cover no-repeat;
+  border-color: rgba(12, 203, 236, 0.28);
+}
+
+.process-step.process-step--beratung .icon,
+.process-step.process-step--beratung h3,
+.process-step.process-step--beratung p {
+  position: relative;
+  z-index: 1;
+}
+
+.process-step.process-step--beratung h3 {
+  color: #b7f4ff;
+  text-shadow: 0 4px 16px rgba(0, 0, 0, 0.45);
+}
+
+.process-step.process-step--beratung p {
+  color: #e8f5ff;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.45);
+}
+
+.process-step.process-step--angebot {
+  background:
+    linear-gradient(145deg, rgba(14, 10, 5, 0.84), rgba(10, 8, 5, 0.68)),
+    url("angebot.jpg") center 46% / cover no-repeat;
+  border-color: rgba(212, 160, 23, 0.36);
+}
+
+.process-step.process-step--angebot .icon,
+.process-step.process-step--angebot h3,
+.process-step.process-step--angebot p {
+  position: relative;
+  z-index: 1;
+}
+
+.process-step.process-step--angebot h3 {
+  color: #ffe0a1;
+  text-shadow: 0 4px 16px rgba(0, 0, 0, 0.46);
+}
+
+.process-step.process-step--angebot p {
+  color: #fff2d5;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.46);
+}
+
+.process-step.process-step--sameln {
+  background:
+    linear-gradient(145deg, rgba(5, 12, 9, 0.84), rgba(5, 10, 8, 0.68)),
+    url("sameln.jpg") center 44% / cover no-repeat;
+  border-color: rgba(23, 212, 70, 0.34);
+}
+
+.process-step.process-step--sameln .icon,
+.process-step.process-step--sameln h3,
+.process-step.process-step--sameln p {
+  position: relative;
+  z-index: 1;
+}
+
+.process-step.process-step--sameln h3 {
+  color: #c9ffd7;
+  text-shadow: 0 4px 16px rgba(0, 0, 0, 0.46);
+}
+
+.process-step.process-step--sameln p {
+  color: #eaffef;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.46);
+}
+
+.process-step.process-step--design {
+  background:
+    linear-gradient(145deg, rgba(8, 8, 14, 0.84), rgba(8, 10, 18, 0.68)),
+    url("design.jpg") center 45% / cover no-repeat;
+  border-color: rgba(140, 170, 255, 0.34);
+}
+
+.process-step.process-step--design .icon,
+.process-step.process-step--design h3,
+.process-step.process-step--design p {
+  position: relative;
+  z-index: 1;
+}
+
+.process-step.process-step--design h3 {
+  color: #d5e2ff;
+  text-shadow: 0 4px 16px rgba(0, 0, 0, 0.46);
+}
+
+.process-step.process-step--design p {
+  color: #edf3ff;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.46);
+}
+
+.process-step.process-step--lunch {
+  background:
+    linear-gradient(145deg, rgba(10, 7, 14, 0.84), rgba(12, 8, 18, 0.68)),
+    url("lunch.jpg") center 46% / cover no-repeat;
+  border-color: rgba(198, 146, 255, 0.34);
+}
+
+.process-step.process-step--lunch .icon,
+.process-step.process-step--lunch h3,
+.process-step.process-step--lunch p {
+  position: relative;
+  z-index: 1;
+}
+
+.process-step.process-step--lunch h3 {
+  color: #efdcff;
+  text-shadow: 0 4px 16px rgba(0, 0, 0, 0.46);
+}
+
+.process-step.process-step--lunch p {
+  color: #f7eeff;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.46);
+}
+
+.process-step.process-step--support {
+  background:
+    linear-gradient(145deg, rgba(6, 12, 16, 0.84), rgba(8, 16, 18, 0.68)),
+    url("support.jpg") center 44% / cover no-repeat;
+  border-color: rgba(96, 220, 255, 0.34);
+}
+
+.process-step.process-step--support .icon,
+.process-step.process-step--support h3,
+.process-step.process-step--support p {
+  position: relative;
+  z-index: 1;
+}
+
+.process-step.process-step--support h3 {
+  color: #d2f6ff;
+  text-shadow: 0 4px 16px rgba(0, 0, 0, 0.46);
+}
+
+.process-step.process-step--support p {
+  color: #ebfbff;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.46);
+}
+
 .stats-container {
   align-items: stretch;
 }
