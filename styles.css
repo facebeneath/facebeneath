@@ -2871,9 +2871,24 @@ main {
   text-align: center;
 }
 
+.services-info__text-wrap {
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
+  padding: 1.2em 1.5em;
+}
+
+@media (max-width: 768px) {
+  .services-info {
+    background-size: 140% auto !important;
+    background-position: center center !important;
+  }
+}
+
 @media (max-width: 400px) {
   .services-info {
     padding: calc(12px + 1vw);
+    background-size: 200% auto !important;
+    background-position: center center !important;
   }
 
   .services-info h2 {
@@ -2882,6 +2897,11 @@ main {
 
   .services-info p {
     font-size: calc(13px + 0.5vw);
+  }
+
+  .services-info__text-wrap {
+    padding: 0.8em 1em;
+    border-radius: 6px;
   }
 }
 

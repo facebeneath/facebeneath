@@ -334,9 +334,7 @@ body > .wrap:first-of-type > header .lead {
 }
 
 .regensburg-link {
-/* ─── FOOTER — see footer.css ─────────────────────────────── */
   color: #249db3;
-.regensburg-link {
   font-weight: 600;
   text-decoration: none;
   border-bottom: 1px solid rgba(36, 157, 179, 0.4);
