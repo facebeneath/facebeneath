@@ -465,9 +465,11 @@
     { threshold: 0.3 },
   );
 
-  const statsContainer = document.querySelector(".stats-container");
-  if (statsContainer) {
-    statsObserver.observe(statsContainer);
+  const statContainers = document.querySelectorAll(
+    ".stats-container, .hero-stats",
+  );
+  if (statContainers.length) {
+    statContainers.forEach((container) => statsObserver.observe(container));
   }
 
   const revealTargets = document.querySelectorAll(

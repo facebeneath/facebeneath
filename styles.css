@@ -4542,7 +4542,11 @@ footer .footer-legal a:hover {
   display: block;
   margin-bottom: 6px;
   font-size: 1.5rem;
-  color: #ffffff;
+  color: var(--accent);
+}
+
+.hero-stat .stat-number[data-suffix]::after {
+  content: attr(data-suffix);
 }
 
 .hero-stat span {
