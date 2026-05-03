@@ -1,0 +1,408 @@
+.fb-testimonials {
+  padding: clamp(60px, 8vw, 120px) 0;
+  background: #050506;
+  position: relative;
+  overflow: hidden;
+}
+
+.fb-testimonials::before {
+  content: "";
+  position: absolute;
+  top: -160px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(900px, 100vw);
+  height: 420px;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(212, 160, 23, 0.045) 0%,
+    transparent 68%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+.fb-testimonials__wrap {
+  max-width: 1220px;
+  margin: 0 auto;
+  padding: 0 clamp(20px, 4vw, 60px);
+  position: relative;
+  z-index: 1;
+}
+
+.fb-testimonials__header {
+  text-align: center;
+  margin-bottom: clamp(36px, 5vw, 64px);
+}
+
+.fb-testimonials__eyebrow {
+  display: inline-block;
+  font-family: "Inter", sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #d4a017;
+  margin-bottom: 18px;
+  padding: 5px 16px;
+  border: 1px solid rgba(212, 160, 23, 0.28);
+  border-radius: 999px;
+  background: rgba(212, 160, 23, 0.06);
+}
+
+.fb-testimonials__title {
+  font-family: "Sora", "Inter", sans-serif;
+  font-size: clamp(26px, 4vw, 46px);
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 16px;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+
+.fb-testimonials__subtitle {
+  font-family: "Inter", sans-serif;
+  font-size: clamp(14px, 1.5vw, 15.5px);
+  color: #9aa3a1;
+  margin: 0 auto 24px;
+  max-width: 440px;
+  line-height: 1.65;
+}
+
+.fb-testimonials__aggregate {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 8px 18px;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.025);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.fb-testimonials__agg-stars {
+  display: flex;
+  gap: 2px;
+}
+
+.fb-testimonials__agg-stars svg {
+  width: 14px;
+  height: 14px;
+  fill: #d4a017;
+}
+
+.fb-testimonials__agg-score {
+  font-family: "Sora", sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.fb-testimonials__agg-count {
+  font-family: "Inter", sans-serif;
+  font-size: 12px;
+  color: #9aa3a1;
+}
+
+.fb-testimonials__wrap .full-line {
+  margin: 0 0 clamp(32px, 4vw, 52px);
+}
+
+.fb-testimonials__grid {
+  display: flex;
+  gap: 20px;
+  will-change: transform;
+  padding-bottom: 8px;
+}
+
+.fb-testimonials__wrap::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: clamp(40px, 8vw, 100px);
+  background: linear-gradient(to left, #050506 0%, transparent 100%);
+  pointer-events: none;
+  z-index: 2;
+}
+
+.fb-testimonials__wrap::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: clamp(40px, 8vw, 100px);
+  background: linear-gradient(to right, #050506 0%, transparent 100%);
+  pointer-events: none;
+  z-index: 2;
+}
+
+.fb-tc {
+  position: relative;
+  flex: 0 0 clamp(280px, 26vw, 360px);
+  background: rgba(255, 255, 255, 0.024);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 16px;
+  padding: clamp(20px, 2.8vw, 32px);
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  transition:
+    transform 0.32s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.32s ease,
+    box-shadow 0.32s ease;
+  cursor: default;
+  overflow: hidden;
+}
+
+.fb-tc:hover {
+  transform: translateY(-6px);
+  border-color: rgba(212, 160, 23, 0.22);
+  box-shadow:
+    0 24px 64px rgba(0, 0, 0, 0.42),
+    0 0 0 1px rgba(212, 160, 23, 0.07),
+    0 6px 24px rgba(212, 160, 23, 0.07);
+}
+
+.fb-tc--new {
+  border-color: rgba(212, 160, 23, 0.22);
+  box-shadow: 0 0 0 1px rgba(212, 160, 23, 0.08) inset;
+}
+
+.fb-tc--new::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #d4a017, transparent);
+  opacity: 0.6;
+}
+
+.fb-tc__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.fb-tc__stars {
+  display: flex;
+  gap: 2px;
+}
+
+.fb-tc__stars svg {
+  width: 15px;
+  height: 15px;
+  fill: #d4a017;
+  flex-shrink: 0;
+}
+
+.fb-tc__badge {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-family: "Inter", sans-serif;
+  font-size: 10.5px;
+  font-weight: 500;
+  color: #9aa3a1;
+  padding: 3px 9px;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.03);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.fb-tc__badge-g {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  font-size: 12px;
+  font-weight: 800;
+  background: linear-gradient(
+    135deg,
+    #4285f4 0%,
+    #ea4335 35%,
+    #fbbc05 65%,
+    #34a853 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.fb-tc__badge-g.fb-has-svg {
+  background: none;
+  -webkit-background-clip: unset;
+  background-clip: unset;
+  -webkit-text-fill-color: unset;
+}
+
+.fb-tc__badge-g svg {
+  display: block;
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+}
+
+.fb-tc__quote {
+  margin: 0;
+  padding: 0;
+  flex: 1;
+  position: relative;
+}
+
+.fb-tc__quote::before {
+  content: "\201C";
+  display: block;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 44px;
+  line-height: 0.55;
+  color: rgba(212, 160, 23, 0.18);
+  margin-bottom: 8px;
+  user-select: none;
+}
+
+.fb-tc__quote p {
+  font-family: "Inter", sans-serif;
+  font-size: clamp(13px, 1.3vw, 14.5px);
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.72;
+  margin: 0;
+}
+
+.fb-tc__footer {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.fb-tc__avatar {
+  width: 36px;
+  height: 36px;
+  min-width: 36px;
+  border-radius: 50%;
+  background: linear-gradient(
+    135deg,
+    rgba(212, 160, 23, 0.18),
+    rgba(212, 160, 23, 0.06)
+  );
+  border: 1px solid rgba(212, 160, 23, 0.22);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Sora", sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  color: #d4a017;
+  text-transform: uppercase;
+  flex-shrink: 0;
+  user-select: none;
+}
+
+.fb-tc__meta {
+  flex: 1;
+  min-width: 0;
+}
+
+.fb-tc__name {
+  display: block;
+  font-family: "Inter", sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: #ffffff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.fb-tc__time {
+  display: block;
+  font-family: "Inter", sans-serif;
+  font-size: 11px;
+  color: #9aa3a1;
+  margin-top: 2px;
+}
+
+.fb-tc__verified {
+  width: 20px;
+  height: 20px;
+  min-width: 20px;
+  border-radius: 50%;
+  background: rgba(52, 168, 83, 0.1);
+  border: 1px solid rgba(52, 168, 83, 0.22);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 9px;
+  color: #34a853;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+@media (max-width: 880px) {
+  .fb-tc {
+    flex: 0 0 clamp(240px, 42vw, 320px);
+  }
+}
+
+@media (max-width: 600px) {
+  .fb-testimonials__grid {
+    gap: 14px;
+  }
+  .fb-tc {
+    flex: 0 0 clamp(260px, 78vw, 320px);
+  }
+}
+
+.fb-testimonials .fb-testimonials__title {
+  display: block;
+  text-align: center;
+  width: 100%;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.fb-testimonials__dots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 7px;
+  margin-top: 28px;
+}
+
+.fb-tc__dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.15);
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition:
+    width 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    background 0.35s ease,
+    opacity 0.35s ease;
+  opacity: 0.6;
+}
+
+.fb-tc__dot:hover {
+  opacity: 1;
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.fb-tc__dot--active {
+  width: 24px;
+  background: #d4a017;
+  opacity: 1;
+}
