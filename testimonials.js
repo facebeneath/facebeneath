@@ -72,33 +72,6 @@
 
     rafId = requestAnimationFrame(tick);
 
-    section.addEventListener("mouseenter", function () {
-      paused = true;
-    });
-    section.addEventListener("mouseleave", function () {
-      paused = false;
-    });
-
-    var resumeTimer = null;
-    section.addEventListener(
-      "touchstart",
-      function () {
-        paused = true;
-        clearTimeout(resumeTimer);
-      },
-      { passive: true },
-    );
-    section.addEventListener(
-      "touchend",
-      function () {
-        clearTimeout(resumeTimer);
-        resumeTimer = setTimeout(function () {
-          paused = false;
-        }, 2000);
-      },
-      { passive: true },
-    );
-
     var resizeTimer = null;
     window.addEventListener("resize", function () {
       clearTimeout(resizeTimer);
