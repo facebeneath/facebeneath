@@ -5034,6 +5034,12 @@ footer #year {
   transform: translateZ(0);
 }
 
+@media (min-width: 769px) {
+  .fb-ticker__inner {
+    animation-duration: 30s;
+  }
+}
+
 .fb-ticker__text {
   display: inline-block;
   flex: 0 0 auto;
