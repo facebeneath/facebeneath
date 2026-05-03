@@ -1482,4 +1482,215 @@
       io.observe(d.el);
     });
   })();
+
+  (function initBlogReel() {
+    var tracks = document.querySelectorAll(".fb-blog-reel__track");
+    if (!tracks.length) return;
+
+    Array.prototype.forEach.call(tracks, function (track) {
+      var slides = Array.prototype.slice.call(
+        track.querySelectorAll(".fb-blog-reel__slide"),
+      );
+      if (slides.length < 2) return;
+
+      var current = 0;
+      setInterval(function () {
+        slides[current].classList.remove("fb-blog-reel__slide--active");
+        current = (current + 1) % slides.length;
+        slides[current].classList.add("fb-blog-reel__slide--active");
+      }, 1500);
+    });
+  })();
+
+  (function initBlogAccordion() {
+    var groups = document.querySelectorAll(".fb-blog-pillars[data-accordion]");
+    if (!groups.length) return;
+
+    groups.forEach(function (group, groupIndex) {
+      var items = Array.prototype.slice.call(
+        group.querySelectorAll(".fb-blog-pillar"),
+      );
+      if (!items.length) return;
+
+      group.classList.add("is-accordion-ready");
+
+      function closeItem(item) {
+        var trigger = item.querySelector(".fb-blog-trigger");
+        var panel = item.querySelector(".fb-blog-panel");
+        if (!trigger || !panel) return;
+
+        item.classList.remove("is-open");
+        trigger.setAttribute("aria-expanded", "false");
+        panel.style.maxHeight = "0px";
+      }
+
+      function openItem(item) {
+        var trigger = item.querySelector(".fb-blog-trigger");
+        var panel = item.querySelector(".fb-blog-panel");
+        var inner = item.querySelector(".fb-blog-panel__inner") || panel;
+        if (!trigger || !panel) return;
+
+        items.forEach(function (otherItem) {
+          if (otherItem !== item) closeItem(otherItem);
+        });
+
+        item.classList.add("is-open");
+        trigger.setAttribute("aria-expanded", "true");
+        panel.style.maxHeight = inner.scrollHeight + "px";
+      }
+
+      items.forEach(function (item, itemIndex) {
+        var title = item.querySelector(".fb-blog-title");
+        var trigger = item.querySelector(".fb-blog-trigger");
+        var panel = item.querySelector(".fb-blog-panel");
+        if (!trigger || !panel) return;
+
+        var triggerId =
+          trigger.id ||
+          "fb-blog-trigger-" + (groupIndex + 1) + "-" + (itemIndex + 1);
+        var panelId =
+          panel.id ||
+          "fb-blog-panel-" + (groupIndex + 1) + "-" + (itemIndex + 1);
+
+        trigger.id = triggerId;
+        panel.id = panelId;
+        trigger.setAttribute("aria-controls", panelId);
+        trigger.setAttribute("aria-expanded", "false");
+        panel.setAttribute("role", "region");
+        panel.setAttribute("aria-labelledby", triggerId);
+        panel.style.maxHeight = "0px";
+
+        trigger.addEventListener("click", function () {
+          if (item.classList.contains("is-open")) {
+            closeItem(item);
+            return;
+          }
+          openItem(item);
+        });
+
+        if (title) {
+          title.addEventListener("keydown", function (e) {
+            if (e.key === "Enter" || e.key === " ") {
+              e.preventDefault();
+              trigger.click();
+            }
+          });
+        }
+      });
+
+      var defaultItem = items[0];
+      if (defaultItem) {
+        openItem(defaultItem);
+      }
+
+      window.addEventListener(
+        "resize",
+        function () {
+          var openItemEl = group.querySelector(".fb-blog-pillar.is-open");
+          if (!openItemEl) return;
+          var panel = openItemEl.querySelector(".fb-blog-panel");
+          var inner =
+            openItemEl.querySelector(".fb-blog-panel__inner") || panel;
+          if (!panel || !inner) return;
+          panel.style.maxHeight = inner.scrollHeight + "px";
+        },
+        { passive: true },
+      );
+    });
+  })();
+
+  (function initBlogQuestionFaq() {
+    var faqGroups = document.querySelectorAll(".fb-blog-faq[data-faq]");
+    if (!faqGroups.length) return;
+
+    function syncParentPanelHeight(fromElement, extraHeight) {
+      var parentInner = fromElement.closest(".fb-blog-panel__inner");
+      var parentPanel = fromElement.closest(".fb-blog-panel");
+      if (!parentInner || !parentPanel) return;
+      parentPanel.style.maxHeight =
+        parentInner.scrollHeight + (extraHeight || 0) + "px";
+    }
+
+    faqGroups.forEach(function (group, groupIndex) {
+      var faqItems = Array.prototype.slice.call(
+        group.querySelectorAll(".fb-blog-faq-item"),
+      );
+      if (!faqItems.length) return;
+
+      function closeFaqItem(item) {
+        var trigger = item.querySelector(".fb-blog-faq-trigger");
+        var answer = item.querySelector(".fb-blog-faq-answer");
+        if (!trigger || !answer) return;
+
+        item.classList.remove("is-open");
+        trigger.setAttribute("aria-expanded", "false");
+        answer.style.maxHeight = "0px";
+      }
+
+      function openFaqItem(item) {
+        var trigger = item.querySelector(".fb-blog-faq-trigger");
+        var answer = item.querySelector(".fb-blog-faq-answer");
+        if (!trigger || !answer) return;
+
+        faqItems.forEach(function (otherItem) {
+          if (otherItem !== item) closeFaqItem(otherItem);
+        });
+
+        item.classList.add("is-open");
+        trigger.setAttribute("aria-expanded", "true");
+        answer.style.maxHeight = answer.scrollHeight + "px";
+      }
+
+      faqItems.forEach(function (item, itemIndex) {
+        var trigger = item.querySelector(".fb-blog-faq-trigger");
+        var answer = item.querySelector(".fb-blog-faq-answer");
+        if (!trigger || !answer) return;
+
+        var triggerId =
+          trigger.id ||
+          "fb-blog-faq-trigger-" + (groupIndex + 1) + "-" + (itemIndex + 1);
+        var answerId =
+          answer.id ||
+          "fb-blog-faq-answer-" + (groupIndex + 1) + "-" + (itemIndex + 1);
+
+        trigger.id = triggerId;
+        answer.id = answerId;
+        trigger.setAttribute("aria-controls", answerId);
+        trigger.setAttribute("aria-expanded", "false");
+        answer.setAttribute("role", "region");
+        answer.setAttribute("aria-labelledby", triggerId);
+        answer.style.maxHeight = "0px";
+
+        trigger.addEventListener("click", function () {
+          if (item.classList.contains("is-open")) {
+            closeFaqItem(item);
+            requestAnimationFrame(function () {
+              syncParentPanelHeight(item);
+            });
+          } else {
+            // read full answer height BEFORE transition starts (still at max-height:0)
+            var answerHeight = answer ? answer.scrollHeight : 0;
+            openFaqItem(item);
+            requestAnimationFrame(function () {
+              syncParentPanelHeight(item, answerHeight);
+            });
+          }
+        });
+      });
+
+      window.addEventListener(
+        "resize",
+        function () {
+          var openFaq = group.querySelector(".fb-blog-faq-item.is-open");
+          if (openFaq) {
+            var openAnswer = openFaq.querySelector(".fb-blog-faq-answer");
+            if (openAnswer)
+              openAnswer.style.maxHeight = openAnswer.scrollHeight + "px";
+          }
+          syncParentPanelHeight(group);
+        },
+        { passive: true },
+      );
+    });
+  })();
 })();
