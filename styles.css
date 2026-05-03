@@ -4682,6 +4682,11 @@ footer .footer-legal a:hover {
   filter: grayscale(20%) brightness(0.9);
   box-shadow: 0 18px 50px rgba(0, 0, 0, 0.34);
 }
+@media (min-width: 768px) {
+  .about-image img {
+    transform: translateY(-190px);
+  }
+}
 
 .about-eyebrow {
   display: inline-flex;
