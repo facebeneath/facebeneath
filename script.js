@@ -1485,6 +1485,40 @@
     });
   })();
 
+  (function initPremiumVideoOnScroll() {
+    var video = document.querySelector(".premium-video[data-src]");
+    if (!video) return;
+    if (!("IntersectionObserver" in window)) {
+      var source = video.querySelector("source[data-src]");
+      if (source) {
+        source.src = source.getAttribute("data-src");
+      }
+      video.src = video.getAttribute("data-src");
+      video.load();
+      video.play();
+      return;
+    }
+    var videoObserver = new IntersectionObserver(
+      function (entries, obs) {
+        entries.forEach(function (entry) {
+          if (!entry.isIntersecting) return;
+          var v = entry.target;
+          var source = v.querySelector("source[data-src]");
+          if (source) {
+            source.src = source.getAttribute("data-src");
+            source.removeAttribute("data-src");
+          }
+          v.removeAttribute("data-src");
+          v.load();
+          v.play();
+          obs.unobserve(v);
+        });
+      },
+      { threshold: 0.25 },
+    );
+    videoObserver.observe(video);
+  })();
+
   (function initBlogReel() {
     var tracks = document.querySelectorAll(".fb-blog-reel__track");
     if (!tracks.length) return;
