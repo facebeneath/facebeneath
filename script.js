@@ -1580,11 +1580,6 @@
         }
       });
 
-      var defaultItem = items[0];
-      if (defaultItem) {
-        openItem(defaultItem);
-      }
-
       window.addEventListener(
         "resize",
         function () {
