@@ -1580,6 +1580,35 @@
         }
       });
 
+      function recalculateOpenPanels() {
+        items.forEach(function (item) {
+          var panel = item.querySelector(".fb-blog-panel");
+          if (!panel) return;
+
+          if (item.classList.contains("is-open")) {
+            var trigger = item.querySelector(".fb-blog-trigger");
+            var inner = item.querySelector(".fb-blog-panel__inner") || panel;
+            if (trigger) trigger.setAttribute("aria-expanded", "true");
+            panel.style.maxHeight = inner.scrollHeight + "px";
+            return;
+          }
+
+          panel.style.maxHeight = "0px";
+        });
+      }
+
+      requestAnimationFrame(function () {
+        recalculateOpenPanels();
+      });
+
+      window.addEventListener("load", function () {
+        recalculateOpenPanels();
+      });
+
+      setTimeout(function () {
+        recalculateOpenPanels();
+      }, 100);
+
       window.addEventListener(
         "resize",
         function () {
