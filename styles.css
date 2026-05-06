@@ -644,8 +644,7 @@ body {
     "Segoe UI",
     Roboto,
     Arial;
-  background:
-    linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("moon.webp");
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7));
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -1298,8 +1297,7 @@ main {
       circle at 80% 24%,
       rgba(255, 132, 132, 0.08),
       transparent 34%
-    ),
-    url("/moonpic.avif") center center / cover no-repeat;
+    );
   opacity: 0.86;
   filter: blur(2.6px) saturate(0.82) contrast(0.92);
   transform: scale(1.03);
@@ -1496,14 +1494,12 @@ main {
   }
 
   .card--dominance::after {
-    background:
-      linear-gradient(
-        180deg,
-        rgba(10, 10, 14, 0.9) 0%,
-        rgba(10, 10, 14, 0.76) 52%,
-        rgba(10, 10, 14, 0.58) 100%
-      ),
-      url("/moonpic.avif") center center / cover no-repeat;
+    background: linear-gradient(
+      180deg,
+      rgba(10, 10, 14, 0.9) 0%,
+      rgba(10, 10, 14, 0.76) 52%,
+      rgba(10, 10, 14, 0.58) 100%
+    );
     opacity: 0.64;
     filter: blur(2.2px) saturate(0.78) contrast(0.88);
   }
@@ -2236,8 +2232,7 @@ body.overlay-open {
       circle at 80% 24%,
       rgba(255, 132, 132, 0.08),
       transparent 30%
-    ),
-    url("/moonpic.avif") center center / cover no-repeat;
+    );
   opacity: 0.86;
   filter: blur(2.5px) saturate(0.82) contrast(0.92);
   transform: scale(1.03);
@@ -2852,6 +2847,8 @@ main {
   box-shadow: 0 4px 25px rgba(0, 0, 0, 0.08);
   font-family: "Poppins", sans-serif;
   line-height: 1.7;
+  position: relative;
+  overflow: hidden;
 }
 
 .services-info h2 {
@@ -2875,6 +2872,23 @@ main {
   background: rgba(0, 0, 0, 0.3);
   border-radius: 8px;
   padding: 1.2em 1.5em;
+}
+
+.services-info-bg-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: 0;
+  display: block;
+  filter: brightness(0.25) blur(4px);
+}
+
+.services-info > *:not(.services-info-bg-img) {
+  position: relative;
+  z-index: 1;
 }
 
 @media (max-width: 768px) {
@@ -4435,8 +4449,7 @@ body.fb-parallax-home {
       rgba(48, 84, 182, 0.16),
       transparent 26%
     ),
-    linear-gradient(180deg, rgba(9, 11, 15, 0.92), rgba(9, 11, 15, 0.97)),
-    url("moon.webp") center / cover fixed no-repeat;
+    linear-gradient(180deg, rgba(9, 11, 15, 0.92), rgba(9, 11, 15, 0.97));
 }
 
 body.fb-parallax-home::before,
@@ -4793,6 +4806,26 @@ footer .footer-legal a:hover {
   isolation: isolate;
 }
 
+.hero-video-lead {
+  margin: 0;
+  padding: clamp(14px, 2vw, 20px) clamp(18px, 2.5vw, 28px);
+  font-family: "Sora", Inter, system-ui, sans-serif;
+  font-size: clamp(1rem, 1.2vw, 1.18rem);
+  line-height: 1.55;
+  letter-spacing: 0.01em;
+  color: #d4af37;
+  background: linear-gradient(
+    135deg,
+    rgba(7, 14, 24, 0.92),
+    rgba(12, 24, 38, 0.82)
+  );
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  text-align: center;
+  text-wrap: balance;
+  position: relative;
+  z-index: 2;
+}
+
 .hero-video {
   display: block;
   width: 100%;
@@ -4863,6 +4896,11 @@ footer .footer-legal a:hover {
     transform: none !important;
   }
 
+  .hero-video-lead {
+    padding: 14px 16px;
+    font-size: 0.98rem;
+  }
+
   .hero-video {
     aspect-ratio: 16 / 9;
   }
@@ -4883,6 +4921,12 @@ footer .footer-legal a:hover {
   .hero-video-wrap {
     border-radius: 10px;
     margin-bottom: 14px;
+  }
+
+  .hero-video-lead {
+    padding: 12px 14px;
+    font-size: 0.94rem;
+    line-height: 1.5;
   }
 
   .hero-video {

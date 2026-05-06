@@ -15,7 +15,6 @@ body.fb-parallax-home {
   max-width: 100%;
 }
 
-/* Injected parallax background layer — works on all devices incl. iOS */
 .fb-parallax-bg {
   position: absolute;
   top: -25%;
@@ -27,20 +26,18 @@ body.fb-parallax-home {
   background-repeat: no-repeat;
   will-change: transform;
   z-index: 0;
-  /* Prevent reveal.js fade-in from hiding the background on mobile */
+
   opacity: 1 !important;
 }
 
-.fb-parallax-section--one .fb-parallax-bg {
-  background-image: url("/122.jpg");
-}
-
-.fb-parallax-section--two .fb-parallax-bg {
-  background-image: url("/123.jpg");
-}
-
-.fb-parallax-section--three .fb-parallax-bg {
-  background-image: url("/programing.webp");
+.fb-parallax-bg img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
 }
 
 .fb-parallax-section::before {
@@ -58,7 +55,6 @@ body.fb-parallax-home {
   pointer-events: none;
 }
 
-/* Electric lightning canvas overlay */
 .fb-electric-canvas {
   position: absolute;
   inset: 0;

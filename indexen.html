@@ -44,15 +44,15 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Sora:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
 
-<link rel="stylesheet" href="styles.css?v=20260442">
-<link rel="stylesheet" href="cookie.css?v=20260442">
+<link rel="stylesheet" href="styles.css?v=20260444">
+<link rel="stylesheet" href="cookie.css?v=20260443">
 
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" defer></script>
-<script src="script.js?v=20260445" defer></script>
-<script src="cookie.js?v=20260442" defer></script>
-<script src="reveal.js?v=20260442" defer></script>
-<script src="testimonials.js?v=20260442" defer></script>
+<script src="script.js?v=20260443" defer></script>
+<script src="cookie.js?v=20260443" defer></script>
+<script src="reveal.js?v=20260443" defer></script>
+<script src="testimonials.js?v=20260443" defer></script>
 
 <script type="application/ld+json">
 {
@@ -174,7 +174,7 @@
       <header>
 
       <div class="brand">
-        <img src="logo.png" alt="Facebeneath" class="brand-image" />
+        <img src="logo.png" alt="Facebeneath" class="brand-image" loading="eager" />
       </div>
 
 <div class="hero-note">Premium Web Design Studio | Regensburg · Germany</div>
@@ -193,13 +193,6 @@
 
 <section class="hero">
   <div class="hero-shell">
-
-    <div class="hero-video-wrap">
-      <video class="hero-video" autoplay muted loop playsinline>
-        <source src="facevideo.mp4" type="video/mp4">
-      </video>
-      <div class="hero-video-overlay"></div>
-    </div>
 
     <span class="hero-kicker hero-animate" style="--delay:.1s">Luxury Digital Experiences · Web Design Studio Germany</span>
     <h1 class="hero-animate" style="--delay:.22s">Facebeneath</h1>
@@ -224,6 +217,22 @@
     </div>
   </div>
 </section>
+<div class="wrap">
+  <div class="hero-video-wrap">
+    <p class="hero-video-lead">Suchen Sie jemanden, der messbare Ergebnisse liefert und Websites erstellt, die Ihnen Kunden bringen?</p>
+    <video class="hero-video"
+           autoplay
+           muted
+           loop
+           playsinline
+           preload="none"
+           poster="E.webp">
+      <source src="facevideo.mp4" type="video/mp4">
+    </video>
+
+    <div class="hero-video-overlay"></div>
+  </div>
+</div>
 <section class="studio-floating-orbit" aria-label="Floating Tech Orbit" aria-hidden="true">
   <div class="studio-floating-orbit__inner">
     <div class="studio-floating-orbit__ring studio-floating-orbit__ring--outer"></div>
@@ -267,6 +276,7 @@
   </div>
 </section>
 <section class="fb-parallax-section fb-parallax-section--one fb-parallax-section--cinematic">
+  <div class="fb-parallax-bg" aria-hidden="true"><img src="/122.jpg" alt="Webdesign Studio Regensburg – Design und Code" width="1920" height="1080" class="parallax-bg-img" loading="lazy" decoding="async"></div>
   <div class="fb-parallax-section-inner fb-parallax-section-inner--cinematic" data-cinematic-depth>
     <h2 class="cinematic-title" data-cinematic-text="DESIGN BENEATH THE SURFACE" aria-label="DESIGN BENEATH THE SURFACE">DESIGN BENEATH THE SURFACE</h2>
     <p>Minimal, focused web design combining structure, speed and expressive imagery — built for maximum impact and lasting Google visibility.</p>
@@ -274,6 +284,7 @@
  </section>
 
 <section class="fb-parallax-section fb-parallax-section--two fb-parallax-section--cinematic">
+  <div class="fb-parallax-bg" aria-hidden="true"><img src="/123.jpg" alt="Facebeneath – Markenidentität und Webdesign" width="1920" height="1080" class="parallax-bg-img" loading="lazy" decoding="async"></div>
   <div class="fb-parallax-section-inner fb-parallax-section-inner--cinematic" data-cinematic-depth>
     <h2 class="cinematic-title" data-cinematic-text="BRANDS THAT STAY" aria-label="BRANDS THAT STAY">BRANDS THAT STAY</h2>
     <p>Websites that don’t just look good — they guide visitors clearly through your brand story and turn them into loyal customers.</p>
@@ -281,6 +292,7 @@
  </section>
 
 <section class="fb-parallax-section fb-parallax-section--three fb-parallax-section--cinematic">
+  <div class="fb-parallax-bg" aria-hidden="true"><img src="/programing.webp" alt="Professioneller Webauftritt – Facebeneath Studio" width="1920" height="1080" class="parallax-bg-img" loading="lazy" decoding="async"></div>
   <div class="fb-parallax-section-inner fb-parallax-section-inner--cinematic" data-cinematic-depth>
     <h2 class="cinematic-title" data-cinematic-text="PREMIUM DIGITAL PRESENCE" aria-label="PREMIUM DIGITAL PRESENCE">PREMIUM DIGITAL PRESENCE</h2>
     <p>From the first scroll: a premium digital presence that builds trust, signals authority and actively drives conversions.</p>
@@ -293,7 +305,7 @@
   <div class="about-container">
     
     <div class="about-image">
-      <img src="laptop.jpg" alt="facebeneath">
+      <img src="laptop.jpg" alt="facebeneath" loading="lazy">
     </div>
 
     <div class="about-content">
@@ -492,11 +504,11 @@
 
   <div class="fb-blog-reel" aria-hidden="true">
     <div class="fb-blog-reel__track">
-      <img class="fb-blog-reel__slide fb-blog-reel__slide--active" src="1.jpg" alt="">
-      <img class="fb-blog-reel__slide" src="2.jpg" alt="">
-      <img class="fb-blog-reel__slide" src="3.jpg" alt="">
-      <img class="fb-blog-reel__slide" src="programing2.jpg" alt="">
-      <img class="fb-blog-reel__slide" src="programing1.avif" alt="">
+      <img class="fb-blog-reel__slide fb-blog-reel__slide--active" src="1.jpg" alt="" loading="lazy">
+      <img class="fb-blog-reel__slide" src="2.jpg" alt="" loading="lazy">
+      <img class="fb-blog-reel__slide" src="3.jpg" alt="" loading="lazy">
+      <img class="fb-blog-reel__slide" src="programing2.jpg" alt="" loading="lazy">
+      <img class="fb-blog-reel__slide" src="programing1.avif" alt="" loading="lazy">
     </div>
   </div>
 
@@ -710,33 +722,33 @@ AI files can be ordered additionally for a price of <strong>200€</strong>.
         <div class="full-line"></div>
         <div class="projects-grid">
            <a class="project-card" href="wellness/index.html">
-            <img class="project-thumb" src="Wellness1.webp" alt="Wellness client project">
+            <img class="project-thumb" src="Wellness1.webp" alt="Wellness client project" loading="lazy">
             <span class="project-name">Wellness <br><span class="kunden-tag">-client project-</span></span>
           </a>
 
           <a class="project-card" href="automobile-aa/index.html">
-            <img class="project-thumb project-thumb-automobile" src="aa.jpg" alt="Automobile client project">
+            <img class="project-thumb project-thumb-automobile" src="aa.jpg" alt="Automobile client project" loading="lazy">
             <span class="project-name">Automobile A & A<br><span class="kunden-tag">-client project-</span></span>
           </a>
           <a class="project-card" href="videonadzor/index.html">
-            <img class="project-thumb project-thumb-automobile" src="logomeris.png" alt="Video-Nadzor client project">
+            <img class="project-thumb project-thumb-automobile" src="logomeris.png" alt="Video-Nadzor client project" loading="lazy">
             <span class="project-name">Video-Nadzor<br><span class="kunden-tag">-client project-</span></span>
           </a>
 
           <a class="project-card" href="herbsta/index.html">
-            <img class="project-thumb project-thumb-herbsta" src="leaf4.png" alt="Herbsta project">
+            <img class="project-thumb project-thumb-herbsta" src="leaf4.png" alt="Herbsta project" loading="lazy">
             <span class="project-name">Caffe Bar<br>Herbsta</span>
           </a>
           <a class="project-card" href="ironsight/index.html">
-            <img class="project-thumb" src="ironsight/logoIron.png" alt="Ironsight project">
+            <img class="project-thumb" src="ironsight/logoIron.png" alt="Ironsight project" loading="lazy">
             <span class="project-name">Paintball Arena<br>Ironsight</span>
           </a>
           <a class="project-card" href="seniorheim/index.html">
-            <img class="project-thumb" src="seniorheim/rukapodruku.jpg" alt="Senior project">
+            <img class="project-thumb" src="seniorheim/rukapodruku.jpg" alt="Senior project" loading="lazy">
             <span class="project-name">Seniorheim</span>
           </a>
           <a class="project-card" href="hausmeister/index.html">
-            <img class="project-thumb" src="hausmeister/mmm.jpg" alt="Hausmeister project">
+            <img class="project-thumb" src="hausmeister/mmm.jpg" alt="Hausmeister project" loading="lazy">
             <span class="project-name">Hausmeister</span>
           </a>
          
@@ -994,7 +1006,8 @@ AI files can be ordered additionally for a price of <strong>200€</strong>.
   </div>
 </section>
 
-      <section class="services-info" style="background-image: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)), url('why.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat; backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px);">
+      <section class="services-info">
+        <img src="why.jpg" alt="Facebeneath Studio" width="1920" height="600" class="services-info-bg-img" loading="lazy" decoding="async">
         <div class="full-line"></div>
       <h2>Why choose Facebeneath Web and Logo Design?</h2>
       <div class="full-line"></div>
@@ -1135,7 +1148,7 @@ AI files can be ordered additionally for a price of <strong>200€</strong>.
    onmouseover="this.querySelector('.logo-text').style.color='#ff5500';"
    onmouseout="this.querySelector('.logo-text').style.color='#04eeff';">
     <div class="logo-container">
-        <img src="E.webp" alt="Logo">
+        <img src="E.webp" alt="Logo" loading="lazy">
         <span class="logo-text electric-animated">PORTFOLIO</span>
     </div>
 </a>
@@ -1146,7 +1159,7 @@ AI files can be ordered additionally for a price of <strong>200€</strong>.
 <footer class="site-footer">
   <div class="footer-inner">
     <div class="footer-logo-wrap">
-      <img src="facebeneath.png" alt="Facebeneath" class="footer-logo" />
+      <img src="facebeneath.png" alt="Facebeneath" class="footer-logo" loading="lazy" />
     </div>
     <p class="footer-copy">&copy; <span id="year"></span> Aldin Delić. All rights reserved</p>
     <nav class="footer-legal">
