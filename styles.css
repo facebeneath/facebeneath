@@ -4235,6 +4235,10 @@ body.mobile-menu-open {
     height: 150px;
   }
 
+  .project-thumb-xtrm {
+    object-position: center 82%;
+  }
+
   .project-thumb-herbsta {
     height: 132px;
     padding: 10px;
@@ -4306,6 +4310,10 @@ body.mobile-menu-open {
 
   .project-thumb {
     height: 150px;
+  }
+
+  .project-thumb-xtrm {
+    object-position: center 25%;
   }
 
   .project-thumb-herbsta {

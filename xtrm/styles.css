@@ -1733,6 +1733,9 @@ section {
 }
 
 @media (max-width: 900px) {
+  .mobile-menu {
+    background-position: center 90%;
+  }
   .sports-grid {
     grid-template-columns: repeat(2, 1fr);
   }
