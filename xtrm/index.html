@@ -1,0 +1,762 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="XTRM — The world's most premium extreme sports brand. Motocross, snowboarding, monster trucks, skateboarding, BMX and more."
+    />
+    <title>XTRM — Push Beyond Limits</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700;900&family=Barlow+Condensed:wght@400;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div id="loader">
+      <div class="loader-inner">
+        <div class="loader-logo">
+          <span class="loader-x">X</span><span class="loader-trm">TRM</span>
+        </div>
+        <div class="loader-bar-wrap"><div class="loader-bar"></div></div>
+        <p class="loader-text">LOADING EXPERIENCE</p>
+      </div>
+    </div>
+
+    <nav id="navbar">
+      <div class="nav-container">
+        <a href="#" class="nav-logo">X<span>TRM</span></a>
+        <ul class="nav-links">
+          <li><a href="#sports">Sports</a></li>
+          <li><a href="#events">Events</a></li>
+          <li><a href="#athletes">Athletes</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#merch">Merch</a></li>
+          <li><a href="#community">Community</a></li>
+        </ul>
+        <div class="nav-actions">
+          <a href="#events" class="btn-nav magnetic">GET TICKETS</a>
+          <button class="nav-hamburger" aria-label="Menu">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <div class="mobile-menu" id="mobileMenu">
+      <ul>
+        <li><a href="#sports">Sports</a></li>
+        <li><a href="#events">Events</a></li>
+        <li><a href="#athletes">Athletes</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#merch">Merch</a></li>
+        <li><a href="#community">Community</a></li>
+      </ul>
+    </div>
+
+    <section id="hero">
+      <div class="hero-bg">
+        <canvas id="heroCanvas"></canvas>
+        <div class="hero-overlay"></div>
+        <div class="hero-gradient"></div>
+      </div>
+
+      <div class="particles" id="particles"></div>
+
+      <div class="smoke smoke-1"></div>
+      <div class="smoke smoke-2"></div>
+      <div class="smoke smoke-3"></div>
+
+      <div class="speed-lines" id="speedLines"></div>
+
+      <div class="hero-content" id="heroContent">
+        <div class="hero-badge reveal-up">
+          <span class="badge-dot"></span>
+          LIVE NOW — WORLD CHAMPIONSHIP 2026
+        </div>
+
+        <h1 class="hero-title">
+          <span class="title-line reveal-line" data-delay="0">PUSH</span>
+          <span class="title-line title-accent reveal-line" data-delay="0.1"
+            >BEYOND</span
+          >
+          <span class="title-line reveal-line" data-delay="0.2">LIMITS</span>
+        </h1>
+
+        <p class="hero-subtitle reveal-up" data-delay="0.5">
+          The world of extreme adrenaline sports.
+        </p>
+
+        <div class="hero-ctas reveal-up" data-delay="0.7">
+          <a href="#gallery" class="btn-primary magnetic">
+            <span class="btn-icon">▶</span>
+            WATCH EVENTS
+          </a>
+          <a href="#community" class="btn-secondary magnetic">
+            JOIN THE MOVEMENT
+          </a>
+        </div>
+
+        <div class="hero-stats reveal-up" data-delay="0.9">
+          <div class="stat-item">
+            <span class="stat-num" data-target="248">0</span
+            ><span class="stat-unit">+</span>
+            <span class="stat-label">Events Worldwide</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat-item">
+            <span class="stat-num" data-target="92">0</span
+            ><span class="stat-unit">K</span>
+            <span class="stat-label">Athletes</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat-item">
+            <span class="stat-num" data-target="180">0</span
+            ><span class="stat-unit">+</span>
+            <span class="stat-label">Countries</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="scroll-indicator">
+        <div class="scroll-mouse">
+          <div class="scroll-wheel"></div>
+        </div>
+        <span>SCROLL</span>
+      </div>
+
+      <div class="hero-parallax-img parallax-img-1" id="pImg1"></div>
+      <div class="hero-parallax-img parallax-img-2" id="pImg2"></div>
+    </section>
+
+    <section id="sports" class="section-sports">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label reveal-up">FEATURED SPORTS</span>
+          <h2 class="section-title reveal-up">
+            RIDE. SHRED.<br /><em>DOMINATE.</em>
+          </h2>
+          <p class="section-desc reveal-up">
+            Six disciplines. One obsession. Zero limits.
+          </p>
+        </div>
+
+        <div class="sports-grid">
+          <div class="sport-card reveal-card" data-sport="motocross">
+            <div
+              class="card-bg"
+              style="background-image: url(&quot;motocross.jpg&quot;)"
+            ></div>
+            <div class="card-overlay"></div>
+            <div class="card-glow"></div>
+            <div class="card-content">
+              <h3 class="card-title">MOTOCROSS</h3>
+              <p class="card-desc">
+                Fire-lit jumps, mud spray, raw horsepower.
+              </p>
+              <div class="card-tag">DIRT BIKE</div>
+            </div>
+            <div class="card-border-glow"></div>
+          </div>
+
+          <div class="sport-card reveal-card" data-sport="snow">
+            <div
+              class="card-bg"
+              style="background-image: url(&quot;snow.jpg&quot;)"
+            ></div>
+            <div class="card-overlay"></div>
+            <div class="card-glow"></div>
+            <div class="card-content">
+              <h3 class="card-title">SNOW FREESTYLE</h3>
+              <p class="card-desc">
+                Rails, halfpipe, slopestyle — mountain mastery.
+              </p>
+              <div class="card-tag">SNOWBOARD / SKI</div>
+            </div>
+            <div class="card-border-glow"></div>
+          </div>
+
+          <div
+            class="sport-card reveal-card sport-card--wide"
+            data-sport="monster"
+          >
+            <div
+              class="card-bg"
+              style="background-image: url(&quot;monstertruck.jpg&quot;)"
+            ></div>
+            <div class="card-overlay"></div>
+            <div class="card-glow"></div>
+            <div class="card-content">
+              <h3 class="card-title">MONSTER TRUCK</h3>
+              <p class="card-desc">10,000 horsepower. Pure controlled chaos.</p>
+              <div class="card-tag">MONSTER SHOW</div>
+            </div>
+            <div class="card-border-glow"></div>
+          </div>
+
+          <div class="sport-card reveal-card" data-sport="skate">
+            <div
+              class="card-bg"
+              style="background-image: url(&quot;skateboard.jpg&quot;)"
+            ></div>
+            <div class="card-overlay"></div>
+            <div class="card-glow"></div>
+            <div class="card-content">
+              <h3 class="card-title">SKATEBOARDING</h3>
+              <p class="card-desc">
+                Aerial tricks, grinds, urban art in motion.
+              </p>
+              <div class="card-tag">STREET / VERT</div>
+            </div>
+            <div class="card-border-glow"></div>
+          </div>
+
+          <div class="sport-card reveal-card" data-sport="bmx">
+            <div
+              class="card-bg"
+              style="background-image: url(&quot;bmx.jpg&quot;)"
+            ></div>
+            <div class="card-overlay"></div>
+            <div class="card-glow"></div>
+            <div class="card-content">
+              <h3 class="card-title">BMX / DOWNHILL</h3>
+              <p class="card-desc">
+                Gravity-defying drops at full throttle speed.
+              </p>
+              <div class="card-tag">FREESTYLE</div>
+            </div>
+            <div class="card-border-glow"></div>
+          </div>
+
+          <div class="sport-card reveal-card" data-sport="downhill">
+            <div
+              class="card-bg"
+              style="background-image: url(&quot;downhill.jpg&quot;)"
+            ></div>
+            <div class="card-overlay"></div>
+            <div class="card-glow"></div>
+            <div class="card-content">
+              <h3 class="card-title">DOWNHILL</h3>
+              <p class="card-desc">Mountain descents at terrifying velocity.</p>
+              <div class="card-tag">MTB</div>
+            </div>
+            <div class="card-border-glow"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-live-counter">
+      <div class="live-ticker">
+        <div class="ticker-track">
+          <span>MOTOCROSS WORLD CUP &nbsp;&bull;&nbsp;</span>
+          <span>SNOWBOARD OPEN 2026 &nbsp;&bull;&nbsp;</span>
+          <span>MONSTER JAM FINALS &nbsp;&bull;&nbsp;</span>
+          <span>X GAMES QUALIFIER &nbsp;&bull;&nbsp;</span>
+          <span>BMX FREESTYLE PRO &nbsp;&bull;&nbsp;</span>
+          <span>DOWNHILL MTB WORLD &nbsp;&bull;&nbsp;</span>
+          <span>MOTOCROSS WORLD CUP &nbsp;&bull;&nbsp;</span>
+          <span>SNOWBOARD OPEN 2026 &nbsp;&bull;&nbsp;</span>
+          <span>MONSTER JAM FINALS &nbsp;&bull;&nbsp;</span>
+          <span>X GAMES QUALIFIER &nbsp;&bull;&nbsp;</span>
+          <span>BMX FREESTYLE PRO &nbsp;&bull;&nbsp;</span>
+          <span>DOWNHILL MTB WORLD &nbsp;&bull;&nbsp;</span>
+          <span>MOTOCROSS WORLD CUP &nbsp;&bull;&nbsp;</span>
+          <span>SNOWBOARD OPEN 2026 &nbsp;&bull;&nbsp;</span>
+          <span>MONSTER JAM FINALS &nbsp;&bull;&nbsp;</span>
+          <span>X GAMES QUALIFIER &nbsp;&bull;&nbsp;</span>
+          <span>BMX FREESTYLE PRO &nbsp;&bull;&nbsp;</span>
+          <span>DOWNHILL MTB WORLD &nbsp;&bull;&nbsp;</span>
+          <span>MOTOCROSS WORLD CUP &nbsp;&bull;&nbsp;</span>
+          <span>SNOWBOARD OPEN 2026 &nbsp;&bull;&nbsp;</span>
+          <span>MONSTER JAM FINALS &nbsp;&bull;&nbsp;</span>
+          <span>X GAMES QUALIFIER &nbsp;&bull;&nbsp;</span>
+          <span>BMX FREESTYLE PRO &nbsp;&bull;&nbsp;</span>
+          <span>DOWNHILL MTB WORLD &nbsp;&bull;&nbsp;</span>
+        </div>
+      </div>
+      <div class="container counter-section">
+        <div class="countdown-wrap reveal-up">
+          <h2 class="countdown-title">NEXT EVENT</h2>
+          <h3 class="countdown-event-name">
+            XTRM WORLD CHAMPIONSHIP — LAS VEGAS
+          </h3>
+          <div class="countdown-timer" id="countdownTimer">
+            <div class="countdown-unit">
+              <span class="cd-num" id="cdDays">00</span>
+              <span class="cd-label">DAYS</span>
+            </div>
+            <div class="cd-sep">:</div>
+            <div class="countdown-unit">
+              <span class="cd-num" id="cdHours">00</span>
+              <span class="cd-label">HRS</span>
+            </div>
+            <div class="cd-sep">:</div>
+            <div class="countdown-unit">
+              <span class="cd-num" id="cdMins">00</span>
+              <span class="cd-label">MIN</span>
+            </div>
+            <div class="cd-sep">:</div>
+            <div class="countdown-unit">
+              <span class="cd-num" id="cdSecs">00</span>
+              <span class="cd-label">SEC</span>
+            </div>
+          </div>
+          <a href="#events" class="btn-primary magnetic">SECURE YOUR SPOT</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="events" class="section-events">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label reveal-up">UPCOMING EVENTS</span>
+          <h2 class="section-title reveal-up">
+            MARK YOUR<br /><em>CALENDAR.</em>
+          </h2>
+        </div>
+        <div class="events-timeline">
+          <div class="event-card reveal-card">
+            <div class="event-date">
+              <span class="event-month">JUN</span>
+              <span class="event-day">14</span>
+            </div>
+            <div class="event-info">
+              <span class="event-sport-tag">MOTOCROSS</span>
+              <h3>XTRM Moto Grand Prix</h3>
+              <p>📍 Las Vegas Motor Speedway, NV</p>
+            </div>
+            <div class="event-action">
+              <a href="#" class="btn-outline magnetic">TICKETS</a>
+              <span class="event-status live-badge">SELLING FAST</span>
+            </div>
+          </div>
+          <div class="event-card reveal-card">
+            <div class="event-date">
+              <span class="event-month">JUL</span>
+              <span class="event-day">22</span>
+            </div>
+            <div class="event-info">
+              <span class="event-sport-tag">SNOW</span>
+              <h3>Alpine Snow Freestyle Open</h3>
+              <p>📍 Whistler Blackcomb, Canada</p>
+            </div>
+            <div class="event-action">
+              <a href="#" class="btn-outline magnetic">TICKETS</a>
+              <span class="event-status">AVAILABLE</span>
+            </div>
+          </div>
+          <div class="event-card reveal-card">
+            <div class="event-date">
+              <span class="event-month">AUG</span>
+              <span class="event-day">03</span>
+            </div>
+            <div class="event-info">
+              <span class="event-sport-tag">MONSTER</span>
+              <h3>Monster Jam World Series</h3>
+              <p>📍 SoFi Stadium, Los Angeles</p>
+            </div>
+            <div class="event-action">
+              <a href="#" class="btn-outline magnetic">TICKETS</a>
+              <span class="event-status">AVAILABLE</span>
+            </div>
+          </div>
+          <div class="event-card reveal-card">
+            <div class="event-date">
+              <span class="event-month">SEP</span>
+              <span class="event-day">18</span>
+            </div>
+            <div class="event-info">
+              <span class="event-sport-tag">SKATE + BMX</span>
+              <h3>XTRM Street & Park Finals</h3>
+              <p>📍 Venice Beach, California</p>
+            </div>
+            <div class="event-action">
+              <a href="#" class="btn-outline magnetic">TICKETS</a>
+              <span class="event-status">AVAILABLE</span>
+            </div>
+          </div>
+          <div class="event-card reveal-card">
+            <div class="event-date">
+              <span class="event-month">OCT</span>
+              <span class="event-day">09</span>
+            </div>
+            <div class="event-info">
+              <span class="event-sport-tag">DOWNHILL</span>
+              <h3>World Downhill MTB Championship</h3>
+              <p>📍 Fort William, Scotland</p>
+            </div>
+            <div class="event-action">
+              <a href="#" class="btn-outline magnetic">TICKETS</a>
+              <span class="event-status">AVAILABLE</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="athletes" class="section-athletes">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label reveal-up">ATHLETE SHOWCASE</span>
+          <h2 class="section-title reveal-up">
+            MEET THE<br /><em>LEGENDS.</em>
+          </h2>
+          <p class="section-desc reveal-up">
+            The humans who redefine what's possible.
+          </p>
+        </div>
+        <div class="athletes-grid">
+          <div class="athlete-card reveal-card">
+            <div
+              class="athlete-img"
+              style="background-image: url(&quot;alex.jpg&quot;)"
+            ></div>
+            <div class="athlete-overlay">
+              <div class="athlete-info">
+                <h3>ALEX STORM</h3>
+                <span>Motocross Champion</span>
+                <div class="athlete-stats">
+                  <div><strong>12</strong> World Titles</div>
+                  <div><strong>48</strong> Podiums</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="athlete-card reveal-card">
+            <div
+              class="athlete-img"
+              style="background-image: url(&quot;maya.jpg&quot;)"
+            ></div>
+            <div class="athlete-overlay">
+              <div class="athlete-info">
+                <h3>MAYA FROST</h3>
+                <span>Snowboard Pro</span>
+                <div class="athlete-stats">
+                  <div><strong>8</strong> Gold Medals</div>
+                  <div><strong>3</strong> World Records</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="athlete-card reveal-card">
+            <div
+              class="athlete-img"
+              style="background-image: url(&quot;jake.jpg&quot;)"
+            ></div>
+            <div class="athlete-overlay">
+              <div class="athlete-info">
+                <h3>JAKE REBEL</h3>
+                <span>Skate Legend</span>
+                <div class="athlete-stats">
+                  <div><strong>6</strong> X Games Gold</div>
+                  <div><strong>21</strong> Competitions</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="athlete-card reveal-card">
+            <div
+              class="athlete-img"
+              style="background-image: url(&quot;rio.jpg&quot;)"
+            ></div>
+            <div class="athlete-overlay">
+              <div class="athlete-info">
+                <h3>RIO FLUX</h3>
+                <span>BMX Prodigy</span>
+                <div class="athlete-stats">
+                  <div><strong>4</strong> World Titles</div>
+                  <div><strong>30</strong> Podiums</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="gallery" class="section-gallery">
+      <div class="section-header container">
+        <span class="section-label reveal-up">VIDEO GALLERY</span>
+        <h2 class="section-title reveal-up">FEEL THE<br /><em>RUSH.</em></h2>
+      </div>
+      <div class="gallery-scroll-wrap">
+        <div class="gallery-track" id="galleryTrack">
+          <div class="gallery-item reveal-card">
+            <div
+              class="gallery-thumb"
+              style="background-image: url(&quot;moto.jpg&quot;)"
+            >
+              <div class="gallery-play"><span>▶</span></div>
+              <div class="gallery-label">MOTOCROSS FIRE RUN</div>
+            </div>
+          </div>
+          <div class="gallery-item reveal-card">
+            <div
+              class="gallery-thumb"
+              style="background-image: url(&quot;snowboard.jpg&quot;)"
+            >
+              <div class="gallery-play"><span>▶</span></div>
+              <div class="gallery-label">SNOWBOARD RAIL EDIT</div>
+            </div>
+          </div>
+          <div class="gallery-item reveal-card">
+            <div
+              class="gallery-thumb"
+              style="background-image: url(&quot;skateboard.jpg&quot;)"
+            >
+              <div class="gallery-play"><span>▶</span></div>
+              <div class="gallery-label">SKATE AERIAL TRICKS</div>
+            </div>
+          </div>
+          <div class="gallery-item reveal-card">
+            <div
+              class="gallery-thumb"
+              style="background-image: url(&quot;bmx1.jpg&quot;)"
+            >
+              <div class="gallery-play"><span>▶</span></div>
+              <div class="gallery-label">BMX BARSPIN COMP</div>
+            </div>
+          </div>
+          <div class="gallery-item reveal-card">
+            <div
+              class="gallery-thumb"
+              style="background-image: url(&quot;downhill.jpg&quot;)"
+            >
+              <div class="gallery-play"><span>▶</span></div>
+              <div class="gallery-label">DOWNHILL FULL SEND</div>
+            </div>
+          </div>
+          <div class="gallery-item reveal-card">
+            <div
+              class="gallery-thumb"
+              style="background-image: url(&quot;monster.jpg&quot;)"
+            >
+              <div class="gallery-play"><span>▶</span></div>
+              <div class="gallery-label">MONSTER TRUCK CRUSH</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-sponsors">
+      <div class="container">
+        <span
+          class="section-label reveal-up"
+          style="text-align: center; display: block"
+          >TRUSTED BY THE BEST</span
+        >
+        <div class="sponsors-grid reveal-up">
+          <div class="sponsor-item">RED BULL</div>
+          <div class="sponsor-item">GOPRO</div>
+          <div class="sponsor-item">MONSTER</div>
+          <div class="sponsor-item">OAKLEY</div>
+          <div class="sponsor-item">FOX RACING</div>
+          <div class="sponsor-item">DC SHOES</div>
+          <div class="sponsor-item">ALPINESTARS</div>
+          <div class="sponsor-item">ROCKSTAR</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="merch" class="section-merch">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label reveal-up">MERCHANDISE</span>
+          <h2 class="section-title reveal-up">
+            WEAR THE<br /><em>LEGEND.</em>
+          </h2>
+          <p class="section-desc reveal-up">
+            Premium extreme sports apparel. Limited drops.
+          </p>
+        </div>
+        <div class="merch-grid">
+          <div class="merch-card reveal-card">
+            <div
+              class="merch-img"
+              style="background-image: url(&quot;hoodie.jpg&quot;)"
+            ></div>
+            <div class="merch-info">
+              <h4>XTRM TECH HOODIE</h4>
+              <p>Carbon Series — Black/Blue</p>
+              <div class="merch-footer">
+                <span class="merch-price">$189</span>
+                <button class="btn-outline-sm magnetic">ADD TO CART</button>
+              </div>
+            </div>
+          </div>
+          <div class="merch-card reveal-card">
+            <div
+              class="merch-img"
+              style="
+                background-image: url(&quot;https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600&q=80&quot;);
+              "
+            ></div>
+            <div class="merch-info">
+              <h4>ULTRA GRIP TRAINER</h4>
+              <p>Adrenaline Series — Lava Orange</p>
+              <div class="merch-footer">
+                <span class="merch-price">$249</span>
+                <button class="btn-outline-sm magnetic">ADD TO CART</button>
+              </div>
+            </div>
+          </div>
+          <div class="merch-card reveal-card">
+            <div
+              class="merch-img"
+              style="
+                background-image: url(&quot;jacket.jpg&quot;);
+                background-position: center 58%;
+              "
+            ></div>
+            <div class="merch-info">
+              <h4>XTRM RACE JACKET</h4>
+              <p>Storm Series — Matte Black</p>
+              <div class="merch-footer">
+                <span class="merch-price">$329</span>
+                <button class="btn-outline-sm magnetic">ADD TO CART</button>
+              </div>
+            </div>
+          </div>
+          <div class="merch-card reveal-card">
+            <div
+              class="merch-img"
+              style="background-image: url(&quot;cap.jpg&quot;)"
+            ></div>
+            <div class="merch-info">
+              <h4>CARBON CAP — ELITE</h4>
+              <p>Limited Edition — All black</p>
+              <div class="merch-footer">
+                <span class="merch-price">$89</span>
+                <button class="btn-outline-sm magnetic">ADD TO CART</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="merch-cta reveal-up">
+          <a href="#" class="btn-primary magnetic">VIEW FULL COLLECTION</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="community" class="section-community">
+      <div class="community-bg"></div>
+      <div class="container community-inner">
+        <div class="community-text reveal-up">
+          <span class="section-label">COMMUNITY</span>
+          <h2 class="section-title">JOIN THE<br /><em>MOVEMENT.</em></h2>
+          <p>92,000+ athletes. 180 countries. One unstoppable culture.</p>
+          <div class="community-actions">
+            <a href="#" class="btn-primary magnetic">CREATE ACCOUNT</a>
+            <a href="#" class="btn-secondary magnetic">EXPLORE COMMUNITY</a>
+          </div>
+        </div>
+        <div class="community-social reveal-up">
+          <div class="social-stat">
+            <span class="social-num">2.4M</span>
+            <span class="social-plat">@xtrmsports</span>
+            <span class="social-icon">📸 Instagram</span>
+          </div>
+          <div class="social-stat">
+            <span class="social-num">1.8M</span>
+            <span class="social-plat">XTRM Sports Official</span>
+            <span class="social-icon">▶ YouTube</span>
+          </div>
+          <div class="social-stat">
+            <span class="social-num">940K</span>
+            <span class="social-plat">@xtrm_official</span>
+            <span class="social-icon">🎵 TikTok</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer id="footer">
+      <div class="footer-glow"></div>
+      <div class="container footer-inner">
+        <div class="footer-top">
+          <div class="footer-brand">
+            <a href="#" class="footer-logo">X<span>TRM</span></a>
+            <p>
+              The world's most premium extreme sports brand. Built for those who
+              refuse ordinary.
+            </p>
+            <div class="footer-socials">
+              <a href="#" class="social-link magnetic" aria-label="Instagram"
+                >IG</a
+              >
+              <a href="#" class="social-link magnetic" aria-label="YouTube"
+                >YT</a
+              >
+              <a href="#" class="social-link magnetic" aria-label="TikTok"
+                >TK</a
+              >
+              <a href="#" class="social-link magnetic" aria-label="Twitter"
+                >TW</a
+              >
+            </div>
+          </div>
+          <div class="footer-links-col">
+            <h5>SPORTS</h5>
+            <ul>
+              <li><a href="#">Motocross</a></li>
+              <li><a href="#">Snow Freestyle</a></li>
+              <li><a href="#">Monster Truck</a></li>
+              <li><a href="#">Skateboarding</a></li>
+              <li><a href="#">BMX</a></li>
+              <li><a href="#">Downhill MTB</a></li>
+            </ul>
+          </div>
+          <div class="footer-links-col">
+            <h5>COMPANY</h5>
+            <ul>
+              <li><a href="#">About XTRM</a></li>
+              <li><a href="#">Athletes</a></li>
+              <li><a href="#">Events</a></li>
+              <li><a href="#">Careers</a></li>
+              <li><a href="#">Press</a></li>
+              <li><a href="#">Contact</a></li>
+            </ul>
+          </div>
+          <div class="footer-newsletter">
+            <h5>STAY IN THE LOOP</h5>
+            <p>Get event drops, athlete news, and exclusive merch first.</p>
+            <form class="newsletter-form" onsubmit="return false;">
+              <input
+                type="email"
+                placeholder="YOUR EMAIL"
+                aria-label="Email address"
+              />
+              <button type="submit" class="magnetic">→</button>
+            </form>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>© 2026 XTRM Sports Inc. All rights reserved.</p>
+          <p>
+            Webdesign by
+            <a
+              href="https://facebeneath.com"
+              style="color: var(--blue); text-decoration: none"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Facebeneath</a
+            >
+          </p>
+          <div class="footer-legal">
+            <a href="#">Privacy</a>
+            <a href="#">Terms</a>
+            <a href="#">Cookies</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
