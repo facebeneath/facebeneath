@@ -3915,6 +3915,18 @@ body.mobile-menu-open {
   filter: brightness(1.02) saturate(1.08);
 }
 
+.project-thumb-schoenheit,
+.project-thumb-bagrameli {
+  height: 238px;
+  object-fit: contain;
+  object-position: center;
+  display: block;
+  margin-inline: auto;
+  padding: 16px;
+  background: radial-gradient(circle at center, #1b1d20 0%, #0f1114 100%);
+  filter: brightness(1.03) saturate(1.04);
+}
+
 .project-name {
   color: #0ccbec;
   background-color: #171720;
@@ -4249,6 +4261,12 @@ body.mobile-menu-open {
     padding: 10px;
   }
 
+  .project-thumb-schoenheit,
+  .project-thumb-bagrameli {
+    height: 132px;
+    padding: 10px;
+  }
+
   .process-grid {
     grid-template-columns: 1fr;
     gap: 25px;
@@ -4322,6 +4340,12 @@ body.mobile-menu-open {
   }
 
   .project-thumb-automobile {
+    height: 118px;
+    padding: 8px;
+  }
+
+  .project-thumb-schoenheit,
+  .project-thumb-bagrameli {
     height: 118px;
     padding: 8px;
   }

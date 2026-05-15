@@ -1,0 +1,790 @@
+<!doctype html>
+<html lang="bs">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Galerija radova, majstora i servisa – Auto Servis Bagrameli Bihać"
+    />
+    <title>Galerija | Auto Servis Bagrameli – Bihać</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      .gallery-page {
+        padding: 140px 0 100px;
+        background: var(--bg);
+      }
+
+      .gallery-page__hero {
+        text-align: center;
+        margin-bottom: 80px;
+      }
+      .gallery-page__hero h1 {
+        font-size: clamp(2.2rem, 5vw, 3.8rem);
+        font-weight: 900;
+        margin-bottom: 14px;
+      }
+      .gallery-page__hero p {
+        color: var(--text-m);
+        font-size: 1.05rem;
+        max-width: 520px;
+        margin: 0 auto;
+      }
+
+      .gallery-tabs {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin-bottom: 56px;
+        flex-wrap: wrap;
+      }
+      .gallery-tab {
+        padding: 12px 30px;
+        border-radius: 50px;
+        font-family: var(--font);
+        font-size: 0.85rem;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        cursor: pointer;
+        border: 1.5px solid var(--border);
+        background: transparent;
+        color: var(--text-m);
+        transition: all 0.3s ease;
+      }
+      .gallery-tab:hover {
+        border-color: rgba(200, 16, 46, 0.45);
+        color: var(--text);
+      }
+      .gallery-tab.active {
+        background: var(--accent);
+        border-color: var(--accent);
+        color: #fff;
+        box-shadow: 0 4px 24px var(--accent-glow);
+      }
+
+      .gallery-category {
+        display: none;
+      }
+      .gallery-category.active {
+        display: block;
+      }
+
+      .gallery-category__title {
+        font-size: 0.72rem;
+        font-weight: 700;
+        letter-spacing: 3.5px;
+        text-transform: uppercase;
+        color: var(--accent);
+        margin-bottom: 28px;
+      }
+
+      .img-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 16px;
+      }
+      .img-item {
+        position: relative;
+        border-radius: 12px;
+        overflow: hidden;
+        cursor: pointer;
+        border: 1px solid var(--border);
+        aspect-ratio: 4/3;
+        background: var(--bg3);
+      }
+      .img-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        transition: transform 0.5s ease;
+      }
+      .img-item:hover img {
+        transform: scale(1.06);
+      }
+      .img-item__overlay {
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0);
+        transition: background 0.3s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .img-item:hover .img-item__overlay {
+        background: rgba(0, 0, 0, 0.32);
+      }
+      .img-item__zoom {
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        color: #fff;
+      }
+      .img-item__zoom svg {
+        width: 36px;
+        height: 36px;
+      }
+      .img-item:hover .img-item__zoom {
+        opacity: 1;
+      }
+
+      .lightbox {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.94);
+        z-index: 2000;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+      }
+      .lightbox.open {
+        display: flex;
+      }
+      .lightbox__img {
+        max-width: 90vw;
+        max-height: 88vh;
+        border-radius: 10px;
+        box-shadow: 0 24px 80px rgba(0, 0, 0, 0.7);
+        object-fit: contain;
+      }
+      .lightbox__close {
+        position: fixed;
+        top: 22px;
+        right: 28px;
+        background: none;
+        border: none;
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 2.2rem;
+        cursor: pointer;
+        line-height: 1;
+        padding: 4px 10px;
+        border-radius: 8px;
+        transition: color 0.2s ease;
+        z-index: 2001;
+      }
+      .lightbox__close:hover {
+        color: var(--accent);
+      }
+      .lightbox__nav {
+        position: fixed;
+        top: 50%;
+        transform: translateY(-50%);
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        color: #fff;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        font-size: 1.5rem;
+        transition: background 0.25s ease;
+        z-index: 2001;
+      }
+      .lightbox__nav:hover {
+        background: var(--accent);
+        border-color: var(--accent);
+      }
+      .lightbox__prev {
+        left: 18px;
+      }
+      .lightbox__next {
+        right: 18px;
+      }
+      .lightbox__counter {
+        position: fixed;
+        bottom: 22px;
+        left: 50%;
+        transform: translateX(-50%);
+        color: rgba(255, 255, 255, 0.5);
+        font-size: 0.82rem;
+        z-index: 2001;
+      }
+
+      @media (max-width: 900px) {
+        .gallery-page {
+          padding: 130px 0 80px;
+        }
+        .gallery-page__hero {
+          margin-bottom: 56px;
+        }
+        .gallery-tabs {
+          gap: 8px;
+          margin-bottom: 44px;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .gallery-page {
+          padding: 120px 0 72px;
+        }
+        .img-grid {
+          grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+          gap: 12px;
+        }
+        .gallery-page__hero h1 {
+          font-size: clamp(1.9rem, 7vw, 2.8rem);
+        }
+        .gallery-tab {
+          padding: 10px 22px;
+          font-size: 0.82rem;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .gallery-page {
+          padding: 110px 0 64px;
+        }
+        .img-grid {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 10px;
+        }
+        .lightbox__nav {
+          display: none;
+        }
+        .lightbox {
+          touch-action: pan-y;
+        }
+        #lb-img {
+          will-change: transform;
+          touch-action: pan-y;
+        }
+        .gallery-page__hero {
+          margin-bottom: 44px;
+        }
+        .gallery-tab {
+          padding: 9px 18px;
+          font-size: 0.8rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .gallery-page {
+          padding: 100px 0 56px;
+        }
+        .img-grid {
+          gap: 8px;
+        }
+        .gallery-page__hero h1 {
+          font-size: clamp(1.6rem, 9vw, 2.2rem);
+        }
+        .gallery-page__hero p {
+          font-size: 0.9rem;
+        }
+        .gallery-tabs {
+          gap: 6px;
+          margin-bottom: 36px;
+        }
+        .gallery-tab {
+          padding: 8px 16px;
+          font-size: 0.78rem;
+        }
+      }
+
+      @media (max-width: 380px) {
+        .img-grid {
+          grid-template-columns: 1fr 1fr;
+          gap: 6px;
+        }
+        .gallery-tab {
+          padding: 7px 13px;
+          font-size: 0.75rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav
+      class="navbar scrolled"
+      id="navbar"
+      role="navigation"
+      aria-label="Glavna navigacija"
+    >
+      <div class="nav-container">
+        <a
+          href="index.html"
+          class="nav-logo"
+          aria-label="Auto Servis Bagrameli – Naslovna"
+        >
+          <img
+            src="bagraLogo.png"
+            alt="Auto Servis Bagrameli Logo"
+            width="220"
+            height="72"
+          />
+        </a>
+        <ul class="nav-menu" id="nav-menu" role="menubar">
+          <li role="none">
+            <a href="index.html#naslovna" class="nav-link" role="menuitem"
+              >Naslovna</a
+            >
+          </li>
+          <li role="none">
+            <a href="index.html#o-nama" class="nav-link" role="menuitem"
+              >O nama</a
+            >
+          </li>
+          <li role="none">
+            <a href="index.html#servis" class="nav-link" role="menuitem"
+              >Servis</a
+            >
+          </li>
+          <li role="none">
+            <a href="galerija.html" class="nav-link active" role="menuitem"
+              >Galerija</a
+            >
+          </li>
+          <li role="none">
+            <a href="index.html#lokacija" class="nav-link" role="menuitem"
+              >Gdje se nalazimo</a
+            >
+          </li>
+          <li role="none">
+            <a href="index.html#kontakt" class="nav-link" role="menuitem"
+              >Kontakt</a
+            >
+          </li>
+          <li role="none">
+            <a href="index.html#kontakt" class="nav-cta" role="menuitem"
+              >Kontaktiraj nas</a
+            >
+          </li>
+        </ul>
+        <button
+          class="nav-hamburger"
+          id="nav-hamburger"
+          aria-label="Otvori meni"
+          aria-expanded="false"
+          aria-controls="nav-menu"
+        >
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+
+    <main class="gallery-page">
+      <div class="container">
+        <div class="gallery-page__hero">
+          <span class="section-label">Auto Servis Bagrameli</span>
+          <h1>Galerija<br /><span class="accent">radova i servisa</span></h1>
+          <p>
+            Pogledajte naše radove, tim i servis kroz fotografije iz naše
+            radionice.
+          </p>
+        </div>
+
+        <div
+          class="gallery-tabs"
+          role="tablist"
+          aria-label="Kategorije galerije"
+        >
+          <button
+            class="gallery-tab active"
+            role="tab"
+            aria-selected="true"
+            data-tab="radovi"
+          >
+            Radovi
+          </button>
+          <button
+            class="gallery-tab"
+            role="tab"
+            aria-selected="false"
+            data-tab="servis"
+          >
+            Servis
+          </button>
+          <button
+            class="gallery-tab"
+            role="tab"
+            aria-selected="false"
+            data-tab="majstori"
+          >
+            Naš tim
+          </button>
+        </div>
+
+        <div class="gallery-category active" id="tab-radovi" role="tabpanel">
+          <p class="gallery-category__title">Radovi</p>
+          <div class="img-grid" id="grid-radovi"></div>
+        </div>
+
+        <div class="gallery-category" id="tab-servis" role="tabpanel">
+          <p class="gallery-category__title">Servis</p>
+          <div class="img-grid" id="grid-servis"></div>
+        </div>
+
+        <div class="gallery-category" id="tab-majstori" role="tabpanel">
+          <p class="gallery-category__title">Naš tim</p>
+          <div class="img-grid" id="grid-majstori"></div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="footer" role="contentinfo">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-col footer-col--brand">
+            <img
+              src="bagraLogo.png"
+              alt="Auto Servis Bagrameli"
+              class="footer-logo"
+              width="160"
+              height="48"
+              loading="lazy"
+            />
+            <p>
+              Profesionalni auto servis u Bihaću. Kvalitet, sigurnost i vrhunska
+              usluga od prvog dana.
+            </p>
+          </div>
+          <nav class="footer-col" aria-label="Footer navigacija">
+            <h4>Navigacija</h4>
+            <ul>
+              <li><a href="index.html#naslovna">Naslovna</a></li>
+              <li><a href="index.html#o-nama">O nama</a></li>
+              <li><a href="index.html#servis">Servis</a></li>
+              <li><a href="galerija.html">Galerija</a></li>
+              <li><a href="index.html#lokacija">Gdje se nalazimo</a></li>
+              <li><a href="index.html#kontakt">Kontakt</a></li>
+            </ul>
+          </nav>
+          <address class="footer-col" style="font-style: normal">
+            <h4>Kontakt</h4>
+            <ul class="footer-contact">
+              <li>
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  aria-hidden="true"
+                >
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                  <circle cx="12" cy="10" r="3" />
+                </svg>
+                Žrtava fašizma 62, Bihać
+              </li>
+              <li>
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13 19.79 19.79 0 0 1 1.61 4.37 2 2 0 0 1 3.58 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
+                  />
+                </svg>
+                <a href="tel:+38761149754">+387 61 149 754</a>
+              </li>
+              <li>
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+                  />
+                  <polyline points="22,6 12,13 2,6" />
+                </svg>
+                <a href="mailto:info@autoservisbagrameli.com"
+                  >info@autoservisbagrameli.com</a
+                >
+              </li>
+            </ul>
+          </address>
+          <div class="footer-col">
+            <h4>Radno vrijeme</h4>
+            <div class="working-hours">
+              <div class="hours-row">
+                <span>Pon – Pet</span><span>08:00 – 17:00</span>
+              </div>
+              <div class="hours-row">
+                <span>Subota</span><span>08:00 – 13:00</span>
+              </div>
+              <div class="hours-row closed">
+                <span>Nedjelja</span><span>Ne radimo</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>
+            © <span id="year"></span> Auto Servis Bagrameli. Sva prava zadržana.
+          </p>
+          <p>
+            Webdesign by
+            <a
+              href="https://facebeneath.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="footer-credit"
+              >facebeneath</a
+            >
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <div
+      class="lightbox"
+      id="lightbox"
+      role="dialog"
+      aria-label="Pregled slike"
+      aria-modal="true"
+    >
+      <button class="lightbox__close" id="lb-close" aria-label="Zatvori">
+        &times;
+      </button>
+      <button
+        class="lightbox__nav lightbox__prev"
+        id="lb-prev"
+        aria-label="Prethodna slika"
+      >
+        &#8592;
+      </button>
+      <img class="lightbox__img" id="lb-img" src="" alt="" />
+      <button
+        class="lightbox__nav lightbox__next"
+        id="lb-next"
+        aria-label="Sljedeća slika"
+      >
+        &#8594;
+      </button>
+      <div class="lightbox__counter" id="lb-counter"></div>
+    </div>
+
+    <script>
+      "use strict";
+
+      document.getElementById("year").textContent = new Date().getFullYear();
+
+      const hamburger = document.getElementById("nav-hamburger");
+      const navMenu = document.getElementById("nav-menu");
+      hamburger.addEventListener("click", () => {
+        const open = navMenu.classList.toggle("open");
+        hamburger.classList.toggle("active", open);
+        hamburger.setAttribute("aria-expanded", String(open));
+        document.body.style.overflow = open ? "hidden" : "";
+      });
+      navMenu.querySelectorAll(".nav-link, .nav-cta").forEach((l) =>
+        l.addEventListener("click", () => {
+          navMenu.classList.remove("open");
+          hamburger.classList.remove("active");
+          hamburger.setAttribute("aria-expanded", "false");
+          document.body.style.overflow = "";
+        }),
+      );
+
+      const categories = {
+        radovi: Array.from({ length: 11 }, (_, i) => `r${i + 1}.jpg`),
+        servis: Array.from({ length: 6 }, (_, i) => `s${i + 1}.jpg`),
+        majstori: Array.from({ length: 3 }, (_, i) => `m${i + 1}.jpg`),
+      };
+
+      const labels = {
+        radovi: "Radovi",
+        servis: "Servis",
+        majstori: "Naš tim",
+      };
+
+      let currentImages = [];
+      let currentIndex = 0;
+
+      function buildGrid(cat) {
+        const grid = document.getElementById("grid-" + cat);
+        if (!grid || grid.children.length) return;
+        categories[cat].forEach((src, i) => {
+          const item = document.createElement("div");
+          item.className = "img-item";
+          item.innerHTML = `
+          <img src="${src}" alt="${labels[cat]} ${i + 1} – Auto Servis Bagrameli" loading="lazy">
+          <div class="img-item__overlay">
+            <div class="img-item__zoom">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+                <path d="M8 11h6M11 8v6"/>
+              </svg>
+            </div>
+          </div>`;
+          item.addEventListener("click", () => openLightbox(cat, i));
+          grid.appendChild(item);
+        });
+      }
+
+      document.querySelectorAll(".gallery-tab").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const cat = btn.dataset.tab;
+          document.querySelectorAll(".gallery-tab").forEach((b) => {
+            b.classList.remove("active");
+            b.setAttribute("aria-selected", "false");
+          });
+          btn.classList.add("active");
+          btn.setAttribute("aria-selected", "true");
+          document
+            .querySelectorAll(".gallery-category")
+            .forEach((c) => c.classList.remove("active"));
+          document.getElementById("tab-" + cat).classList.add("active");
+          buildGrid(cat);
+        });
+      });
+
+      buildGrid("radovi");
+
+      const lightbox = document.getElementById("lightbox");
+      const lbImg = document.getElementById("lb-img");
+      const lbCounter = document.getElementById("lb-counter");
+
+      function openLightbox(cat, idx) {
+        currentImages = categories[cat];
+        currentIndex = idx;
+        showLightboxImage();
+        lightbox.classList.add("open");
+        document.body.style.overflow = "hidden";
+      }
+
+      function showLightboxImage() {
+        lbImg.src = currentImages[currentIndex];
+        lbImg.alt = currentImages[currentIndex];
+        lbCounter.textContent = currentIndex + 1 + " / " + currentImages.length;
+      }
+
+      document
+        .getElementById("lb-close")
+        .addEventListener("click", closeLightbox);
+      document.getElementById("lb-prev").addEventListener("click", () => {
+        currentIndex =
+          (currentIndex - 1 + currentImages.length) % currentImages.length;
+        showLightboxImage();
+      });
+      document.getElementById("lb-next").addEventListener("click", () => {
+        currentIndex = (currentIndex + 1) % currentImages.length;
+        showLightboxImage();
+      });
+      lightbox.addEventListener("click", (e) => {
+        if (e.target === lightbox) closeLightbox();
+      });
+      document.addEventListener("keydown", (e) => {
+        if (!lightbox.classList.contains("open")) return;
+        if (e.key === "Escape") closeLightbox();
+        if (e.key === "ArrowLeft") {
+          currentIndex =
+            (currentIndex - 1 + currentImages.length) % currentImages.length;
+          showLightboxImage();
+        }
+        if (e.key === "ArrowRight") {
+          currentIndex = (currentIndex + 1) % currentImages.length;
+          showLightboxImage();
+        }
+      });
+
+      function closeLightbox() {
+        lightbox.classList.remove("open");
+        document.body.style.overflow = "";
+        lbImg.src = "";
+      }
+
+      (function () {
+        var lbStartX = 0;
+        var lbStartY = 0;
+        var lbDiffX = 0;
+        var lbDiffY = 0;
+        var lbDragging = false;
+        var lbAxis = null;
+
+        lightbox.addEventListener(
+          "touchstart",
+          function (e) {
+            if (e.target === lightbox) return;
+            lbStartX = e.touches[0].clientX;
+            lbStartY = e.touches[0].clientY;
+            lbDiffX = 0;
+            lbDiffY = 0;
+            lbDragging = true;
+            lbAxis = null;
+            lbImg.style.transition = "none";
+          },
+          { passive: true },
+        );
+
+        lightbox.addEventListener(
+          "touchmove",
+          function (e) {
+            if (!lbDragging) return;
+            lbDiffX = e.touches[0].clientX - lbStartX;
+            lbDiffY = e.touches[0].clientY - lbStartY;
+
+            if (!lbAxis && (Math.abs(lbDiffX) > 8 || Math.abs(lbDiffY) > 8)) {
+              lbAxis = Math.abs(lbDiffX) >= Math.abs(lbDiffY) ? "h" : "v";
+            }
+
+            if (lbAxis === "h") {
+              e.preventDefault();
+              lbImg.style.transform =
+                "translateX(" + lbDiffX + "px) scale(0.96)";
+              lbImg.style.opacity = String(
+                Math.max(0.4, 1 - Math.abs(lbDiffX) / 320),
+              );
+            }
+          },
+          { passive: false },
+        );
+
+        lightbox.addEventListener(
+          "touchend",
+          function () {
+            if (!lbDragging) return;
+            lbDragging = false;
+
+            if (lbAxis === "h" && Math.abs(lbDiffX) > 50) {
+              var dir = lbDiffX < 0 ? 1 : -1;
+              var exitX = dir * -window.innerWidth;
+              lbImg.style.transition =
+                "transform 0.28s ease, opacity 0.28s ease";
+              lbImg.style.transform = "translateX(" + exitX + "px) scale(0.9)";
+              lbImg.style.opacity = "0";
+
+              setTimeout(function () {
+                currentIndex =
+                  (currentIndex + dir + currentImages.length) %
+                  currentImages.length;
+                showLightboxImage();
+                lbImg.style.transition = "none";
+                lbImg.style.transform =
+                  "translateX(" + -dir * 60 + "px) scale(0.96)";
+                lbImg.style.opacity = "0.4";
+
+                void lbImg.offsetWidth;
+                lbImg.style.transition =
+                  "transform 0.28s ease, opacity 0.28s ease";
+                lbImg.style.transform = "translateX(0) scale(1)";
+                lbImg.style.opacity = "1";
+              }, 280);
+            } else {
+              lbImg.style.transition =
+                "transform 0.28s ease, opacity 0.28s ease";
+              lbImg.style.transform = "translateX(0) scale(1)";
+              lbImg.style.opacity = "1";
+            }
+
+            lbAxis = null;
+          },
+          { passive: true },
+        );
+      })();
+    </script>
+  </body>
+</html>
