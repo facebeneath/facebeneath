@@ -96,10 +96,17 @@ body > .wrap:first-of-type > header h1 {
 body > .wrap:first-of-type > header .lead {
   margin: 0;
   max-width: 820px;
-  color: #d6dde7;
+  color: var(--gold);
   font-size: clamp(1.02rem, 1.95vw, 1.28rem);
   line-height: 1.82;
   text-wrap: balance;
+}
+
+@media (min-width: 1024px) {
+  body > .wrap:first-of-type > header .lead {
+    font-size: 1.36rem;
+    line-height: 1.9;
+  }
 }
 
 .signature {
