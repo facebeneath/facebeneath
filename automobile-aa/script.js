@@ -56,7 +56,7 @@ function ensureNavigationLayout() {
     mobileLogo.setAttribute("data-transition", "page");
     mobileLogo.setAttribute("aria-label", "Startseite");
     mobileLogo.innerHTML =
-      '<img src="images/logo.png" alt="AUTOMOBILE A & A Logo" />';
+      '<img decoding="async" loading="lazy" src="images/logo.png" alt="AUTOMOBILE A & A Logo" />';
     navContainer.prepend(mobileLogo);
   }
 
@@ -851,7 +851,7 @@ function setupGalleryLightbox() {
     <button type="button" class="lightbox-close" aria-label="Lightbox schliessen">Schliessen</button>
     <div class="lightbox-frame">
       <button type="button" class="lightbox-nav lightbox-nav-prev" aria-label="Vorheriges Bild">&#8249;</button>
-      <img class="lightbox-image" src="" alt="Vergroesserte Ansicht" />
+      <img decoding="async" loading="lazy" class="lightbox-image" src="" alt="Vergroesserte Ansicht" />
       <button type="button" class="lightbox-nav lightbox-nav-next" aria-label="Naechstes Bild">&#8250;</button>
       <p class="lightbox-hint">Tippen zum Oeffnen, wischen zum Wechseln, mit zwei Fingern zoomen</p>
     </div>

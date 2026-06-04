@@ -314,8 +314,7 @@
           class="nav-logo"
           aria-label="Auto Servis Bagrameli – Naslovna"
         >
-          <img
-            src="bagraLogo.png"
+          <img decoding="async" loading="lazy" src="bagraLogo.png"
             alt="Auto Servis Bagrameli Logo"
             width="220"
             height="72"
@@ -433,7 +432,7 @@
       <div class="container">
         <div class="footer-grid">
           <div class="footer-col footer-col--brand">
-            <img
+            <img decoding="async"
               src="bagraLogo.png"
               alt="Auto Servis Bagrameli"
               class="footer-logo"
@@ -556,7 +555,7 @@
       >
         &#8592;
       </button>
-      <img class="lightbox__img" id="lb-img" src="" alt="" />
+      <img decoding="async" loading="lazy" class="lightbox__img" id="lb-img" src="" alt="" />
       <button
         class="lightbox__nav lightbox__next"
         id="lb-next"
@@ -611,7 +610,7 @@
           const item = document.createElement("div");
           item.className = "img-item";
           item.innerHTML = `
-          <img src="${src}" alt="${labels[cat]} ${i + 1} – Auto Servis Bagrameli" loading="lazy">
+          <img decoding="async" src="${src}" alt="${labels[cat]} ${i + 1} – Auto Servis Bagrameli" loading="lazy">
           <div class="img-item__overlay">
             <div class="img-item__zoom">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
