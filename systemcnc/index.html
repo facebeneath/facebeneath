@@ -1,0 +1,1507 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="SYSTEMCNC – Professionelle CNC-Fräsarbeiten, Drehen, Prototypenfertigung und individuelle Teileherstellung in Deutschland. Präzision, Qualität und Zuverlässigkeit."
+    />
+    <meta
+      name="keywords"
+      content="CNC Fräsen, CNC Drehen, Präzisionsteile, Prototypen, Aluminium, Stahl, Maschinenbau, Made in Germany"
+    />
+    <meta name="author" content="SYSTEMCNC GmbH" />
+    <meta
+      property="og:title"
+      content="SYSTEMCNC – Präzisions-CNC-Fertigungslösungen"
+    />
+    <meta
+      property="og:description"
+      content="Hochpräzise CNC-Fertigung für Industrie und Maschinenbau. Made in Germany."
+    />
+    <meta property="og:type" content="website" />
+    <title>SYSTEMCNC – Präzisions-CNC-Fertigungslösungen</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Rajdhani:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <nav class="navbar" id="navbar">
+      <div class="nav-container">
+        <a href="#home" class="logo">
+          <svg class="logo-gear" viewBox="0 0 40 40" fill="none">
+            <path
+              d="M20 12a8 8 0 100 16 8 8 0 000-16z"
+              stroke="currentColor"
+              stroke-width="1.5"
+            />
+            <path
+              d="M20 2v4M20 34v4M2 20h4M34 20h4M6.34 6.34l2.83 2.83M30.83 30.83l2.83 2.83M6.34 33.66l2.83-2.83M30.83 9.17l2.83-2.83"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+            />
+          </svg>
+          <span class="logo-text"
+            >SYSTEM<span class="logo-accent">CNC</span></span
+          >
+        </a>
+        <ul class="nav-menu" id="navMenu">
+          <li><a href="#home" class="nav-link">Startseite</a></li>
+          <li><a href="#services" class="nav-link">Leistungen</a></li>
+
+          <li><a href="#about" class="nav-link">Über uns</a></li>
+          <li><a href="#contact" class="nav-link">Kontakt</a></li>
+          <li>
+            <a href="#quote" class="nav-link nav-cta">Angebot anfordern</a>
+          </li>
+        </ul>
+        <button
+          class="hamburger"
+          id="hamburger"
+          aria-label="Menü öffnen"
+          aria-expanded="false"
+        >
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+
+    <canvas class="side-canvas side-canvas--left" id="canvasLeft"></canvas>
+    <canvas class="side-canvas side-canvas--right" id="canvasRight"></canvas>
+
+    <section class="hero" id="home">
+      <div class="hero-bg">
+        <video class="hero-video" autoplay muted loop playsinline>
+          <source src="cncvideo.mp4" type="video/mp4" />
+        </video>
+        <div class="hero-grid-overlay"></div>
+        <div class="hero-radial"></div>
+      </div>
+      <canvas class="hero-canvas" id="heroCanvas"></canvas>
+
+      <div class="hero-inner container">
+        <div class="hero-content">
+          <div class="hero-badge">
+            <span class="badge-pulse"></span>
+            <span>Fertigung in Deutschland · ISO 9001:2015</span>
+          </div>
+          <h1 class="hero-title">
+            <span class="ht-line">Präzisions-</span>
+            <span class="ht-line">CNC-Fertigungs-</span>
+            <span class="ht-line gradient-text">lösungen</span>
+          </h1>
+          <p class="hero-sub">
+            Höchste Qualität in der spanenden Fertigung. Wir realisieren Ihre
+            Präzisionsteile nach Maß – schnell, zuverlässig und auf höchstem
+            technischem Niveau.
+          </p>
+          <div class="hero-actions">
+            <a href="#quote" class="btn btn-primary">
+              <span>Angebot anfordern</span>
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </a>
+            <a href="#services" class="btn btn-ghost">
+              <span>Unsere Leistungen</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <div class="hv-ring hv-ring-1"></div>
+          <div class="hv-ring hv-ring-2"></div>
+          <div class="hv-ring hv-ring-3"></div>
+          <div class="hv-core">
+            <svg class="hv-gear" viewBox="0 0 200 200" fill="none">
+              <circle
+                cx="100"
+                cy="100"
+                r="45"
+                stroke="#ff6200"
+                stroke-width="2"
+                stroke-dasharray="4 4"
+              />
+              <circle
+                cx="100"
+                cy="100"
+                r="15"
+                stroke="#c9a227"
+                stroke-width="1.5"
+              />
+              <path
+                d="M100 40v20M100 140v20M40 100h20M140 100h20
+                     M57 57l14 14M129 129l14 14M57 143l14-14M129 71l14-14"
+                stroke="#ff6200"
+                stroke-width="2"
+                stroke-linecap="round"
+              />
+              <path
+                d="M100 30 L108 45 L92 45 Z
+                     M100 170 L108 155 L92 155 Z
+                     M30 100 L45 108 L45 92 Z
+                     M170 100 L155 108 L155 92 Z"
+                fill="#ff6200"
+              />
+            </svg>
+          </div>
+          <div class="hv-card hv-card-1">
+            <span class="hvc-icon">⚡</span>
+            <span>±0,01 mm Toleranz</span>
+          </div>
+          <div class="hv-card hv-card-2">
+            <span class="hvc-icon">⚙</span>
+            <span>5-Achs CNC</span>
+          </div>
+          <div class="hv-card hv-card-3">
+            <span class="hvc-icon">🏅</span>
+            <span>ISO 9001:2015</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-scroll">
+        <div class="scroll-track"><div class="scroll-thumb"></div></div>
+        <span>Scrollen</span>
+      </div>
+    </section>
+
+    <div class="features-strip">
+      <div class="features-inner container">
+        <div class="fi-item">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+          >
+            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+          </svg>
+          <span>5-Achs CNC-Bearbeitung</span>
+        </div>
+        <div class="fi-sep"></div>
+        <div class="fi-item">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+          >
+            <circle cx="12" cy="12" r="3" />
+            <path
+              d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"
+            />
+          </svg>
+          <span>Toleranz ±0,01 mm</span>
+        </div>
+        <div class="fi-sep"></div>
+        <div class="fi-item">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+          >
+            <path d="M9 12l2 2 4-4M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+          <span>ISO 9001:2015 zertifiziert</span>
+        </div>
+        <div class="fi-sep"></div>
+        <div class="fi-item">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+          >
+            <path d="M12 8v4l3 3M12 2a10 10 0 100 20A10 10 0 0012 2z" />
+          </svg>
+          <span>Lieferung in 3–5 Werktagen</span>
+        </div>
+        <div class="fi-sep"></div>
+        <div class="fi-item">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+          >
+            <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z" />
+            <polyline points="9 22 9 12 15 12 15 22" />
+          </svg>
+          <span>Made in Germany</span>
+        </div>
+      </div>
+    </div>
+
+    <section class="services" id="services">
+      <canvas class="sec-canvas sec-canvas--right"></canvas>
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Was wir bieten</span>
+          <h2 class="section-title">
+            Unsere <span class="gradient-text">Leistungen</span>
+          </h2>
+          <p class="section-sub">
+            Von der Einzelteilfertigung bis zur Serienproduktion – das komplette
+            Spektrum der CNC-Bearbeitung.
+          </p>
+        </div>
+
+        <div class="services-grid">
+          <div class="svc-card" data-animate>
+            <div class="svc-icon">
+              <svg
+                viewBox="0 0 64 64"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+              >
+                <rect x="8" y="28" width="48" height="10" rx="2" />
+                <path d="M20 28V16M32 28V10M44 28V20" />
+                <circle cx="20" cy="13" r="4" />
+                <circle cx="32" cy="7" r="4" />
+                <circle cx="44" cy="17" r="4" />
+              </svg>
+            </div>
+            <h3>CNC-Fräsen</h3>
+            <p>
+              3-, 4- und 5-Achsbearbeitung für komplexe Geometrien. Höchste
+              Präzision bei Prototypen und Serienteilen.
+            </p>
+            <ul class="svc-features">
+              <li><span class="check">✓</span> 3-Achs bis 5-Achs simultan</li>
+              <li><span class="check">✓</span> Toleranz bis ±0,005 mm</li>
+              <li>
+                <span class="check">✓</span> bis 1000 × 500 mm Bearbeitungsraum
+              </li>
+            </ul>
+            <a href="#quote" class="svc-link"
+              >Anfrage stellen
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path d="M5 12h14M12 5l7 7-7 7" /></svg
+            ></a>
+          </div>
+
+          <div class="svc-card" data-animate>
+            <div class="svc-icon">
+              <svg
+                viewBox="0 0 64 64"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+              >
+                <circle cx="32" cy="32" r="22" />
+                <circle cx="32" cy="32" r="10" />
+                <line x1="32" y1="4" x2="32" y2="10" />
+                <line x1="32" y1="54" x2="32" y2="60" />
+                <line x1="4" y1="32" x2="10" y2="32" />
+                <line x1="54" y1="32" x2="60" y2="32" />
+              </svg>
+            </div>
+            <h3>CNC-Drehen</h3>
+            <p>
+              Drehteile in höchster Präzision – von Einzelstücken bis zur
+              Großserie. Mit angetriebenen Werkzeugen.
+            </p>
+            <ul class="svc-features">
+              <li>
+                <span class="check">✓</span> Ø bis 500 mm, Länge bis 2000 mm
+              </li>
+              <li>
+                <span class="check">✓</span> Drehen + Fräsen in einer
+                Aufspannung
+              </li>
+              <li><span class="check">✓</span> Gewindedrehen, Konturdrehen</li>
+            </ul>
+            <a href="#quote" class="svc-link"
+              >Anfrage stellen
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path d="M5 12h14M12 5l7 7-7 7" /></svg
+            ></a>
+          </div>
+
+          <div class="svc-card svc-featured" data-animate>
+            <div class="svc-badge">Beliebt</div>
+            <div class="svc-icon">
+              <svg
+                viewBox="0 0 64 64"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+              >
+                <polygon points="32,6 58,20 58,44 32,58 6,44 6,20" />
+                <polygon points="32,18 46,26 46,38 32,46 18,38 18,26" />
+                <circle cx="32" cy="32" r="5" />
+              </svg>
+            </div>
+            <h3>Sonderteilfertigung</h3>
+            <p>
+              Individuelle Sonder- und Komplexteile nach Kundenwunsch. Keine
+              Geometrie ist zu komplex für uns.
+            </p>
+            <ul class="svc-features">
+              <li><span class="check">✓</span> Komplexe Freiformflächen</li>
+              <li><span class="check">✓</span> Mehrseitige Bearbeitung</li>
+              <li><span class="check">✓</span> Reverse Engineering möglich</li>
+            </ul>
+            <a href="#quote" class="svc-link"
+              >Anfrage stellen
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path d="M5 12h14M12 5l7 7-7 7" /></svg
+            ></a>
+          </div>
+
+          <div class="svc-card" data-animate>
+            <div class="svc-icon">
+              <svg
+                viewBox="0 0 64 64"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+              >
+                <path d="M14 50L32 14l18 36" />
+                <path d="M21 36h22" />
+                <circle cx="32" cy="8" r="5" />
+              </svg>
+            </div>
+            <h3>Prototypenfertigung</h3>
+            <p>
+              Schnelle Prototypen für Entwicklung und Testing. Von der CAD-Datei
+              zum fertigen Teil in wenigen Tagen.
+            </p>
+            <ul class="svc-features">
+              <li><span class="check">✓</span> Express-Lieferung in 24–72 h</li>
+              <li><span class="check">✓</span> STEP, STL, DWG Dateien</li>
+              <li><span class="check">✓</span> Funktionale Prüfteile</li>
+            </ul>
+            <a href="#quote" class="svc-link"
+              >Anfrage stellen
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path d="M5 12h14M12 5l7 7-7 7" /></svg
+            ></a>
+          </div>
+
+          <div class="svc-card" data-animate>
+            <div class="svc-icon">
+              <svg
+                viewBox="0 0 64 64"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+              >
+                <rect x="10" y="10" width="18" height="18" rx="2" />
+                <rect x="36" y="10" width="18" height="18" rx="2" />
+                <rect x="10" y="36" width="18" height="18" rx="2" />
+                <rect x="36" y="36" width="18" height="18" rx="2" />
+              </svg>
+            </div>
+            <h3>Serienproduktion</h3>
+            <p>
+              Effiziente Fertigung von Kleinserien bis Großserien. Konstante
+              Qualität durch digitale Qualitätssicherung.
+            </p>
+            <ul class="svc-features">
+              <li><span class="check">✓</span> Ab 1 Stück bis 10.000+ Stück</li>
+              <li><span class="check">✓</span> Reproduzierbare Qualität</li>
+              <li><span class="check">✓</span> Automatisierte Fertigung</li>
+            </ul>
+            <a href="#quote" class="svc-link"
+              >Anfrage stellen
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path d="M5 12h14M12 5l7 7-7 7" /></svg
+            ></a>
+          </div>
+
+          <div class="svc-card" data-animate>
+            <div class="svc-icon">
+              <svg
+                viewBox="0 0 64 64"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+              >
+                <path d="M8 56l14-22 14 10 14-18 14 30" />
+                <path d="M8 8h48v48H8z" stroke-dasharray="5 3" />
+              </svg>
+            </div>
+            <h3>Werkstoffe</h3>
+            <p>
+              Bearbeitung aller gängigen Werkstoffe – von Aluminium bis zu
+              Hochtemperaturlegierungen.
+            </p>
+            <ul class="svc-features">
+              <li><span class="check">✓</span> Aluminium, Stahl, Edelstahl</li>
+              <li><span class="check">✓</span> Titan, Messing, Kupfer</li>
+              <li><span class="check">✓</span> POM, PA6, PEEK, PTFE</li>
+            </ul>
+            <a href="#quote" class="svc-link"
+              >Anfrage stellen
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path d="M5 12h14M12 5l7 7-7 7" /></svg
+            ></a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <canvas class="sec-canvas sec-canvas--right"></canvas>
+
+    <section class="materials">
+      <canvas class="sec-canvas sec-canvas--left"></canvas>
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Werkstoffe</span>
+          <h2 class="section-title">
+            Wir bearbeiten <span class="gradient-text">alle Materialien</span>
+          </h2>
+        </div>
+        <div class="mat-grid">
+          <div class="mat-card" data-animate>
+            <div class="mat-visual mat-al">
+              <span class="mat-symbol">Al</span>
+            </div>
+            <h4>Aluminium</h4>
+            <p>EN AW-2024, 6082, 7075</p>
+          </div>
+          <div class="mat-card" data-animate>
+            <div class="mat-visual mat-st">
+              <span class="mat-symbol">Fe</span>
+            </div>
+            <h4>Stahl / Edelstahl</h4>
+            <p>1.0503, 1.4301, 1.4404</p>
+          </div>
+          <div class="mat-card" data-animate>
+            <div class="mat-visual mat-ti">
+              <span class="mat-symbol">Ti</span>
+            </div>
+            <h4>Titan</h4>
+            <p>Grade 2, Grade 5 (Ti-6Al-4V)</p>
+          </div>
+          <div class="mat-card" data-animate>
+            <div class="mat-visual mat-cu">
+              <span class="mat-symbol">Cu</span>
+            </div>
+            <h4>Messing / Kupfer</h4>
+            <p>CuZn39Pb3, E-Cu58</p>
+          </div>
+          <div class="mat-card" data-animate>
+            <div class="mat-visual mat-pl">
+              <span class="mat-symbol">PL</span>
+            </div>
+            <h4>Kunststoffe</h4>
+            <p>POM, PA6, PEEK, PTFE</p>
+          </div>
+          <div class="mat-card" data-animate>
+            <div class="mat-visual mat-sp">
+              <span class="mat-symbol">SL</span>
+            </div>
+            <h4>Sonderlegierungen</h4>
+            <p>Inconel, Hastelloy, Duplex</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="quote-section" id="quote">
+      <canvas class="sec-canvas sec-canvas--right"></canvas>
+      <div class="container">
+        <div class="quote-grid">
+          <div class="quote-info">
+            <span class="section-tag">Kostenloses Angebot</span>
+            <h2 class="section-title">
+              Datei hochladen &amp;<br /><span class="gradient-text"
+                >Angebot erhalten</span
+              >
+            </h2>
+            <p class="quote-lead">
+              Laden Sie Ihre CAD-Datei hoch und erhalten Sie innerhalb von 24
+              Stunden ein detailliertes Angebot von unserem Ingenieurteam.
+            </p>
+
+            <div class="quote-features-list">
+              <div class="qfl-item">
+                <div class="qfl-icon">⚡</div>
+                <div class="qfl-text">
+                  <strong>Schnelle Rückmeldung</strong>
+                  <span>Angebot innerhalb von 24 Stunden</span>
+                </div>
+              </div>
+              <div class="qfl-item">
+                <div class="qfl-icon">🔒</div>
+                <div class="qfl-text">
+                  <strong>Sichere Übertragung</strong>
+                  <span>SSL-verschlüsselte Dateiübertragung</span>
+                </div>
+              </div>
+              <div class="qfl-item">
+                <div class="qfl-icon">📋</div>
+                <div class="qfl-text">
+                  <strong>Vertraulichkeit</strong>
+                  <span>NDA auf Anfrage verfügbar</span>
+                </div>
+              </div>
+              <div class="qfl-item">
+                <div class="qfl-icon">✅</div>
+                <div class="qfl-text">
+                  <strong>Keine Verpflichtung</strong>
+                  <span>Unverbindliches Angebot – kostenlos</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="accepted-formats">
+              <span class="af-label">Akzeptierte Dateiformate:</span>
+              <div class="af-tags">
+                <span>STEP</span><span>STL</span><span>DWG</span>
+                <span>PDF</span><span>IGES</span><span>DXF</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="quote-form-wrap">
+            <form
+              class="quote-form"
+              id="quoteForm"
+              novalidate
+              autocomplete="off"
+            >
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="qName"
+                    >Vollständiger Name <span class="req">*</span></label
+                  >
+                  <input
+                    type="text"
+                    id="qName"
+                    name="name"
+                    placeholder="Max Mustermann"
+                    required
+                    autocomplete="name"
+                  />
+                  <span class="form-err" id="qNameErr"></span>
+                </div>
+                <div class="form-group">
+                  <label for="qEmail"
+                    >E-Mail-Adresse <span class="req">*</span></label
+                  >
+                  <input
+                    type="email"
+                    id="qEmail"
+                    name="email"
+                    placeholder="max@firma.de"
+                    required
+                    autocomplete="email"
+                  />
+                  <span class="form-err" id="qEmailErr"></span>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="qCompany">Unternehmen</label>
+                  <input
+                    type="text"
+                    id="qCompany"
+                    name="company"
+                    placeholder="Firma GmbH"
+                    autocomplete="organization"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="qPhone">Telefon</label>
+                  <input
+                    type="tel"
+                    id="qPhone"
+                    name="phone"
+                    placeholder="+49 123 456789"
+                    autocomplete="tel"
+                  />
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="qMaterial"
+                    >Material <span class="req">*</span></label
+                  >
+                  <select id="qMaterial" name="material" required>
+                    <option value="">– Material auswählen –</option>
+                    <option>Aluminium (EN AW-6082)</option>
+                    <option>Aluminium (EN AW-7075)</option>
+                    <option>Stahl (1.0503 / C45)</option>
+                    <option>Edelstahl (1.4301 / V2A)</option>
+                    <option>Edelstahl (1.4404 / V4A)</option>
+                    <option>Titan (Grade 5 / Ti-6Al-4V)</option>
+                    <option>Messing (CuZn39Pb3)</option>
+                    <option>Kupfer (E-Cu58)</option>
+                    <option>Kunststoff (POM-C)</option>
+                    <option>Kunststoff (PA6 / PA66)</option>
+                    <option>Kunststoff (PEEK)</option>
+                    <option>Sonstiges (bitte beschreiben)</option>
+                  </select>
+                  <span class="form-err" id="qMaterialErr"></span>
+                </div>
+                <div class="form-group">
+                  <label for="qQty">Stückzahl <span class="req">*</span></label>
+                  <input
+                    type="number"
+                    id="qQty"
+                    name="quantity"
+                    placeholder="z. B. 1, 10, 100"
+                    min="1"
+                    max="100000"
+                    required
+                  />
+                  <span class="form-err" id="qQtyErr"></span>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="qDesc"
+                  >Projektbeschreibung <span class="req">*</span></label
+                >
+                <textarea
+                  id="qDesc"
+                  name="description"
+                  rows="4"
+                  placeholder="Beschreiben Sie Ihr Projekt, gewünschte Toleranzen, Oberflächenqualität, Liefertermin usw."
+                  required
+                ></textarea>
+                <span class="form-err" id="qDescErr"></span>
+              </div>
+
+              <div class="form-group">
+                <label>Datei hochladen</label>
+                <div class="file-drop-zone" id="fileDropZone">
+                  <input
+                    type="file"
+                    id="fileInput"
+                    name="files"
+                    accept=".step,.stp,.stl,.pdf,.dwg,.iges,.igs,.dxf"
+                    multiple
+                    class="file-input-hidden"
+                  />
+                  <div class="fdz-content">
+                    <svg
+                      class="fdz-icon"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                    >
+                      <path
+                        d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M17 8l-5-5-5 5M12 3v12"
+                      />
+                    </svg>
+                    <p class="fdz-text">
+                      Dateien hierher ziehen oder
+                      <span class="fdz-browse">Durchsuchen</span>
+                    </p>
+                    <p class="fdz-hint">
+                      STEP, STL, PDF, DWG, IGES, DXF – max. 50 MB pro Datei
+                    </p>
+                  </div>
+                  <ul class="file-list" id="fileList"></ul>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="checkbox-wrap">
+                  <input
+                    type="checkbox"
+                    id="qPrivacy"
+                    name="privacy"
+                    required
+                  />
+                  <span class="cb-box"></span>
+                  <span class="cb-text"
+                    >Ich habe die
+                    <a href="#" class="inline-link">Datenschutzerklärung</a>
+                    gelesen und stimme der Verarbeitung meiner Daten zu.
+                    <span class="req">*</span></span
+                  >
+                </label>
+                <span class="form-err" id="qPrivacyErr"></span>
+              </div>
+
+              <button type="submit" class="btn btn-primary btn-full">
+                <span>Angebot anfordern</span>
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
+              </button>
+              <p class="form-note">
+                Wir melden uns innerhalb von <strong>24 Stunden</strong>. Alle
+                Angaben werden vertraulich behandelt.
+              </p>
+            </form>
+
+            <div class="form-success-msg" id="quoteSuccess" hidden>
+              <div class="fsm-icon">✓</div>
+              <h3>Anfrage gesendet!</h3>
+              <p>
+                Vielen Dank. Wir werden Ihre Datei prüfen und uns innerhalb von
+                <strong>24 Stunden</strong> bei Ihnen melden.
+              </p>
+              <a href="#home" class="btn btn-ghost">Zurück zur Startseite</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="portfolio" id="portfolio">
+      <canvas class="sec-canvas sec-canvas--left"></canvas>
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">systemcnc</span>
+          <h2 class="section-title">
+            Referenz<span class="gradient-text">projekte</span>
+          </h2>
+          <p class="section-sub">
+            Einblick in verschiedene Fertigungsbeispiele – von Einzelteilen bis
+            hin zu komplexen Baugruppen.
+          </p>
+        </div>
+
+        <div class="pf-filter">
+          <button class="pf-btn active" data-filter="all">Alle</button>
+          <button class="pf-btn" data-filter="fraesen">Fräsen</button>
+          <button class="pf-btn" data-filter="drehen">Drehen</button>
+          <button class="pf-btn" data-filter="prototyp">Prototypen</button>
+          <button class="pf-btn" data-filter="serie">Serienteile</button>
+        </div>
+
+        <div class="pf-grid" id="pfGrid">
+          <div class="pf-item" data-cat="fraesen" data-animate>
+            <div class="pf-img pf-img-1">
+              <img
+                src="cnc.jpg"
+                alt="CNC Motorhalterung Aluminium"
+                class="pf-real-img"
+              />
+              <div class="pf-overlay">
+                <h4>Motorhalterung Aluminium</h4>
+                <p>5-Achs CNC-Fräsen · EN AW-7075</p>
+                <div class="pf-tags">
+                  <span>Fräsen</span><span>Aluminium</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="pf-item pf-large" data-cat="drehen" data-animate>
+            <div class="pf-img pf-img-2">
+              <img
+                src="cnc1.jpg"
+                alt="CNC Präzisionswelle Edelstahl"
+                class="pf-real-img"
+              />
+              <div class="pf-overlay">
+                <h4>Präzisionswelle Edelstahl</h4>
+                <p>CNC-Drehen · 1.4404 · Toleranz h6</p>
+                <div class="pf-tags">
+                  <span>Drehen</span><span>Edelstahl</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="pf-item" data-cat="prototyp" data-animate>
+            <div class="pf-img pf-img-3">
+              <img
+                src="cnc2.webp"
+                alt="CNC Gehäuseprototyp"
+                class="pf-real-img"
+              />
+              <div class="pf-overlay">
+                <h4>Gehäuseprototyp</h4>
+                <p>Prototyp · POM-C · 48h Express</p>
+                <div class="pf-tags">
+                  <span>Prototyp</span><span>Kunststoff</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="pf-item" data-cat="serie" data-animate>
+            <div class="pf-img pf-img-4">
+              <img
+                src="cnc3.jpg"
+                alt="CNC Serienteile Automobilindustrie"
+                class="pf-real-img"
+              />
+              <div class="pf-overlay">
+                <h4>Serienteile Automobilindustrie</h4>
+                <p>Serie 500 Stück · Aluminium · ISO-Qualität</p>
+                <div class="pf-tags">
+                  <span>Serie</span><span>Automobil</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="pf-item" data-cat="fraesen" data-animate>
+            <div class="pf-img pf-img-5">
+              <img
+                src="cnc4.jpg"
+                alt="CNC Hydraulikblock Stahl"
+                class="pf-real-img"
+              />
+              <div class="pf-overlay">
+                <h4>Hydraulikblock Stahl</h4>
+                <p>4-Achs Fräsen · 1.0503 · Innenkonturen</p>
+                <div class="pf-tags"><span>Fräsen</span><span>Stahl</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="pf-item" data-cat="prototyp" data-animate>
+            <div class="pf-img pf-img-6">
+              <img
+                src="cnc5.jpg"
+                alt="CNC Titan Implantat-Prototyp"
+                class="pf-real-img"
+              />
+              <div class="pf-overlay">
+                <h4>Titan Implantat-Prototyp</h4>
+                <p>5-Achs · Ti-6Al-4V · Medizintechnik</p>
+                <div class="pf-tags">
+                  <span>Prototyp</span><span>Titan</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="about" id="about">
+      <canvas class="sec-canvas sec-canvas--right"></canvas>
+      <div class="container">
+        <div class="about-grid">
+          <div class="about-visual">
+            <div class="av-frame">
+              <div class="av-main">
+                <img
+                  src="cnc1.jpg"
+                  alt="CNC-bearbeitete Metallteile"
+                  class="av-img"
+                />
+              </div>
+              <div class="av-secondary">
+                <img
+                  src="cnc2.webp"
+                  alt="Präzisionsfertigung an einer CNC-Maschine"
+                  class="av-img"
+                />
+              </div>
+              <div class="av-badge">
+                <span class="avb-num">15+</span>
+                <span class="avb-lbl">Jahre Erfahrung</span>
+              </div>
+              <div class="av-lines">
+                <div class="avl avl-h"></div>
+                <div class="avl avl-v"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="about-content">
+            <span class="section-tag">Über SYSTEMCNC</span>
+            <h2 class="section-title">
+              Präzision ist<br /><span class="gradient-text">unsere DNA</span>
+            </h2>
+            <p class="about-lead">
+              Seit über 15 Jahren fertigen wir hochpräzise CNC-Teile für
+              anspruchsvolle Branchen wie Maschinenbau, Automobilindustrie,
+              Medizintechnik und Luft- und Raumfahrt.
+            </p>
+            <p class="about-body">
+              Unser Maschinenpark umfasst modernste
+              5-Achs-CNC-Bearbeitungszentren, CNC-Drehmaschinen mit
+              angetriebenen Werkzeugen sowie eine vollausgestattete
+              Messabteilung mit 3D-Koordinatenmessmaschinen.
+            </p>
+
+            <div class="about-values">
+              <div class="av-val">
+                <span class="avv-icon">🎯</span>
+                <div>
+                  <strong>Präzision</strong
+                  ><span>Toleranzen bis in den Mikrometerbereich</span>
+                </div>
+              </div>
+              <div class="av-val">
+                <span class="avv-icon">⚡</span>
+                <div>
+                  <strong>Geschwindigkeit</strong
+                  ><span>Express-Fertigung in 24–72 Stunden</span>
+                </div>
+              </div>
+              <div class="av-val">
+                <span class="avv-icon">🏆</span>
+                <div>
+                  <strong>Qualität</strong
+                  ><span>ISO 9001:2015 zertifizierter Betrieb</span>
+                </div>
+              </div>
+              <div class="av-val">
+                <span class="avv-icon">🤝</span>
+                <div>
+                  <strong>Partnerschaft</strong
+                  ><span>Langfristige Kundenbeziehungen</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="capabilities">
+              <div class="cap-row" data-animate>
+                <div class="cap-head">
+                  <span>5-Achs CNC-Fräsen</span><span class="cap-pct">95%</span>
+                </div>
+                <div class="cap-bar">
+                  <div class="cap-fill" data-w="95"></div>
+                </div>
+              </div>
+              <div class="cap-row" data-animate>
+                <div class="cap-head">
+                  <span>CNC-Drehen</span><span class="cap-pct">90%</span>
+                </div>
+                <div class="cap-bar">
+                  <div class="cap-fill" data-w="90"></div>
+                </div>
+              </div>
+              <div class="cap-row" data-animate>
+                <div class="cap-head">
+                  <span>Qualitätssicherung</span
+                  ><span class="cap-pct">98%</span>
+                </div>
+                <div class="cap-bar">
+                  <div class="cap-fill" data-w="98"></div>
+                </div>
+              </div>
+              <div class="cap-row" data-animate>
+                <div class="cap-head">
+                  <span>Liefertreue</span><span class="cap-pct">97%</span>
+                </div>
+                <div class="cap-bar">
+                  <div class="cap-fill" data-w="97"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="faq">
+      <canvas class="sec-canvas sec-canvas--left"></canvas>
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Häufige Fragen</span>
+          <h2 class="section-title">
+            FAQ – <span class="gradient-text">Ihre Fragen</span>
+          </h2>
+        </div>
+        <div class="faq-list">
+          <div class="faq-item" data-animate>
+            <button class="faq-q" aria-expanded="false">
+              <span>Welche Dateiformate werden akzeptiert?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-a">
+              <p>
+                Wir akzeptieren alle gängigen CAD-Formate: STEP (.step, .stp),
+                STL, DWG, DXF, IGES (.igs, .iges) sowie PDF für technische
+                Zeichnungen. Bevorzugt werden STEP-Dateien für 3D-Teile und
+                DWG/DXF für 2D-Zeichnungen.
+              </p>
+            </div>
+          </div>
+          <div class="faq-item" data-animate>
+            <button class="faq-q" aria-expanded="false">
+              <span>Wie schnell erhalte ich ein Angebot?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-a">
+              <p>
+                In der Regel erhalten Sie Ihr Angebot innerhalb von 24 Stunden
+                nach Eingang Ihrer Anfrage. Bei komplexen Projekten kann es bis
+                zu 48 Stunden dauern. Express-Anfragen können auch telefonisch
+                bearbeitet werden.
+              </p>
+            </div>
+          </div>
+          <div class="faq-item" data-animate>
+            <button class="faq-q" aria-expanded="false">
+              <span>Was sind Ihre Standard-Toleranzen?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-a">
+              <p>
+                Unsere Standard-Toleranz liegt bei ±0,1 mm (ISO 2768-m). Höhere
+                Genauigkeit bis ±0,005 mm ist auf Anfrage möglich. Für kritische
+                Maße geben Sie bitte Ihre Toleranzanforderungen direkt in der
+                Zeichnung oder Projektbeschreibung an.
+              </p>
+            </div>
+          </div>
+          <div class="faq-item" data-animate>
+            <button class="faq-q" aria-expanded="false">
+              <span>Bieten Sie Oberflächenbehandlungen an?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-a">
+              <p>
+                Ja, über unser Partnernetzwerk bieten wir an: Eloxieren (natur,
+                farbig), Harteloxieren, Vernickeln, Verzinken, Sandstrahlen,
+                Polieren, Pulverbeschichten und Passivieren für Edelstahl.
+              </p>
+            </div>
+          </div>
+          <div class="faq-item" data-animate>
+            <button class="faq-q" aria-expanded="false">
+              <span>Wie erfolgt der Versand meiner Teile?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-a">
+              <p>
+                Wir versenden deutschlandweit per DHL, DPD und UPS.
+                Express-Lieferung über Nacht ist möglich. Selbstabholung in
+                unserem Werk ist jederzeit willkommen. International liefern wir
+                in alle EU-Länder.
+              </p>
+            </div>
+          </div>
+          <div class="faq-item" data-animate>
+            <button class="faq-q" aria-expanded="false">
+              <span
+                >Werden meine Konstruktionsdaten vertraulich behandelt?</span
+              >
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-a">
+              <p>
+                Selbstverständlich. Alle Kundendaten werden streng vertraulich
+                behandelt. Auf Wunsch schließen wir vor Projektbeginn eine
+                Geheimhaltungsvereinbarung (NDA) ab.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <canvas class="sec-canvas sec-canvas--right"></canvas>
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Kontakt</span>
+          <h2 class="section-title">
+            So erreichen <span class="gradient-text">Sie uns</span>
+          </h2>
+        </div>
+        <div class="contact-grid">
+          <div class="contact-details">
+            <div class="cd-card" data-animate>
+              <div class="cdc-icon">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                >
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
+                  <circle cx="12" cy="10" r="3" />
+                </svg>
+              </div>
+              <div>
+                <h4>Adresse</h4>
+                <address>
+                  Industriestraße 42<br />70565 Stuttgart<br />Deutschland
+                </address>
+              </div>
+            </div>
+            <div class="cd-card" data-animate>
+              <div class="cdc-icon">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                >
+                  <path
+                    d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.95 12 19.79 19.79 0 01.88 3.4 2 2 0 012.86 1.21h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L7.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"
+                  />
+                </svg>
+              </div>
+              <div>
+                <h4>Telefon</h4>
+                <p><a href="tel:+4971112345678">+49 711 123 456 78</a></p>
+                <p class="cd-small">Mo–Fr: 07:00–17:00 Uhr</p>
+              </div>
+            </div>
+            <div class="cd-card" data-animate>
+              <div class="cdc-icon">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                >
+                  <path
+                    d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+                  />
+                  <polyline points="22,6 12,13 2,6" />
+                </svg>
+              </div>
+              <div>
+                <h4>E-Mail</h4>
+                <p><a href="mailto:info@systemcnc.de">info@systemcnc.de</a></p>
+                <p>
+                  <a href="mailto:anfrage@systemcnc.de">anfrage@systemcnc.de</a>
+                </p>
+              </div>
+            </div>
+            <div class="cd-card" data-animate>
+              <div class="cdc-icon">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                >
+                  <circle cx="12" cy="12" r="10" />
+                  <polyline points="12 6 12 12 16 14" />
+                </svg>
+              </div>
+              <div>
+                <h4>Öffnungszeiten</h4>
+                <p>Mo – Fr: 07:00 – 17:00 Uhr</p>
+                <p>Sa: 08:00 – 12:00 Uhr</p>
+                <p class="cd-small">Sonn- und Feiertage: geschlossen</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-right">
+            <div class="contact-form-wrap">
+              <h3>Nachricht senden</h3>
+              <form class="contact-form" id="contactForm" novalidate>
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="cName">Name <span class="req">*</span></label>
+                    <input
+                      type="text"
+                      id="cName"
+                      name="name"
+                      placeholder="Ihr Name"
+                      required
+                    />
+                  </div>
+                  <div class="form-group">
+                    <label for="cEmail"
+                      >E-Mail <span class="req">*</span></label
+                    >
+                    <input
+                      type="email"
+                      id="cEmail"
+                      name="email"
+                      placeholder="ihre@email.de"
+                      required
+                    />
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="cSubject">Betreff</label>
+                  <input
+                    type="text"
+                    id="cSubject"
+                    name="subject"
+                    placeholder="Womit können wir Ihnen helfen?"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="cMsg">Nachricht <span class="req">*</span></label>
+                  <textarea
+                    id="cMsg"
+                    name="message"
+                    rows="5"
+                    placeholder="Ihre Nachricht..."
+                    required
+                  ></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary btn-full">
+                  <span>Nachricht senden</span>
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" />
+                  </svg>
+                </button>
+              </form>
+              <div class="contact-success" id="contactSuccess" hidden>
+                <p>✓ Nachricht erfolgreich gesendet! Wir melden uns bald.</p>
+              </div>
+            </div>
+            <div class="map-wrap">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d84888.748!2d9.1800!3d48.7758!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4799db35960fb000%3A0xcca621a3a7a1a8b0!2sStuttgart!5e0!3m2!1sde!2sde!4v1700000000000!5m2!1sde!2sde"
+                title="SYSTEMCNC Standort Stuttgart"
+                allowfullscreen
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+              >
+              </iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="footer-top">
+        <div class="container">
+          <div class="footer-grid">
+            <div class="footer-brand">
+              <a href="#home" class="logo">
+                <svg class="logo-gear" viewBox="0 0 40 40" fill="none">
+                  <path
+                    d="M20 12a8 8 0 100 16 8 8 0 000-16z"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                  />
+                  <path
+                    d="M20 2v4M20 34v4M2 20h4M34 20h4M6.34 6.34l2.83 2.83M30.83 30.83l2.83 2.83M6.34 33.66l2.83-2.83M30.83 9.17l2.83-2.83"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                  />
+                </svg>
+                <span class="logo-text"
+                  >SYSTEM<span class="logo-accent">CNC</span></span
+                >
+              </a>
+              <p>
+                Präzisions-CNC-Fertigung seit 2009. Qualität made in Germany für
+                anspruchsvolle Branchen weltweit.
+              </p>
+              <div class="social-links">
+                <a
+                  href="https://facebeneath.com"
+                  class="sl"
+                  aria-label="Facebook"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path
+                      d="M14 8h2.5V5H14c-2.21 0-4 1.79-4 4v2H8v3h2v7h3v-7h2.5l.5-3H13V9c0-.55.45-1 1-1z"
+                    />
+                  </svg>
+                </a>
+                <a
+                  href="https://facebeneath.com"
+                  class="sl"
+                  aria-label="Instagram"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                  >
+                    <rect x="4" y="4" width="16" height="16" rx="4" />
+                    <circle cx="12" cy="12" r="4" />
+                    <circle
+                      cx="17.5"
+                      cy="6.5"
+                      r="1"
+                      fill="currentColor"
+                      stroke="none"
+                    />
+                  </svg>
+                </a>
+                <a
+                  href="https://facebeneath.com"
+                  class="sl"
+                  aria-label="WhatsApp"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path
+                      d="M20.5 11.9a8.5 8.5 0 10-15.4 5L4 22l5.2-1.1a8.5 8.5 0 0011.3-9zM12 6.2a5.8 5.8 0 015.8 5.8c0 3.2-2.6 5.8-5.8 5.8-.9 0-1.8-.2-2.6-.6l-.4-.2-3 .6.6-2.9-.2-.4c-.5-.9-.8-1.9-.8-3A5.8 5.8 0 0112 6.2zm3.4 8.2c-.2.4-1 1-1.4 1.1-.4.1-1 .1-1.6-.1-.4-.1-1-.3-1.6-.8-1.2-1-2-2.3-2.2-2.6-.2-.4-.8-1.3-.8-2.4 0-1.1.6-1.7.8-1.9.2-.2.4-.3.5-.3h.4c.1 0 .3 0 .4.4.2.5.6 1.6.6 1.7.1.1.1.3 0 .4-.1.2-.2.3-.3.5-.1.1-.2.3-.1.5.1.2.5.8 1.1 1.4.8.8 1.4 1.1 1.6 1.2.2.1.4.1.5 0 .1-.1.5-.6.7-.8.1-.2.3-.2.5-.1.2.1 1.3.6 1.5.7.2.1.4.1.5.2.1.1.1.5-.1.9z"
+                    />
+                  </svg>
+                </a>
+              </div>
+            </div>
+            <div class="footer-col">
+              <h5>Leistungen</h5>
+              <ul>
+                <li><a href="#services">CNC-Fräsen</a></li>
+                <li><a href="#services">CNC-Drehen</a></li>
+                <li><a href="#services">Sonderteilfertigung</a></li>
+                <li><a href="#services">Prototypenfertigung</a></li>
+                <li><a href="#services">Serienproduktion</a></li>
+              </ul>
+            </div>
+            <div class="footer-col">
+              <h5>Unternehmen</h5>
+              <ul>
+                <li><a href="#about">Über uns</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#contact">Kontakt</a></li>
+                <li><a href="#quote">Angebot anfordern</a></li>
+                <li><a href="#">Karriere</a></li>
+              </ul>
+            </div>
+            <div class="footer-col">
+              <h5>Rechtliches</h5>
+              <ul>
+                <li><a href="#">Impressum</a></li>
+                <li><a href="#">Datenschutzerklärung</a></li>
+                <li><a href="#">AGB</a></li>
+                <li><a href="#">Qualitätspolitik</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="container">
+          <p>© 2026 SYSTEMCNC GmbH · Alle Rechte vorbehalten · Made in BiH</p>
+          <p class="footer-cert">
+            <svg
+              viewBox="0 0 16 16"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+            >
+              <path
+                d="M8 1l1.82 3.69 4.07.59-2.95 2.87.7 4.06L8 10.27l-3.64 1.94.7-4.06L2.11 5.28l4.07-.59z"
+              />
+            </svg>
+            ISO 9001:2015 zertifiziert
+          </p>
+          <p class="footer-webdesign">
+            Webdesign by
+            <a
+              href="https://facebeneath.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Facebeneath</a
+            >
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <button class="btt" id="btt" aria-label="Nach oben scrollen" hidden>
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+      >
+        <path d="M18 15l-6-6-6 6" />
+      </svg>
+    </button>
+
+    <div class="chat-widget">
+      <div class="chat-btn" id="chatBtn" aria-label="Live Chat">
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+        >
+          <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z" />
+        </svg>
+        <span class="chat-badge">1</span>
+      </div>
+      <div class="chat-popup" id="chatPopup" hidden>
+        <div class="cp-header">
+          <div class="cp-avatar">⚙</div>
+          <div class="cp-info">
+            <strong>SYSTEMCNC Support</strong>
+            <span class="cp-online">● Online</span>
+          </div>
+          <button class="cp-close" id="chatClose" aria-label="Schließen">
+            ×
+          </button>
+        </div>
+        <div class="cp-body">
+          <div class="cp-msg bot">
+            <p>Hallo! Wie kann ich Ihnen helfen? 👋</p>
+            <span>Gerade eben</span>
+          </div>
+        </div>
+        <div class="cp-input">
+          <input
+            type="text"
+            placeholder="Nachricht eingeben..."
+            id="chatInput"
+          />
+          <button aria-label="Senden" id="chatSend">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
